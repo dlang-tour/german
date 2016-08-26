@@ -37,7 +37,7 @@ Vorsicht verwenden werden, da mit dem `cast` Ausdruck das Typsystem ausgeschalte
 wird.
 
 Das spezielle Schlüsselwort `auto` erzeugt eine Variable und inferiert ihren Typ
-automatisch anhand des Ausdruck of der rechten Seite. Zum Beispiel wird
+automatisch anhand des Ausdruck auf der rechten Seite. Zum Beispiel wird
 `auto i = 7` den Typ `int` deduzieren. Es sollte beachtet werden, dass `auto` Typen trotzdem
 statisch während der Kompilierphase festgelegt werden und den Typ nachträglich nicht
 ändern können, wie für jede andere Variable mit explizitem Typ.
@@ -90,7 +90,7 @@ void main()
 {
     // Zahlen können zur Verbesserung
     // der Lesbarkeit mit einem
-    // Unterstrich '_' separariert werden
+    // Unterstrich '_' separiert werden
     int b = 7_000_000;
     short c = cast(short) b; // cast benötigt
     uint d = b; // größerer Typ
