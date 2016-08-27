@@ -1,7 +1,7 @@
 # D Programme lokal ausführen
 
 Eine D Installation beinhaltet unter anderem den D Compiler `dmd`,
-ein Skripttool `rdmd` und den Packetmanager `dub`.
+ein Skripttool `rdmd` und den Paketmanager `dub`.
 
 ### DMD Compiler
 
