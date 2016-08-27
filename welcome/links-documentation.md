@@ -1,4 +1,4 @@
-# Links & Documentation
+# Links & Dokumentation
 
 Nachdem du die Tour abgeschlossen hast, kannst du unter folgenden Links
 weitere Informationen oder Hilfe erhalten:
