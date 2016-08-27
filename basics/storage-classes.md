@@ -17,7 +17,7 @@ Objekt nur einmal initialisiert werden und kann danach nicht mehr verändert wer
     err = 5; // FEHLER
 
 Wegen ihrer Unveränderbarkeit, können `immutable` Objekte sicher zwischen
-Threads geteilt werden. Dies impliziert auch das `immutable` Objekte perfekt
+Threads geteilt werden. Dies impliziert auch, dass `immutable` Objekte perfekt
 gecacht werden können.
 
 ### `const`
