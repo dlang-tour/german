@@ -60,7 +60,7 @@ import std.stdio;
 void main()
 {
     immutable forever = 100;
-    // FEHLER
+    // FEHLER:
     // forever = 5;
     writeln("forever: ",
         typeof(forever).stringof);
@@ -71,14 +71,14 @@ void main()
     writeln("const* forever: ",
         typeof(cForever).stringof);
 
-    int mutable = 100;
+    int veraenderbar = 100;
     writeln("veraenderbar: ",
         typeof(veraenderbar).stringof);
     veraenderbar = 10; // OK
     const int* cVeraenderbar = &veraenderbar; // OK
     // FEHLER:
-    // *cVeranderbar = 100;
-    writeln("cMutable: ",
+    // *cVeraenderbar = 100;
+    writeln("cVeraenderbar: ",
         typeof(cVeraenderbar).stringof);
 
     // FEHLER:
