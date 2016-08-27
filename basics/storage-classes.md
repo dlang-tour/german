@@ -24,7 +24,8 @@ gecacht werden können.
 
 `const` Objekte können ebenfalls nicht verändert werden. Diese Restriktion ist
 jedoch nur für den aktuellen Geltungsbereich gültig. Ein `const` Zeiger
-kann von sowohl einem `immutable` als auch _veränderbaren_ Objekt erzeugt werden.
+kann sowohl von einem `immutable` Objekt als auch von einem
+_veränderbaren_ Objekt erzeugt werden.
 Das bedeutet, dass die Restriktion nur für den aktuellen Bereich gilt. Die Variable
 aber in der Zukunft verändert werden könnte. Nur mit `immutable` ist garantiert,
 dass der Wert sich niemals ändern kann. Es ist typisch für APIs `const` Objekte
