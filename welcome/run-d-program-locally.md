@@ -32,7 +32,7 @@ oder per `rdmd --help` zu finden.
 ### Paketmanager `dub`
 
 Der Standardpaketmanager für D ist [`dub`](http://code.dlang.org). Wenn `dub` lokal
-installiert ist, kann ein neues Project `hello` mit folgenden Kommando angelegt
+installiert ist, kann ein neues Projekt `hello` mit folgenden Kommando angelegt
 werden:
 
     dub init hello
