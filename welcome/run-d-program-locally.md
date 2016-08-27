@@ -45,5 +45,5 @@ Das Kommando `dub build` verhält sich ähnlich, aber führt die Anwendung nicht
 Weitere Informationen sind in der [Online-Dokumentation](https://code.dlang.org/docs/commandline)
 oder per `dub --help` zu finden.
 
-All vorhandene `dub` Pakete können durch das [Web portal](https://code.dlang.org)
+Alle vorhandene `dub` Pakete können durch das [Web-Portal](https://code.dlang.org)
 von `dub` durchsucht werden.
