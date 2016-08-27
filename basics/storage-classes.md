@@ -3,8 +3,8 @@
 D besitzt eine statische Typisierung. Wenn eine Variable deklariert wurde, kann der
 Typ nicht mehr verändert werden. Dies erlaubt dem Kompiler viele Fehler früh
 zu erkennen und Restriktionen können schon während der Kompilierung erkannt werden.
-Ein gutes Typsystem leistet die benötigte Unterstützung um große Programme
-sicher und leichter zu warten zu machen.
+Ein gutes Typsystem leistet die benötigte Unterstützung für die Sicherheit
+und bessere Wartbarkeit großer Programme.
 
 ### `immutable`
 
