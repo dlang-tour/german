@@ -24,7 +24,7 @@ im Benutzerverzeichnis installiert werden.
 Für viele Distributionen werden auch Pakete angeboten:
 
 * [ArchLinux](https://wiki.archlinux.org/index.php/D_(programming_language))
-* [Debian/Ubuntu](http://d-apt.sourceforge.net).
+* [Debian/Ubuntu](http://d-apt.sourceforge.net)
 * [Fedora/CentOS](http://dlang.org/download.html#dmd)
 * [Gentoo](https://wiki.gentoo.org/wiki/Dlang)
 * [OpenSuse](http://dlang.org/download.html#dmd)
@@ -38,8 +38,8 @@ heruntergeladen werden können:
 * [**GDC**](http://gdcproject.org/downloads) - basierend auf dem GCC-Backend
 * [**LDC**](https://github.com/ldc-developers/ldc#installation) - basierend auf dem LLVM-Backend
 
-GDC und LDC verwenden nicht immer das neuste DMD-Frontend, aber dafür
-ermöglichen sie bessere Optimierung und unterstützen weitere Platformen
+GDC und LDC verwenden nicht immer das neuste DMD-Frontend, ermöglichen dafür
+aber eine bessere Optimierung und unterstützen weitere Platformen
 wie zum Beispiel ARM.
 
 Weitere Informationen bietet das [DWiki](https://wiki.dlang.org/Compilers).
