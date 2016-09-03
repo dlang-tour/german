@@ -43,7 +43,7 @@ und auszuführen.
 
 ### Mitmachen
 
-Diese Tour ist [open source](https://github.com/stonemaster/dlang-tour)
+Diese Tour ist [open source](https://github.com/dlang-tour)
 und wir freuen uns über Pull Requests, die diese Tour noch besser machen.
 
 ## {SourceCode}
