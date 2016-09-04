@@ -4,7 +4,7 @@ D ist eine Systemprogrammiersprache und erlaubt daher manuellen Zugriff auf den 
 Manueller Zugriff impliziert jedoch, dass Fehler sehr leicht entstehen können, daher
 verwendet D standardmäßig einen *Garbage Collector* um Speicher freizugeben.
 
-D verfügt über Adressstypen (aka Pointer) `T*` wie in C:
+D verfügt über Adresstypen (aka Pointer) `T*` wie in C:
 
     int a;
     int* b = &a; // b beinhaltet die Adresse zu a
