@@ -75,13 +75,13 @@ void main()
     writeln("veraenderbar: ",
         typeof(veraenderbar).stringof);
     veraenderbar = 10; // OK
-    const int* cVeraenderbar = &veraenderbar; // OK
+    const int* constRef = &veraenderbar; // OK
     // FEHLER:
-    // *cVeraenderbar = 100;
-    writeln("cVeraenderbar: ",
-        typeof(cVeraenderbar).stringof);
+    // *constRef = 100;
+    writeln("constRef: ",
+        typeof(constRef).stringof);
 
     // FEHLER:
-    // immutable int* imVeraenderbar = &veraenderbar;
+    // immutable int* imRef = &veraenderbar;
 }
 ```
