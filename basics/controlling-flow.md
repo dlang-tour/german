@@ -51,7 +51,7 @@ import std.stdio;
 void main()
 {
     if (1 == 1)
-        writeln("Arithmetik funktioniert auch in D.");
+        writeln("Arithmetik funktioniert in D");
 
     int c = 5;
     switch(c) {
@@ -61,7 +61,7 @@ void main()
         case 10:
             writeln("Eine Zehn!");
             break;
-        default: // falls kein anderer Fall zutrifft
+        default: // kein anderer Fall trifft zu
             writeln("Nichts.");
             break;
     }

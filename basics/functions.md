@@ -72,17 +72,17 @@ void zufallsGenerator()
 {
     // Definiert 4 lokale Funktionen für
     // 4 verschiedene mathematische Operationen
-    auto addiere(int rhs, int rhs) {
-        return rhs + rhs;
+    auto addiere(int lhs, int rhs) {
+        return lhs + rhs;
     }
-    auto subtrahiere(int rhs, int rhs) {
-        return rhs - rhs;
+    auto subtrahiere(int lhs, int rhs) {
+        return lhs - rhs;
     }
-    auto multipliziere(int rhs, int rhs) {
-        return rhs * rhs;
+    auto multipliziere(int lhs, int rhs) {
+        return lhs * rhs;
     }
-    auto dividiere(int rhs, int rhs) {
-        return rhs / rhs;
+    auto dividiere(int lhs, int rhs) {
+        return lhs / rhs;
     }
 
     int a = 10;
