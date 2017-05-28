@@ -65,6 +65,6 @@ void main()
     sort(chain(arr1, arr2, arr3));
     writefln("%s\n%s\n%s\n", arr1, arr2, arr3);
     // Mehr über dieses Beispiel findest du unter 
-    // dem Stichwort "Range algorithms"
+    // dem Stichwort "Ranges"
 }
 ```
