@@ -13,32 +13,31 @@ Sprache, welche direkt zu __effizientem__, __nativem__ Maschinencode kompiliert.
 
 D ist die Akkumulation von Jahrzehnten an Erfahrung im Compilerbau
 für viele verschiedene Sprachen und D hat eine Vielzahl an einzigartigen
-[Fähigkeiten](http://dlang.org/overview.html):
+[Features](http://dlang.org/overview.html):
 
 {{#dmandesktop}}
 
 - _Konstrukte auf hoher Ebene_ für bedeutende Modellierfähigkeiten
 - eine _hoch performante_, kompilierte Sprache
-- statische Typen
-- Evolution von C++ (ohne die Fehler)
+- statische Typisierung
 - direktes Interface zu den Betriebssystem API's und Hardware
-- schnelle Kompilierzeiten
-- sicherer Zugriff auf den Speicher (SafeD)
+- rasend schnelle Kompilierzeiten
+- sicherer Speicherzugriff (SafeD)
 - _wartbarer_, _einfach zu verstehender_ Code
-- geringe Lernkurve (sehr änhliche Syntax zu C, C++, Java u.a.)
-- kompatibel mit der C Binärschnittstelle
-- verschiedene Paradigmen (imperativ, strukturiert, objektorientiert, generisch, funktional and selbst Assembler)
+- flache Lernkurve (sehr änhliche Syntax zu C, C++, Java u.a.)
+- kompatibel mit der C Binärschnittstelle (ABI)
+- verschiedene Paradigmen (imperative, strukturierte, objektorientierte, generische, funktionale Programmierung - und sogar Assembler)
 - eingebaute Fehlerkorrektur (Verträge, Unittests)
 
-... und [viele weitere Besonderheiten](http://dlang.org/overview.html).
+... und [viele weitere Features](http://dlang.org/overview.html).
 
 {{/dmandesktop}}
 
 ### Über diese Tour
 
 Jede Lektion beinhaltet ein Beispiel mit Quellcode, welches bearbeitet werden kann
-und so zum Experimentieren mit den Fähigkeiten von D verwendet werden kann.
-Klicke auf den Run-Button (oder drücke `Umschalt-Enter`) um das Programm zu kompilieren
+und so zum Experimentieren mit den Features von D verwendet werden kann.
+Klicke auf den Run-Button (oder drücke `Umschalt-Enter`) um das jeweilige Programm zu kompilieren
 und auszuführen.
 
 ### Mitmachen
@@ -55,5 +54,17 @@ import std.stdio;
 void main()
 {
     writeln("Hallo Welt!");
+    
+    // Ein Beispiel für erfahrenere User:
+    // Nimm drei Arrays, und sortiere  
+    // ohne weitere Speicherallokation
+    // über alle Arrays in-place
+    int[] arr1 = [4, 9, 7];
+    int[] arr2 = [5, 2, 1, 10];
+    int[] arr3 = [6, 8, 3];
+    sort(chain(arr1, arr2, arr3));
+    writefln("%s\n%s\n%s\n", arr1, arr2, arr3);
+    // Mehr über dieses Beispiel findest du unter 
+    // dem Stichwort "Range algorithms"
 }
 ```
