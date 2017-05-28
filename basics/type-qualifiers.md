@@ -27,16 +27,16 @@ gecacht werden können.
 
 `const` Objekte können ebenfalls nicht verändert werden. Diese Restriktion ist
 jedoch nur für den aktuellen Geltungsbereich gültig. Ein `const` Zeiger
-kann sowohl von einem `immutable` Objekt als auch von einem
+kann sowohl von einem uveränderbaren (`immutable`) Objekt als auch von einem
 _veränderbaren_ Objekt erzeugt werden.
 Das bedeutet, dass die Restriktion nur für den aktuellen Bereich gilt und in
-einem anderen Kontext verändert werden kann. Nur mit `immutable` ist garantiert,
+einem anderen Kontext verändert werden kann. Nur durch `immutable` ist garantiert,
 dass der Wert sich niemals ändern kann. Es ist typisch für APIs `const` Argumente
 zu akzeptieren, da so garantiert wird, dass keine Modifikation stattfindet.
 Zusätzlich kann die Funktion hierdurch veränderbare und nicht veränderbare Argumente
 verarbeiten.
 
-    void foo ( const char[] s )
+    void foo(const char[] s)
     {
         // if not commented out, next line will
         // result in error (can't modify const):
