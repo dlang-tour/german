@@ -7,8 +7,8 @@ ordering:
 - controlling-flow
 - functions
 - structs
-#- arrays
-#- slices
+- arrays
+- slices
 #- alias-strings
 #- loops
 #- foreach
