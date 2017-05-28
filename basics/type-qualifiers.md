@@ -73,7 +73,8 @@ import std.stdio : writeln;
 void main()
 {
     /**
-    * Variablen sind stan­dard­mä­ßig veränderbar (mutable)
+    * Variablen sind stan­dard­mä­ßig
+    * veränderbar (mutable)
     */
     int m = 100; // mutable
     writeln("m: ", typeof(m).stringof);
@@ -82,8 +83,8 @@ void main()
     /**
     * Zeiger zu veränderbarem Speicher:
     */
-    // Ein const pointer zu veränderbarem Speicher ist
-    // erlaubt
+    // Ein const pointer zu veränderbarem
+    // Speicher ist erlaubt
     const int* cm = &m;
     writeln("cm: ", typeof(cm).stringof);
     // `const` kann nicht modifiziert werden:
