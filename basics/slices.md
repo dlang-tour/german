@@ -1,52 +1,52 @@
 # Slices
 
-Slices sind Objekte vom Typ `T[]` für jeden Typen `T`.
-Slices stellen eine Untermenge oder die gesamte Menge
-eines Arrays dar.
-**Slices und dynamische Arrays sind das­sel­be.**
+Slices sind Objekte des Types `T[]` für einen beliebigen Typen `T`.
+Slices sind eine Untermenge (Sicht) oder die gesamte Menge
+eines Arrays.
+**Dynamische Arrays sind Slices.**
 
-Ein Slice beinhaltet zwei Eigenschaften - einen Zeiger auf das erste Element und
-die Länge des Slices:
+Ein Slice beinhaltet zwei Eigenschaften: (1) einen Zeiger auf das erste Element und
+(2) die Länge des Slices:
 
     T* ptr;
-    size_t length; // unsigned 32 bit auf 32bit, unsigned 64 bit auf 64bit
+    size_t length; // uint auf 32-bit, ulong auf 64-bit (Siehe http://tour.dlang.org/tour/en/basics/basic-types)
 
-### Ein neues Slice mit new erstellen
+### Erstellung eines neuen Slices mit `new`
 
-Wenn ein dynamisches Array erstellt wird wird ein Slice zum
+Bei der Erstellung eines dynamischen Arrays wird ein Slice zum
 erstellten Speicher zurückgegeben.
 
     auto arr = new int[5];
     assert(arr.length == 5); // Speicheraddresse in arr.ptr
 
-Der eigentliche Speicher wird vom Garbage Collector verwaltet, das Slice
-stellt hier die Menge an Elementen dar.
+Der eigentliche Speicher wird von der automatischen Speicherbereinigung
+(Garbage Collection) verwaltet. Der Slice stellt hier eine Menge an Elementen dar.
 
-### Ein Slice anhand vom bestenden Speicher erstellen
+### Erstellung eines Slices durch bestehenden Speicher
 
-Der Slice Operator kann auch benutzt werden, um auf bestenden Speicher zu zeigen.
-Der Slice Operator kann auf ein anderes Slice, auf statische Arrays, auf
+Der Slice-Operator kann auch benutzt werden, um auf bestenden Speicher zu zeigen.
+Der Slice-Operator kann auf ein anderes Slice, auf statische Arrays, auf
 Strukturen und Klassen welche `opSlice` implementieren und ein paar andere Objekte
 angewendet werden.
 
-Beim Ausdruck `arr[Start .. Ende]` gibt der Slice Operator die Elemente von `arr`
-startend bei Start bis aus­schließ­lich Ende als Untermenge zurück.
+Beim Ausdruck `arr[Start .. Ende]` gibt der Slice-Operator die Elemente von `arr`
+anfangend bei `Start` bis aus­schließ­lich `Ende` als Untermenge zurück.
 
     auto newArr = arr[1 .. 4]; // Index 4 wird NICHT mit einbezogen
     assert(newArr.length == 3);
     newArr[0] = 10; // ändert newArr[0] und somit arr[1]
 
-Solche Slices erstellen keine Kopie vom Speicher sondern geben nur eine
-Untermenge des Arrays an. Wenn kein Slice mehr zum Speicher oder zu einer
-Untermenge zeigt wird der Speicher vom Garbage Collector gelöscht.
+Solche Slices erstellen keine Kopie vom Speicher, sondern geben nur eine
+Untermenge (Sicht) des Arrays an. Wenn kein Slice mehr zum Speicher oder zu einer
+Untermenge zeigt, wird der Speicher bei der Garbage Collection gelöscht.
 
-Mit Slices kann Speichereffizienter Code geschrieben werden, welcher mit nur einem
-Block an Speicher arbeitet und Unterbereiche des Speichers benutzt um keinen neuen
-Speicher generieren zu müssen.
+Mit Slices kann speichereffizienter Code geschrieben werden, welcher mit nur einem
+Block an Speicher arbeitet und Sichten auf Unterbereiche des Speicherblockes zur
+Vermeidung neuer Speicherallokationen benutzt.
 
 Im vorherigen Kapitel wurde angesprochen, dass `arr[$]` eine kurze Form von
 `arr[arr.length]` ist und damit versucht das Element nach dem Ende des Slices
-zu bekommen. Das würde ein `RangeError` werfen wenn bounds-checking nicht
+zu bekommen. Das würde ein `RangeError` werfen, wenn `bounds-checking` nicht
 deaktiviert wurde.
 
 ### In der Tiefe
@@ -64,7 +64,7 @@ Berechnet rekursiv das Minimum von allen
 Werten in einem Slice. Für jeden Aufruf
 wird eine Untermenge mit einem Slice
 erstellt und erstellt daher keine Kopie
-und allocated keinen Speicher.
+und alloziert keinen Speicher.
 */
 int minimum(int[] slice)
 {
@@ -80,7 +80,7 @@ void main()
 {
     int[] test = [ 3, 9, 11, 7, 2, 76, 90, 6 ];
     auto min = minimum(test);
-    writefln("Das minimum von %s ist %d",
+    writefln("Das Minimum von %s ist %d",
         test, min);
     assert(min == 2);
 }
