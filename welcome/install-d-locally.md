@@ -35,8 +35,8 @@ Neben dem Referenz-Compiler *DMD*, der sein eigenes Backend verwendet, gibt es n
 zwei weitere Compiler, die über den Downloadbereich auf [dlang.org](https://dlang.org/download.html)
 heruntergeladen werden können:
 
-* [**GDC**](http://gdcproject.org/downloads) - basierend auf dem GCC-Backend
-* [**LDC**](https://github.com/ldc-developers/ldc#installation) - basierend auf dem LLVM-Backend
+* [*GDC*](http://gdcproject.org/downloads) - basierend auf dem GCC-Backend
+* [*LDC*](https://github.com/ldc-developers/ldc#installation) - basierend auf dem LLVM-Backend
 
 GDC und LDC verwenden nicht immer das neuste DMD-Frontend, ermöglichen dafür
 aber eine bessere Optimierung und unterstützen weitere Prozessorarchitekturen,
