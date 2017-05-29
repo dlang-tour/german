@@ -15,7 +15,7 @@ Willkommen UTF-8 `string`!
 Aufgrund ihrer Unveränderlichkeit (engl.: immutablility) können 
 `string`s über verschiedene Threads hinweg geteilt werden. Da `string` 
 ein Slice ist, können Teile ohne Speicher-Allokation entnommnen werden.
-Die Standard-Funktion `std.algorithm.splitter` z.B. teilt einen String  
+Die Standard-Funktion `std.algorithm.splitter` z.B. teilt einen String 
 anhand von Zeilensprüngen (newline-Zeichen) ohne jede Speicher-Allokation.
 
 Neben dem  UTF-8 `string` gibt es zwei weitere Typen:
@@ -23,8 +23,8 @@ Neben dem  UTF-8 `string` gibt es zwei weitere Typen:
     alias wstring = immutable(wchar)[]; // UTF-16
     alias dstring = immutable(dchar)[]; // UTF-32
 
-The variants are most easily converted between each other using
-the `to` method from `std.conv`:
+Diese Varianten können durch Nutzung der `to` Methode aus `std.conv` 
+einfach ineinander konvertiert werden:
 
     dstring myDstring = to!dstring(myString);
     string myString   = to!string(myDstring);
