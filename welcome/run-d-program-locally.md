@@ -3,16 +3,15 @@
 Eine Installation von D beinhaltet unter anderem den D-Compiler `dmd`,
 ein Skripttool `rdmd` und den Paketmanager `dub`.
 
-### DMD Compiler
-
-Der *DMD* Compiler kompiliert D-Quelldateien und erstellt eine Binärdatei.
+### Referenz-Compiler DMD
+Der *DMD*-Compiler übersetzt D-Quelldateien in ausführbaren Maschinencode.
 Auf der Kommandozeile kann *DMD* mit dem Dateinamen aufgerufen werden:
 
     dmd hallo.d
 
-Es gibt viele Optionen, die das Verhalten des *DMD* Compilers verändern.
+Es gibt viele Optionen, die das Verhalten des *DMD*-Compilers verändern.
 Diese sind in der [Online-Dokumentation](https://dlang.org/dmd.html#switches)
-oder per `dmd --help` zu finden.
+oder per `dmd --help` zu finden. 
 
 ### Fliegende Kompilierung mit `rdmd`
 
