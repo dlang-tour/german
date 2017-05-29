@@ -5,7 +5,7 @@
 D besitzt eine `foreach`-Schleife, die weniger fehlerträchtige
 und besser lesbare Iterationen erlaubt.
 
-### Element-Iteration
+### Elementweise Iteration
 
 Ein gegebenes Array `arr` vom Typ `int[]` kann mithilfe der 
 `foreach`-Schleife elementweise iteriert werden:
