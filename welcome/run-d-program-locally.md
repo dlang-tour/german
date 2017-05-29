@@ -11,7 +11,7 @@ Auf der Kommandozeile kann *DMD* mit dem Dateinamen aufgerufen werden:
     dmd hallo.d
 
 Es gibt viele Optionen, die das Verhalten des *DMD* Compilers verändern.
-Diese sind in der [Online-Dokumentation](https://dlang.org/dmd.html#switches))
+Diese sind in der [Online-Dokumentation](https://dlang.org/dmd.html#switches)
 oder per `dmd --help` zu finden.
 
 ### Fliegende Kompilierung mit `rdmd`
