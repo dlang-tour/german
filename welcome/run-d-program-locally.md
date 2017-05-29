@@ -5,7 +5,7 @@ ein Skripttool `rdmd` und den Paketmanager `dub`.
 
 ### Compiler DMD
 DMD (Digital Mars D) ist der Referenz-Compiler von D und wird für den Einstieg
-empfohlen, da er der Spezifikation der Sprache am genauesten implementiert.
+empfohlen, da er die Spezifikation der Sprache am genauesten implementiert.
 Er übersetzt D-Quelldateien in ausführbaren Maschinencode.
 Auf der Kommandozeile kann DMD mit dem Dateinamen aufgerufen werden:
 
