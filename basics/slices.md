@@ -48,10 +48,10 @@ Mit Slices kann speichereffizienter Code geschrieben werden, welcher mit nur ein
 Block an Speicher arbeitet und Sichten auf Unterbereiche des Speicherblockes zur
 Vermeidung neuer Speicherallokationen benutzt.
 
-Im [vorherigen Kapitel](basics/arrays) wurde angesprochen, dass `arr[$]` eine kurze Form von
-`arr[arr.length]` ist und damit versucht das Element nach dem Ende des Slices
-zu bekommen. Das würde ein `RangeError` werfen, wenn `bounds-checking` nicht
-deaktiviert wurde.
+Wie im [vorherigen Kapitel](basics/arrays) gezeigt, ist `arr[$]` eine Kurzform von
+`arr[arr.length]`. Es wird versucht auf das Element nach dem Ende des Slices
+zuzugreifen, was eine `RangeError`-Exception generiert, sofern die Compiler-Option
+`bounds-checking` nicht deaktiviert wurde.
 
 ### In der Tiefe
 
