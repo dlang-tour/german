@@ -22,16 +22,16 @@ Datei automatisch aus:
 
     rdmd hallo.d
 
-Auf UNIX System kann das Shebangkommando `#!/usr/bin/env rdmd` als erste Zeile
-in einer D-Quelldatei mit Ausführberechtigungen eingefügt werden und erlaubt eine
-Ausführung der Datei analog zu Skriptsprachen.
+Auf UNIX Systemen ist die Ausführung einer D-Quelldatei analog zu Skriptsprachen möglich.
+Dazu wird die Datei mit Ausführberechtigungen versehen und das Shebang-Kommando 
+`#!/usr/bin/env rdmd` als erste Zeile eingefügt.
 
 Weitere Informationen sind in der [Online-Dokumentation](https://dlang.org/rdmd.html)
 oder per `rdmd --help` zu finden.
 
 ### Paketmanager `dub`
 
-Der Standardpaketmanager für D ist [`dub`](http://code.dlang.org). Wenn `dub` lokal
+Der Standard-Paketmanager für D ist [`dub`](http://code.dlang.org). Wenn `dub` lokal
 installiert ist, kann ein neues Projekt `hello` mit folgenden Kommando angelegt
 werden:
 
@@ -40,7 +40,7 @@ werden:
 Wenn der Paketmanager per `dub` innerhalb eines Projektes ausgeführt wird,
 werden alle Abhängigkeiten des Projektes herunterladen, kompiliert, gelinkt
 und anschließend wird die Anwendung ausgeführt.
-Das Kommando `dub build` verhält sich ähnlich, aber führt die Anwendung nicht aus.
+Das Kommando `dub build` verhält sich ähnlich, führt aber die Anwendung nicht aus.
 
 Weitere Informationen sind in der [Online-Dokumentation](https://code.dlang.org/docs/commandline)
 oder per `dub --help` zu finden.
