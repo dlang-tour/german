@@ -1,22 +1,24 @@
 # Alias & Strings
 
-Now that we know what arrays are, have gotten in touch with `immutable`,
-and had a quick look at the basic types, it's time to introduce two
-new constructs in one line:
+Nun da uns Arrays bekannt sind und wir mit den Basis-Typen 
+und dem Schlüsselwort`immutable` beschäftigt haben, wird es
+Zeit zwei neue Konstrukte in einer Zeile einzuführen:
 
     alias string = immutable(char)[];
+    
+Der Begriff `string` wrid durch das Schlüsselwort `alias` definiert, 
+und zwar als Slice bestehend aus `immutable(char)`s.
+Das bedeutet, sobald ein `string` konstruiert wurde, wird sich sein 
+Inhalt nie mehr ändern. Und damit sind wir bei dem zweiten Konstrukt:
+Willkommen UTF-8 `string`!
 
-The term `string` is defined by an `alias` statement which defines it
-as a slice of `immutable(char)`s. This means, once a `string` has been constructed
-its content will never change again. And actually this is the second
-introduction: welcome UTF-8 `string`!
+Aufgrund ihrer Unveränderlichkeit (engl.: immutablility) können 
+`string`s über verschiedene Threads hinweg geteilt werden. Da `string` 
+ein Slice ist, können Teile ohne Speicher-Allokation entnommnen werden.
+Die Standard-Funktion `std.algorithm.splitter` z.B. teilt einen String  
+anhand von Zeilensprüngen (newline-Zeichen) ohne jede Speicher-Allokation.
 
-Due to their immutablility, `string`s can be shared perfectly among
-different threads. As `string` is a slice, parts can be taken out of it without
-allocating memory. The standard function `std.algorithm.splitter`
-for example, splits a string by newline without any memory allocations.
-
-Besides the UTF-8 `string`, there are two more types:
+Neben dem  UTF-8 `string` gibt es zwei weitere Typen:
 
     alias wstring = immutable(wchar)[]; // UTF-16
     alias dstring = immutable(dchar)[]; // UTF-32
