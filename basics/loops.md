@@ -4,7 +4,7 @@ D stellt vier Schleifen-Konstrukte bereit:
 
 ### 1) `while`
 
-`while`-Schleifen führen den gegebenen Code-Block aus,
+Die `while`-Schleife führt den gegebenen Code-Block aus,
 solange eine bestimmte Bedingung erfüllt ist:
 
     while (condition) {
@@ -13,7 +13,7 @@ solange eine bestimmte Bedingung erfüllt ist:
 
 ### 2) `do ... while`
 
-`do .. while`-Schleifen führen den gegebenen Code-Block aus,
+Die `do .. while`-Schleife führt den gegebenen Code-Block aus,
 solange eine bestimmte Bedingung erfüllt ist. Aber im Gegensatz
 zur `while`-Schleife wird der Code-Block ausgeführt, bevor 
 die Bedingung das erste Mal abgeprüft wird.
@@ -32,24 +32,25 @@ mit _Initialisierung_ , _Test_ und _Fortsetzung_:
 
 ### 4) `foreach`
 
-The [`foreach` loop](basics/foreach) which will be introduced in more details
-in the next section:
+Die [`foreach`-Schleife](basics/foreach), die in der nächsten Sektion 
+im Detail eingeführt wird:
 
     foreach (el; arr) {
         ...
     }
 
-#### Special keywords and labels
+#### Spezielle Schlüsselwörter und Labels
 
-The special keyword `break` will immediately abort the current loop.
-In a nested loop a _label_ can be used to break of any outer loop:
+Das Schlüsselwort `break` bricht die aktuelle Scheife unverzüglich ab.
+In verschachtelten Schleifen kann ein _Label_ zum Ausbrechen aus einer
+äußeren Schleife genutzt werden:
 
     outer: for (int i = 0; i < 10; ++i) {
         for (int j = 0; j < 5; ++j) {
             ...
             break outer;
 
-The keyword `continue` starts with the next loop iteration.
+Das Schlüsselwort `continue` startet die nächste Schleifen-Iteration.
 
 ### In-depth
 
@@ -63,20 +64,20 @@ The keyword `continue` starts with the next loop iteration.
 import std.stdio;
 
 /*
-Computes the average of
-the elements of an array.
+Berechnet den Mittelwert 
+der Elemente eines Arrays.
 */
 double average(int[] array) {
-    // The property .empty for arrays isn't
-    // native in D but has to be made accessible
-    // by importing the function from std.array
+    // Die Eigenschaft .empty für Arrays ist in
+    // D nicht nativ und wird durch Import aus 
+    // std.array bereitgestellt.
     import std.array: empty, front;
 
     double accumulator = 0.0;
     auto length = array.length;
     while (!array.empty) {
-        // this could be also done with .front
-        // with import std.array: front;
+        // Geht auch mit .front
+        // durch Import von std.array: front;
         accumulator += array[0];
         array = array[1 .. $];
     }
@@ -91,7 +92,7 @@ void main()
           [3, 6, 2, 9] ]; // 20
 
     for (auto i = 0; i < testers.length; ++i) {
-      writeln("The average of ", testers[i],
+      writeln("Mittelwert von ", testers[i],
         " = ", average(testers[i]));
     }
 }
