@@ -89,7 +89,7 @@ void main() {
           [2, 3, 2, 3], // 10
           [3, 6, 2, 9] ]; // 20
 
-    // Iteriere über das Array 
+    // Iterieren des Arrays 
     // in umgekehrter Reihenfolge
     import std.range: retro;
     foreach (row; retro(arr))
