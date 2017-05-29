@@ -2,8 +2,8 @@
 
 {{#img-right}}dman-teacher-foreach.jpg{{/img-right}}
 
-D besitzt eine `foreach`-Schleife, die weniger fehlerträchtige
-und besser lesbare Iterationen erlaubt.
+Mit der `foreach`-Schleife besitzt D ein Konstrukt, das  
+Iterationen besser lesbar und weinger fehlerträchtig macht.
 
 ### Elementweise Iteration
 
