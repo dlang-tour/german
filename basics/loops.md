@@ -1,11 +1,11 @@
-# Loops
+# Schleifen
 
-D provides four loop constructs.
+D stellt vier Schleifen-Konstrukte bereit:
 
 ### 1) `while`
 
-`while`  loops execute the given code block
-while a certain condition is met:
+`while`-Schleifen führen den gegebenen Code-Block aus,
+solange eine bestimmte Bedingung erfüllt ist:
 
     while (condition) {
         foo();
@@ -13,19 +13,19 @@ while a certain condition is met:
 
 ### 2) `do ... while`
 
-The `do .. while` loops execute the given code block
-while a certain condition is met, but in contrast to `while`
-the _loop block_ is executed before the loop condition is
-evaluated for the first time.
+`do .. while`-Schleifen führen den gegebenen Code-Block aus,
+solange eine bestimmte Bedingung erfüllt ist. Aber im Gegensatz
+zur `while`-Schleife wird der Code-Block ausgeführt, bevor 
+die Bedingung das erste Mal abgeprüft wird.
 
     do {
         foo();
     } while (condition);
 
-### 3) Classical `for` loop
+### 3) Klassische `for`-Schleife
 
-The classical `for` loop known from C/C++ or Java
-with _initializer_, _loop condition_ and _loop statement_:
+Die klassische `for`-Schleife, bekannt aus C/C++ oder Java, 
+mit _Initialisierung_ , _Test_ und _Fortsetzung_:
 
     for (int i = 0; i < arr.length; i++) {
         ...
