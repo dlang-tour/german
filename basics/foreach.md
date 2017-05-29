@@ -39,10 +39,10 @@ werden:
         e = 10; // Wert in-place überschreiben
     }
 
-### `n`-malige Iteration
+### n-malige Iteration
 
 Mit der `..`-Syntax erlaubt D eine prägnante Schreibweise
-von Iterationen, die 'n'-mal ausgeführt werden sollen:
+von Iterationen, die n-mal ausgeführt werden sollen:
 
     foreach (i; 0..3) {
         writeln(i);
