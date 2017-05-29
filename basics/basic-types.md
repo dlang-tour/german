@@ -1,7 +1,7 @@
 # Elementare Datentypen
 
 D bietet eine Vielzahl an elementaren Datentypen, die immer die gleiche Größe haben -
-**unabhängig** von der Platform.
+**unabhängig** von der Platt­form.
 Die einzige Ausnahme ist der Typ `real` für welchen der Compiler
 die höchstmöglichste Genauigkeit für Gleitkommazahlen wählt.
 Es besteht kein Unterschied zwischen der Größe eines Ganzzahltypen - unabhängig davon
@@ -20,7 +20,7 @@ ob die Anwendung für eine 32-bit oder 64-bit Architektur kompiliert wird.
 <table class="table table-hover">
 <tr><td width="250px"><code class="prettyprint">float</code></td> <td>32-bit</td></tr>
 <tr><td><code class="prettyprint">double</code></td> <td>64-bit</td></tr>
-<tr><td><code class="prettyprint">real</code></td> <td>abhängig von der Platform, 80-bit für Intel x86 32-bit</td></tr>
+<tr><td><code class="prettyprint">real</code></td> <td>abhängig von der Platt­form, 80-bit für Intel x86 32-bit</td></tr>
 </table>
 
 Der Präfix `u` kennzeichnet Typen ohne Vorzeichen (vom Englischen `unsigned`).
