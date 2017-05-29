@@ -39,7 +39,7 @@ werden:
         e = 10; // Wert in-place überschreiben
     }
 
-### 'n'-malige Iteration
+### n-malige Iteration
 
 Mit der '..'-Syntax erlaubt D eine prägnante Schreibweise
 von Iterationen, die n-mal ausgeführt werden sollen:
@@ -50,7 +50,7 @@ von Iterationen, die n-mal ausgeführt werden sollen:
     // 0 1 2
 
 Die letze Zahl in `a..b` wird von der Range ausgeschlossen 
-(Math.: rechtsoffenes Intervall [a,b)), sodass die Schleife 
+(Math.: rechtsoffenes Intervall *[a,b)*), sodass die Schleife 
 `3`-mal ausgeführt wird.
 
 ### Iteration mit Index-Zähler
