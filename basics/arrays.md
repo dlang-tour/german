@@ -1,11 +1,11 @@
 # Arrays
 
 In D gibt es zwei verschiedene Arten von Arrays: **statische** und **dynamische**
-Arrays. Bei Zugriffen auf die Elemente eines Arrays wird immer überprüft ob der Index
+Arrays. Bei Zugriffen auf die Elemente eines Arrays wird immer überprüft, ob der Index
 innerhalb des Arrays liegt, außer wenn der Compiler sicherstellen kann, dass diese
 Überprüfung nicht nötig ist.
-Wenn der Index außerhalb des Arrays liegt, wird ein `RangeError` geworfen, der die
-Anwendung standardmäßig stoppt.
+Wenn der Index außerhalb des Arrays liegt, wird eine `RangeError`-Exception geworfen,
+die die Anwendung standardmäßig stoppt.
 Dieses Feature kann durch die Compiler-Option `-boundscheck=off` ausgeschaltet
 werden, wodurch Geschwindigkeitsverbesserungen auf Kosten von reduzierter Sicherheit
 erreicht werden können.
@@ -13,29 +13,29 @@ erreicht werden können.
 #### Statische Arrays
 
 Statische Arrays werden auf dem Stack gespeichert, wenn sie innerhalb einer
-Funktion definiert sind. Andernfalls werden sie in den statischen Speicher gesetzt.
+Funktion definiert sind. Andernfalls werden sie im statischen Speicher gesetzt.
 Sie haben eine feste Länge, welche zur Compile-Zeit bekannt ist. Der Typ
 beinhaltet hierbei die Länge:
 
     int[8] arr;
 
-Der Typ von `arr` ist `int[8]`. Die Länge gehört zum Typ und wird nicht wie in
-C/C++ nach dem Variablennamen geschrieben.
+Der Typ von `arr` ist `int[8]`. Die Länge gehört zum Typ und wird nicht, wie in
+C/C++, nach dem Variablennamen geschrieben.
 
 #### Dynamische Arrays
 
-Dynamische Arrays werden auf dem Heap gespeichert und können während der
-Laufzeit vergrößert und verkleinert werden. Ein dynamisches Array kann mit `new`
-und der Länge erstellt werden:
+Dynamische Arrays können zur Laufzeit erzeugt bzw. in ihrer Größe geändert werden.
+Dies geschieht durch Nutzung des Heaps als Speicherort. Ein dynamisches Array wird
+mithilfe des `new`-Ausdrucks und der Länge erstellt:
 
     int size = 8; // run-time variable
     int[] arr = new int[size];
 
-Der Typ von `arr` ist `int[]`, welches ein **slice** ist. Slices
-werden im nächsten Kapitel genauer erklärt. Mehrdimensionale Arrays können
-mit dem `auto arr = new int[3][3]` Syntax erstellt werden.
+Der Typ von `arr` ist `int[]`, welches ein **Slice** ist. Slices
+werden im [nächsten Kapitel](basics/slices) genauer erklärt. Mehrdimensionale Arrays können
+mit der `auto arr = new int[3][3]` Syntax erstellt werden.
 
-#### Array Operationen und Eigenschaften
+#### Array-Operationen und Eigenschaften
 
 Arrays können mit dem `~` Operator zu einem neuen dynamischen Array verkettet
 werden.
@@ -56,10 +56,10 @@ Statische und dynamische Arrays beinhalten eine `.length`-Eigenschaft.
 Diese Eigenschaft ist nicht veränderbar für statische Arrays. Bei dynamischen
 Arrays kann durch das Setzen dieser Eigenschaft das Array vergrößert oder
 verkleinert werden. Außerdem haben Arrays eine `.dup` Eigenschaft, welche
-eine Kopie des Arrays erstellt.
+eine Kopie (Duplikat) des Arrays erstellt.
 
-Wenn man auf ein Array Element zugreift, kann man mit dem speziellen
-`$`-Symbol innerhalb der Arrayklammern auf die Länge des Arrays zugreifen.
+Innerhalb der Arrayklammern kann auf die Länge des Arrays durch Verwendung
+des `$`-Symbols zugegriffen werden.
 Zum Beispiel referenziert `arr[$ - 1]` das letzte Element eines Arrays
 und ist äquivalent zu `arr[arr.length - 1]`.
 

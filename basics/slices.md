@@ -9,28 +9,32 @@ Ein Slice beinhaltet zwei Eigenschaften: (1) einen Zeiger auf das erste Element 
 (2) die Länge des Slices:
 
     T* ptr;
-    size_t length; // uint auf 32-bit, ulong auf 64-bit (Siehe http://tour.dlang.org/tour/en/basics/basic-types)
+    size_t length;
+
+`size_t` entspricht dem Datentypen der maximalen Arraygröße der Zielplatform,
+z.B. `uint` auf 32-bit Architekturen und `ulong` auf 64-bit Architekturen
+(für detailliertere Informationen gehe zurück in das [Datentypen-Kapitel](basics/basic-types)).
 
 ### Erstellung eines neuen Slices mit `new`
 
 Bei der Erstellung eines dynamischen Arrays wird ein Slice zum
-erstellten Speicher zurückgegeben.
+zugewiesenen Speicher zurückgegeben.
 
     auto arr = new int[5];
     assert(arr.length == 5); // Speicheraddresse in arr.ptr
 
 Der eigentliche Speicher wird von der automatischen Speicherbereinigung
-(Garbage Collection) verwaltet. Der Slice stellt hier eine Menge an Elementen dar.
+(Garbage Collection) verwaltet. Ein Slice stellt nur die Menge an Elementen dar.
 
 ### Erstellung eines Slices durch bestehenden Speicher
 
-Der Slice-Operator kann auch benutzt werden, um auf bestenden Speicher zu zeigen.
-Der Slice-Operator kann auf ein anderes Slice, auf statische Arrays, auf
-Strukturen und Klassen welche `opSlice` implementieren und ein paar andere Objekte
+Der Slice-Operator kann auch benutzt werden, um auf bestehenden Speicher zu zeigen.
+Der Slice-Operator kann auf einen anderen Slice, auf statische Arrays, auf
+Strukturen und Klassen, welche `opSlice` implementieren, und ein paar andere Objekte
 angewendet werden.
 
-Beim Ausdruck `arr[Start .. Ende]` gibt der Slice-Operator die Elemente von `arr`
-anfangend bei `Start` bis aus­schließ­lich `Ende` als Untermenge zurück.
+Beim Ausdruck `arr[Start .. Ende]` gibt der Slice-Operator eine Teilmenge
+der Elemente von `arr` anfangend bei `Start` bis aus­schließ­lich `Ende` zurück.
 
     auto newArr = arr[1 .. 4]; // Index 4 wird NICHT mit einbezogen
     assert(newArr.length == 3);
@@ -44,7 +48,7 @@ Mit Slices kann speichereffizienter Code geschrieben werden, welcher mit nur ein
 Block an Speicher arbeitet und Sichten auf Unterbereiche des Speicherblockes zur
 Vermeidung neuer Speicherallokationen benutzt.
 
-Im vorherigen Kapitel wurde angesprochen, dass `arr[$]` eine kurze Form von
+Im [vorherigen Kapitel](basics/arrays) wurde angesprochen, dass `arr[$]` eine kurze Form von
 `arr[arr.length]` ist und damit versucht das Element nach dem Ende des Slices
 zu bekommen. Das würde ein `RangeError` werfen, wenn `bounds-checking` nicht
 deaktiviert wurde.
