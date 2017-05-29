@@ -2,7 +2,7 @@
 
 {{#img-right}}dman-teacher-foreach.jpg{{/img-right}}
 
-Mit der `foreach`-Schleife besitzt D ein Konstrukt, das  
+Mit der `foreach`-Schleife besitzt D ein Konstrukt, das 
 Iterationen besser lesbar und weinger fehlerträchtig macht.
 
 ### Elementweise Iteration
@@ -39,9 +39,9 @@ werden:
         e = 10; // Wert in-place überschreiben
     }
 
-### n-malige Iteration
+### 'n'-malige Iteration
 
-Mit der `..`-Syntax erlaubt D eine prägnante Schreibweise
+Mit der '..'-Syntax erlaubt D eine prägnante Schreibweise
 von Iterationen, die n-mal ausgeführt werden sollen:
 
     foreach (i; 0..3) {
@@ -88,7 +88,7 @@ void main() {
     auto arr = [ [5, 15], // 20
           [2, 3, 2, 3], // 10
           [3, 6, 2, 9] ]; // 20
-1234567890123456789012345678901234567890
+
     // Iteriere über das Array 
     // in umgekehrter Reihenfolge
     import std.range: retro;
