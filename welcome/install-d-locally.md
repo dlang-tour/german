@@ -1,7 +1,7 @@
 # D lokal installieren
 
 Auf der [Website der Programmiersprache](https://dlang.org) wird stets die neuste
-Version des Referenzkompilers **DMD** (Digital Mars D) zum [Download](http://dlang.org/download.html)
+Version des Referenz-Compilers DMD (Digital Mars D) zum [Download](http://dlang.org/download.html)
 angeboten und kann wie folgt installiert werden:
 
 ### Windows
@@ -29,17 +29,17 @@ Für viele Distributionen werden auch Pakete angeboten:
 * [Gentoo](https://wiki.gentoo.org/wiki/Dlang)
 * [OpenSuse](http://dlang.org/download.html#dmd)
 
-### Andere Kompiler
+### Andere Compiler
 
-Neben dem DMD-Referenzkompiler, der sein eigenes Backend verwendet, gibt es noch
-zwei weitere Kompiler, die über den Downloadbereich auf [dlang.org](https://dlang.org/download.html)
+Neben dem Referenz-Compiler DMD, der sein eigenes Backend verwendet, gibt es noch
+zwei weitere Compiler, die über den Downloadbereich auf [dlang.org](https://dlang.org/download.html)
 heruntergeladen werden können:
 
-* [**GDC**](http://gdcproject.org/downloads) - basierend auf dem GCC-Backend
-* [**LDC**](https://github.com/ldc-developers/ldc#installation) - basierend auf dem LLVM-Backend
+* [GDC](http://gdcproject.org/downloads) - basierend auf dem GCC-Backend
+* [LDC](https://github.com/ldc-developers/ldc#installation) - basierend auf dem LLVM-Backend
 
 GDC und LDC verwenden nicht immer das neuste DMD-Frontend, ermöglichen dafür
-aber eine bessere Optimierung und unterstützen weitere Platformen
-wie zum Beispiel ARM.
+aber eine bessere Optimierung und unterstützen weitere Prozessorarchitekturen,
+wie z.B. ARM.
 
 Weitere Informationen bietet das [DWiki](https://wiki.dlang.org/Compilers).
