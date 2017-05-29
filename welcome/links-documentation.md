@@ -12,5 +12,5 @@ weitere Informationen oder Hilfe erhalten:
 ### Hilfe
 
 * Stelle Fragen im [IRC-Kanal](https://kiwiirc.com/client/irc.freenode.net/d) auf Freenode (irc://irc.freenode.net/d)
-* Bitte um Hilfe im [D.learn](http://forum.dlang.org/group/learn) Forum
+* Bitte um Hilfe im Forum unter [D.learn](http://forum.dlang.org/group/learn) 
 * Melde einen Fehler [auf dem D Bugtracker](https://issues.dlang.org)
