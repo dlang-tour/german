@@ -3,7 +3,7 @@
 Eine Installation von D beinhaltet unter anderem den D-Compiler `dmd`,
 ein Skripttool `rdmd` und den Paketmanager `dub`.
 
-### Referenz-Compiler DMD
+### Compiler DMD
 Der *DMD*-Compiler übersetzt D-Quelldateien in ausführbaren Maschinencode.
 Auf der Kommandozeile kann *DMD* mit dem Dateinamen aufgerufen werden:
 
@@ -13,6 +13,7 @@ Es gibt viele Optionen, die das Verhalten des *DMD*-Compilers verändern.
 Diese sind in der [Online-Dokumentation](https://dlang.org/dmd.html#switches)
 oder per `dmd --help` zu finden. 
 
+Neben *DMD* gibt es noch weitere [D-Compiler][https://wiki.dlang.org/Compilers].
 ### Fliegende Kompilierung mit `rdmd`
 
 Das Programm `rdmd`, welches zusammen mit dem DMD Compiler angeboten wird,
