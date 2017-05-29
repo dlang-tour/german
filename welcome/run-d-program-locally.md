@@ -13,7 +13,7 @@ Es gibt viele Optionen, die das Verhalten des *DMD*-Compilers verändern.
 Diese sind in der [Online-Dokumentation](https://dlang.org/dmd.html#switches)
 oder per `dmd --help` zu finden. 
 
-Neben *DMD* gibt es noch weitere [D-Compiler][https://wiki.dlang.org/Compilers].
+Neben *DMD* gibt es noch weitere [D-Compiler](https://wiki.dlang.org/Compilers).
 ### Fliegende Kompilierung mit `rdmd`
 
 Das Programm `rdmd`, welches zusammen mit dem DMD Compiler angeboten wird,
