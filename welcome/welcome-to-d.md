@@ -49,6 +49,8 @@ und wir freuen uns über Pull Requests, die diese Tour noch besser machen.
 
 ```d
 import std.stdio;
+import std.algorithm;
+import std.range;
 
 // Lass uns anfangen
 void main()
