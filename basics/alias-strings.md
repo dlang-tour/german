@@ -29,18 +29,19 @@ einfach ineinander konvertiert werden:
     dstring myDstring = to!dstring(myString);
     string myString   = to!string(myDstring);
 
-### Unicode strings
+### Unicode Strings
 
-This means that a plain `string` is defined as an array of 8-bit Unicode [code
-units](http://unicode.org/glossary/#code_unit). All array operations can be
-used on strings, but they will work on code unit level, and not character level. At
-the same time, standard library algorithms will interpret `string`s as sequences
-of [code points](http://unicode.org/glossary/#code_point), and there is also an
-option to treat them as sequence of
-[graphemes](http://unicode.org/glossary/#grapheme) by explicit usage of
+Ein einfacher `string` ist als ein Array aus 8-bit Unicode [code
+units](http://unicode.org/glossary/#code_unit) definiert. Alle Array-Operationen 
+können auf Strings angewandt werden, aber dies wird nur auf der Code-Unit-Ebene 
+funktionieren, nicht aber auf Zeichen-Ebene! Gleichzeitig interpretiert die
+Algorithmen der Standard-Bibliothek Strings als Sequenzen aus 
+[Code Points](http://unicode.org/glossary/#code_point). Darüber hinaus gibt es
+die Option der Behandlung der Sequenz als
+[Grapheme](http://unicode.org/glossary/#grapheme) durch explizite Nutznung von
 [`std.uni.byGrapheme`](https://dlang.org/library/std/uni/by_grapheme.html).
 
-This small example illustrates the difference in interpretation:
+Diese kleine Beispiel verdeutlicht die unterschiedlichen Interpretationen:
 
     string s = "\u0041\u0308"; // Ä
 
