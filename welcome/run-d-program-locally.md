@@ -4,7 +4,9 @@ Eine Installation von D beinhaltet unter anderem den D-Compiler `dmd`,
 ein Skripttool `rdmd` und den Paketmanager `dub`.
 
 ### Compiler DMD
-Der Compiler DMD (Digital Mars D) übersetzt D-Quelldateien in ausführbaren Maschinencode.
+DMD (Digital Mars D) ist der Referenz-Compiler von D und wird für den Einstieg
+empfohlen, da er der Spezifikation der Sprache am genauesten implementiert.
+Er übersetzt D-Quelldateien in ausführbaren Maschinencode.
 Auf der Kommandozeile kann DMD mit dem Dateinamen aufgerufen werden:
 
     dmd hallo.d
