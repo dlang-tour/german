@@ -88,7 +88,7 @@ deklariert werden.
     string raw  =  `raw "string"`; // raw "string"
     string raw2 = r"raw "string";  // raw "string"
 
-### In-depth
+### Weiterführendes
 
 - [Unicode gem](gems/unicode)
 - [Characters in _Programming in D_](http://ddili.org/ders/d.en/characters.html)
