@@ -64,7 +64,7 @@ void main()
     int[] arr3 = [6, 8, 3];
     sort(chain(arr1, arr2, arr3));
     writefln("%s\n%s\n%s\n", arr1, arr2, arr3);
-    // Mehr über dieses Beispiel findest du unter 
+    // Mehr über dieses Beispiel unter 
     // dem Stichwort "Ranges"
 }
 ```
