@@ -29,7 +29,7 @@ Für viele Distributionen werden auch Pakete angeboten:
 * [Gentoo](https://wiki.gentoo.org/wiki/Dlang)
 * [OpenSuse](http://dlang.org/download.html#dmd)
 
-### Andere Kompiler
+### Andere Compiler
 
 Neben dem Referenz-Compiler DMD, der sein eigenes Backend verwendet, gibt es noch
 zwei weitere Compiler, die über den Downloadbereich auf [dlang.org](https://dlang.org/download.html)
