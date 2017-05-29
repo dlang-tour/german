@@ -53,39 +53,40 @@ Diese kleine Beispiel verdeutlicht die unterschiedlichen Interpretationen:
     import std.uni : byGrapheme;
     writeln(s.byGrapheme.walkLength); // 1
 
-Here the actual array length of `s` is 3, because it contains 3 code units:
-`0x41`, `0x03` and `0x08`. Of those latter two define single code point
-(combining diacritics character) and
+Hier ist die tatsächliche Länge des Arrays `s` ist 3, weil es 3 Code Units
+enthält: `0x41`, `0x03` and `0x08`. Von diesen definieren zwei einen einzelnen
+Code Point (kombinierende diakritische Zeichen) und 
 [`walkLength`](https://dlang.org/library/std/range/primitives/walk_length.html)
-(standard library function to calculate arbitrary range length) counts two code
-points total. Finally, `byGrapheme` performs rather expensive calculations
-to recognize that these two code points combine into a single displayed
-character.
+(Funktion der Standard-Bibliothek zur Berechnung der Länge beliebiger Ranges)
+zählt zwei Code Points. Schließlich ermittelt `byGrapheme` in einer aufwändigeren
+Berechnung, dass sich diese beiden Code Points zu einem einzigen angezeigten 
+Zeichen zusammensetzen.
+Korrekte Unicode-Verarbeitung kann sehr kompliziert sein. Trotzdem dürfen 
+D-Entwickler String-Variablen als magische Byte-Arrays betrachten und sich darauf
+verlassen, dass die Standard-Bibliothek "schon das Richtige tut". 
+Die meiste Unicode-Funktionalität wird durch das Modul 
+[`std.uni`](https://dlang.org/library/std/uni.html) bereitgestellt, grundlegenderes
+in [`std.utf`](https://dlang.org/library/std/utf.html).
 
-Correct processing of Unicode can be very complicated, but most of the time, D
-developers can simply consider `string` variables as magical byte arrays and
-rely on standard library algorithms to do the right job. Most Unicode
-functionality is provided by the
-[`std.uni`](https://dlang.org/library/std/uni.html) module, with some more basic
-primitives available in [`std.utf`](https://dlang.org/library/std/utf.html).
+### Mehrzeilige Strings
 
-### Multi-line strings
-
-To create multi-line strings, use the `string str = q{ ... }` syntax.
+Für die Erzeugung mehrzeiliger Strings bietet sich die 
+`string str = q{ ... }`-Syntax an:
 
     string multiline = q{ This
         may be a
         long document
     };
 
-### Raw strings
+### Raw Strings
 
-It is also possible to use raw strings to minimize laborious escaping
-of reserved symbols. Raw strings can be declared using either backticks (`` `
-... ` ``) or the r(aw)-prefix (`r" ... "`).
+Auch ist es möglich Raw Strings zu benutzen, um die aufwändige Verarbeitung
+von reservierten Symbolen zu minimieren. Raw Strings können mittels Backticks
+(invertierte Hochkommanta) (`` ` ... ` ``) oder den r(aw)-Präfix (`r" ... "`) 
+deklariert werden.
 
     string raw  =  `raw "string"`; // raw "string"
-    string raw2 = r"raw "string""; // raw "string"
+    string raw2 = r"raw "string";  // raw "string"
 
 ### In-depth
 
