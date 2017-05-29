@@ -9,9 +9,9 @@ ordering:
 - structs
 #- arrays
 #- slices
-#- alias-strings
-#- loops
-#- foreach
+- alias-strings
+- loops
+- foreach
 #- ranges
 #- associative-arrays
 #- classes

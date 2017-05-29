@@ -1,7 +1,7 @@
 # Links & Dokumentation
 
 Nachdem du die Tour abgeschlossen hast, kannst du unter folgenden Links
-weitere Informationen oder Hilfe erhalten:
+weitere Informationen und Hilfe erhalten:
 
 * [D für Anfänger](http://ddili.org/ders/d.en/index.html)
 * [D für erfahrene Programmierer](http://wiki.dlang.org/Coming_From)
@@ -11,6 +11,6 @@ weitere Informationen oder Hilfe erhalten:
 
 ### Hilfe
 
-* Stelle Fragen im [#d](irc://irc.freenode.net/d) IRC Kanal auf Freenode ([web interface](https://kiwiirc.com/client/irc.freenode.net/d))
-* Bitte um Hilfe im [D.learn](http://forum.dlang.org/group/learn) Forum
-* Melde einen Fehler [auf dem D Bugtracker](https://issues.dlang.org)
+* Stelle Fragen im [IRC-Kanal](https://kiwiirc.com/client/irc.freenode.net/d) auf Freenode (irc://irc.freenode.net/d)
+* Bitte um Hilfe im Forum unter [D.learn](http://forum.dlang.org/group/learn) 
+* Melde einen Fehler auf dem [D-Bugtracker](https://issues.dlang.org)
