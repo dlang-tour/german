@@ -90,7 +90,7 @@ deklariert werden.
 
 ### Weiterführendes
 
-- [Unicode gem](gems/unicode)
+- [Unicode gem](https://tour.dlang.org/tour/en/gems/unicode)
 - [Characters in _Programming in D_](http://ddili.org/ders/d.en/characters.html)
 - [Strings in _Programming in D_](http://ddili.org/ders/d.en/strings.html)
 - [std.utf](http://dlang.org/phobos/std_utf.html) - UTF en-/decoding algorithms
