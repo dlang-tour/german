@@ -50,7 +50,7 @@ von Iterationen, die n-mal ausgeführt werden sollen:
     // 0 1 2
 
 Die letze Zahl in `a..b` wird von der Range ausgeschlossen 
-(Math.: rechtsoffenes Intervall *[a,b)*), sodass die Schleife 
+(Math.: *[a,b)*, rechtsoffenes Intervall), sodass die Schleife 
 `3`-mal ausgeführt wird.
 
 ### Iteration mit Index-Zähler
