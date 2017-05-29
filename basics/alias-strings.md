@@ -23,7 +23,7 @@ Neben dem  UTF-8 `string` gibt es zwei weitere Typen:
     alias wstring = immutable(wchar)[]; // UTF-16
     alias dstring = immutable(dchar)[]; // UTF-32
 
-Diese Varianten können durch Nutzung der `to` Methode aus `std.conv` 
+Diese Varianten können durch Nutzung der `to`-Methode aus `std.conv` 
 einfach ineinander konvertiert werden:
 
     dstring myDstring = to!dstring(myString);
