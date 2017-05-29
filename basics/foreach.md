@@ -51,7 +51,7 @@ von Iterationen, die n-mal ausgeführt werden sollen:
 
 Die letze Zahl in `a..b` wird von der Range ausgeschlossen 
 (Math.: *[a,b)*, rechtsoffenes Intervall), sodass die Schleife 
-`3`-mal ausgeführt wird.
+3-mal ausgeführt wird.
 
 ### Iteration mit Index-Zähler
 
