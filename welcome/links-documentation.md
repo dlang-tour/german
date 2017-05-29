@@ -1,7 +1,7 @@
 # Links & Dokumentation
 
 Nachdem du die Tour abgeschlossen hast, kannst du unter folgenden Links
-weitere Informationen oder Hilfe erhalten:
+weitere Informationen und Hilfe erhalten:
 
 * [D für Anfänger](http://ddili.org/ders/d.en/index.html)
 * [D für erfahrene Programmierer](http://wiki.dlang.org/Coming_From)
