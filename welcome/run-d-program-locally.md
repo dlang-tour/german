@@ -1,11 +1,11 @@
 # D Programme lokal ausführen
 
-Eine D Installation beinhaltet unter anderem den D Compiler `dmd`,
+Eine D-Installation beinhaltet unter anderem den D-Compiler `dmd`,
 ein Skripttool `rdmd` und den Paketmanager `dub`.
 
 ### DMD Compiler
 
-Der *DMD* Compiler kompiliert D Dateien und erstellt eine Binärdatei.
+Der *DMD* Compiler kompiliert D-Quelldateien und erstellt eine Binärdatei.
 Auf der Kommandozeile kann *DMD* mit dem Dateinamen aufgerufen werden:
 
     dmd hallo.d
