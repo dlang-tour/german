@@ -25,7 +25,7 @@ Falls das Range-Objekt ein Referenztyp ist (z.B. `class`), wird es
 verbraucht ist für weitere Iterationen nicht mehr verfügbar (es sei
 denn, der Schleifenrumpf bricht vor der letzten Iteration ab).
 Falls das Range-Objekt ein Werttyp ist, wird eine Kopie der Range 
-erzeugt und - abhängig von der Definition - wird die ursprüngliche
+erzeugt und - abhängig von der Definition - die ursprüngliche
 Range verbraucht.
 Die meisten Ranges der Standard-Bibliothek sind Strukturen (`struct`),
 sodass eine Iteration normalerweise nicht zerstörend wirkt - allerdings
