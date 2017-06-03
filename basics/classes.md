@@ -23,8 +23,8 @@ sobald keine Referenzen auf das Objekt mehr existieren.
 ### Vererbung
 
 Wenn eine Memberfunktion einer Basisklasse überschrieben wird, muss das
-Schlüsselwort `override` benutzt werden, um dies anzuzeigen. Dies verhindert
-ungewolltes Überschreiben von Funktionen.
+Schlüsselwort `override` benutzt werden, um dies anzuzeigen. So wird 
+ungewolltes Überschreiben von Funktionen vermieden.
 
     class Bar: Foo {
         override functionFromFoo() {}
