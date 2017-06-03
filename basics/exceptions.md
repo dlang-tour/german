@@ -43,12 +43,13 @@ finally
 }
 ```
 
-Beachte: Die Verwendung eines [Scope Guards](gems/scope-guards) ist 
+Beachte: Die Verwendung eines [scope guards](gems/scope-guards) ist 
 in der Regel die bessere Lösung verglichen mit dem `try-finally`-Muster.
 
-### Custom exceptions
+### Benutzerdefinierte Exceptions
 
-One can easily inherit from `Exception` and create custom exceptions:
+Durch das Erben von `Exception` kann eine benutzerdefinierte Exception
+einfach erstellt werden:
 
 ```d
 class UserNotFoundException : Exception
@@ -60,11 +61,12 @@ class UserNotFoundException : Exception
 throw new UserNotFoundException("D-Man is on vacation");
 ```
 
-### Enter a safe world with `nothrow`
+### Sicherheit durch `nothrow`
 
-The D compiler can ensure that a function can't cause catastrophic side-effects.
-Such functions can be annotated with the `nothrow` keyword. The D compiler
-statically forbids throwing exceptions in `nothrow` functions.
+Der D-Compiler kann sicherstellen, dass eine Funktion keine katastrophischen
+Seiteneffekte provozieren kann.
+Solche Funktionen werden mit dem `nothrow`-Schlüsselwort annotiert. Der D-Compiler
+verbietet statisch das Werfen von Exceptions in `nothrow`-Funktionen.
 
 ```d
 bool lessThan(int a, int b) nothrow
@@ -74,15 +76,15 @@ bool lessThan(int a, int b) nothrow
 }
 ```
 
-Please note that the compiler is able to infer attributes for templated code
-automatically.
+Anmerkung: Der Compiler ist in der Lage Attribute für Template-Code automatisch
+abzuleiten.
 
 ### std.exception
 
-It is important to avoid contract programming for user-input as the contracts
-are removed when compiled in release mode. For convenience `std.exception` provides
-`enforce` that can be used like `assert`, but throws `Exceptions`
-instead of an `AssertError`.
+Es ist wichtig, Contract-Programmierung für Benutzereingaben zu vermeiden, da
+Contracts im Falle einer Kompilierung im Release-Mode entfernt werden.
+Komfortablerweise bietet `std.exception` `enforce`, welches wie `assert` 
+genutzt werden kann, aber `Exceptions` anstatt von `AssertError` wirft.
 
 ```d
 import std.exception : enforce;
@@ -93,8 +95,8 @@ enforce(magic + 42 - magic == 42, "Floating-point math is fun");
 enforce!StringException('a' != 'A', "Case-sensitive algorithm");
 ```
 
-However there's more in `std.exception`. For example when the error might not be
-fatal, one can opt-in to `collect` it:
+`std.exception` bietet darüberhinaus die Möglichkeit, die Behandlung 
+nichtfataler Fehler mit `collect` zu verkürzen. 
 
 ```d
 import std.exception : collectException;
@@ -103,9 +105,10 @@ if (e)
     writeln("The dangerous operation failed with ", e);
 ```
 
-To test whether an exception is thrown in tests, use `assertThrown`.
+Der Test, ob eine Exception geworfen wurde, kann mit `assertThrown` 
+erfolgen.
 
-### In-depth
+### Weiterführende Quellen
 
 - [Exception Safety in D](https://dlang.org/exception-safe.html)
 - [std.exception](https://dlang.org/phobos/std_exception.html)
@@ -131,7 +134,8 @@ void main()
 		writeln("Line: ", e.line);
 		writeln("Stack trace:\n", e.info);
 
-		// Default formatting could be used too
+		// Standard-Formatierug 
+		// auch möglich!
 		// writeln(e);
     }
 }
