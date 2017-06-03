@@ -1,13 +1,13 @@
 # Exceptions
 
-This guide is only about User-`Exceptions` - System-`Errors` are usually fatal
-and should __never__ be caught.
+Dieser Abschnitt befasst sich nur mit User-`Exceptions` - System-`Error` sind 
+normalerweise fatal und sollten __nie__ auffangen werden.
 
-### Catching Exceptions
+### Exceptions auffangen
 
-A common case for exceptions is to validate potentially invalid user input.
-Once an exception is thrown, the stack will be unwound until the first matching exception
-handler is found.
+Ein Anwendungsfall für Exceptions ist die Validierung von potentiell invaliden
+Benutzereingaben. Sobald eine Exception geworfen wurde, wird der Stack abgewickelt
+(engl: to unwind), bis der erste passende Exception-Handler gefunden wurde.
 
 ```d
 try
@@ -20,8 +20,9 @@ catch (FileException e)
 }
 ```
 
-It's possible to have multiple `catch` blocks and a `finally` block that is executed
-regardless of whether an error occurred. Exceptions are thrown with `throw`.
+Die Verwendung mehrerer `catch`-Blocks ist möglich. Ein abschließender
+`finally`-Block wird unabhängig von einem Fehlerauftreten ausgeführt.
+Exceptions werden mit`throw` geworfen.
 
 ```d
 try
@@ -42,8 +43,8 @@ finally
 }
 ```
 
-Remember that the [scope guard](gems/scope-guards) is usually a better solution to the `try-finally`
-pattern.
+Beachte: Die Verwendung eines [Scope Guards](gems/scope-guards) ist 
+in der Regel die bessere Lösung verglichen mit dem `try-finally`-Muster.
 
 ### Custom exceptions
 
