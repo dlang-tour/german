@@ -1,17 +1,17 @@
 # Interfaces
 
-D allows defining `interface`s which are technically like
-`class` types, but whose member functions must be implemented
-by any class inheriting from the `interface`.
+D erlaubt die Definition von Interfaces (`interface`),
+die technisch Klassentypen (`class`) entsprechen, aber deren
+Member von jeder erbenden Klasse impelementiert werden müssen.
 
     interface Animal {
         void makeNoise();
     }
 
-The `makeNoise` member function has to be implemented
-by `Dog` because it inherits from the `Animal` interface.
-Essentially `makeNoise` behaves like an `abstract` member
-function in a base class.
+Die `makeNoise`-Memberfunktion muss von `Dog` impelementiert 
+werden, weil es von dem  `Animal`-Interface erbt.
+Letztlich verhält sich `makeNoise` wie eine `abstract`-Memberfunktion
+einer Basisklasse.
 
     class Dog: Animal {
         override makeNoise() {
@@ -23,19 +23,18 @@ function in a base class.
     Animal animal = dog; // implicit cast to interface
     dog.makeNoise();
 
-The number of `interface`s a `class` can implement isn't limited,
-but it can inherit from only *one* base class.
+Die Anzahl der Interfaces einer Klasse ist nicht limitiert,
+es kann allerdings nur von einer Basisklasse geerbt werden.
 
-### NVI (non virtual interface) pattern
+### NVI (Nonvirtual Interface) Muster
 
-The [NVI pattern](https://en.wikipedia.org/wiki/Non-virtual_interface_pattern)
-prevents the violation of a common execution pattern by allowing _non virtual_ methods
-for a common interface.
-D easily enables the NVI pattern by
-allowing the definition of `final` functions in an `interface`
-that aren't allowed to be overridden. This enforces specific
-behaviours customized by overriding the other `interface`
-functions.
+Das [NVI-Muster](https://en.wikipedia.org/wiki/Non-virtual_interface_pattern)
+erlaut _non virtual_-Methoden in einem Interface.
+
+D ermöglicht das NVI-Muster, indem es die Definition von `final`-Methoden in 
+einem Interface erlaubt, welche nicht überschrieben werden können. Dies erzwingt 
+ein bestimmtes Verhalten, welche durch Überschreiben anderer Interface-
+Memberfunktionen angepasst werden kann.
 
     interface Animal {
         void makeNoise();
