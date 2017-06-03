@@ -1,24 +1,24 @@
-# Associative Arrays
+# Assoziative Arrays
 
-D has built-in *associative arrays* also known as hash maps.
-An associative array with a key type of `string` and a value type
-of `int` is declared as follows:
+D besitzt integrierte *Assoziative Arrays* (auch als Hashtabelle 
+oder Hashmap bekannt). Ein Assoziatives Array mit ein Schlüssel-Typ
+`string` und einem Wert-Typ `int` wird folgendermaßen erzeugt:
 
     int[string] arr;
 
-The value can be accessed by its key and thus be set:
+Der Wert kann über den Schlüssel erreicht und gesetzt werden:
 
     arr["key1"] = 10;
 
-To test whether a key is located in the associative array, the
-`in` expression can be used:
+Um zu testen, ob ein Schlüssel in dem Assoziativen Array enthalten
+ist, kann er `in`-Ausdruck genutzt werden:
 
     if ("key1" in arr)
         writeln("Yes");
 
-The `in` expression returns a pointer to the value if it
-can be found or a `null` pointer otherwise. Thus existence check
-and writes can be conveniently combined:
+Der `in`-Ausdruck gibt einen Zeiger auf den Wert zurück, fall er 
+gefunden wurde, anderenfalls einen `null`-Zeiger. Also können der 
+Existenz-Test und das Schreiben komfortabel komibiert werden:
 
     if (auto val = "key1" in arr)
         *val = 20;
