@@ -29,7 +29,8 @@ es kann allerdings nur von einer Basisklasse geerbt werden.
 ### NVI (Nonvirtual Interface) Muster
 
 Das [NVI-Muster](https://en.wikipedia.org/wiki/Non-virtual_interface_pattern)
-erlaut _non virtual_-Methoden in einem Interface.
+erlaut _non virtual_-Methoden in einem Interface, z.B. um den Aufruf
+überschriebener Methoden zu steuern.
 
 D ermöglicht das NVI-Muster, indem es die Definition von `final`-Methoden in 
 einem Interface erlaubt, welche nicht überschrieben werden können. Dies erzwingt 
@@ -45,7 +46,7 @@ Memberfunktionen angepasst werden kann.
         }
     }
 
-### In-depth
+### Weiterführende Quellen
 
 - [Interfaces in _Programming in D_](http://ddili.org/ders/d.en/interface.html)
 - [Interfaces in D](https://dlang.org/spec/interface.html)
@@ -57,18 +58,18 @@ import std.stdio : writeln;
 
 interface Animal {
     /*
-    Virtual function
-    which needs to be overridden!
+    Virtuelle Function
+    die überschrieben werden muss!
     */
     void makeNoise();
 
     /*
-    NVI pattern. Uses makeNoise internally
-    to customize behaviour inheriting
-    classes.
+    NVI-Muster. Nutzt makeNoise intern
+    zur Anpassung des Verhaltens erbender
+    Klassen.
     
     Params: 
-        n =  number of repetitions
+        n =  Anzahl der Wiederholungen
     */
     final void multipleNoise(int n) {
         for(int i = 0; i < n; ++i) {
