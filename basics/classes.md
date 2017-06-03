@@ -1,51 +1,54 @@
-# Classes
+# Klassen
 
-D provides support for classes and interfaces like in Java or C++.
+D unterstützt die Verwendung von Klassen und Interfaces ähnlich wie
+Java or C++.
 
-Any `class` type inherits from [`Object`](https://dlang.org/phobos/object.html) implicitly.
+Jeder `class`-Typ erbt implizit von [`Object`](https://dlang.org/phobos/object.html).
 
     class Foo { } // inherits from Object
     class Bar: Foo { } // Bar is a Foo too
 
-Classes in D are generally instantiated on the heap using `new`:
+In D werden Klassen generell mit `new` auf dem Heap instantiiert:
 
     auto bar = new Bar;
 
-Class objects are always reference types and unlike `struct` aren't
-copied by value.
+Klassenobjekte dind immer Referenztypen und werden, anders als `struct`, 
+nicht als Wert (engl.: by value) kopiert.
 
     Bar bar = foo; // bar points to foo
 
-The garbage collector will make sure the memory is freed
-when no references to an object exist anymore.
+Der Garbage Collector stellt sicher, dass der Speicher freigegeben wird, 
+sobald keine Referenzen auf das Objekt mehr existieren.
 
-### Inheritance
+### Vererbung
 
-If a member function of a base class is overridden, the keyword
-`override` must be used to indicate that. This prevents unintentional
-overriding of functions.
+Wenn eine Memberfunktion einer Basisklasse überschrieben wird, muss das
+Schlüsselwort `override` benutzt werden, um dies anzuzeigen. Dies verhindert
+ungewolltes Überschreiben von Funktionen.
 
     class Bar: Foo {
         override functionFromFoo() {}
     }
 
-In D, classes can only inherit from one class.
+In D können Klassen nur von Klassen erben.
 
-### Final and abstract member functions
+### Final und abstract Memberfunktionen
 
-- A function can be marked `final` in a base class to disallow overriding
-it
-- A function can be declared as `abstract` to force base classes to override
-it
-- A whole class can be declared as `abstract` to make sure
-that it isn't instantiated
-- `super(..)` can be used to explicitly call the base constructor
+-  Eine Funktion kann als `final` markiert werden, um das Überschreiben 
+zu verbieten
+-  Eine Funktion kann als `abstract` markiert werden, um das Überschreiben 
+zu erzwingen
+- Eine ganze Klasse kann als `abstract` deklariert werden, um sicherzustellen,
+dass sie nicht instanziiert wird
+- `super(..)` dient zum expliziten Aufruf des Basiskonstruktors
 
-### Checking for identity
+### Prüfen der Identität
 
-For class objects, the `==` and `!=` operators compare the contents of the objects.
-Therefore, comparing against `null` is invalid, as `null` has no contents.
-The `is` compares for identity. To compare for nonidentity, use `e1 !is e2`.
+Der Inhalt von Klassenobjekten wird mithilfe der Operatoren `==` and `!=` 
+verglichen. Daher ist der Vergleich gegen `null` nicht zulässig, da `null`
+keinen Inhalt besitzt.
+Das `is` vergleicht auf Identität. Um auf Nicht-Identität zu prüfen, sollte
+`e1 !is e2` verwendet werden.
 
 ```d
 MyClass c;
@@ -55,10 +58,10 @@ if (c is null)  // ok
     ...
 ```
 
-For `struct` objects all bits are compared,
-for other operand types, identity is the same as equality.
+Bei `struct`-Oobjekten werden alle Bits verglichen, für andere Operanden-Typen
+ist Identität gleichwertig mit Gleichheit.
 
-### In-depth
+### Weiterführende Quellen
 
 - [Classes in _Programming in D_](http://ddili.org/ders/d.en/class.html)
 - [Inheritance in _Programming in D_](http://ddili.org/ders/d.en/inheritance.html)
@@ -71,42 +74,43 @@ for other operand types, identity is the same as equality.
 import std.stdio : writeln;
 
 /*
-Fancy type which can be used for
-anything...
+Ausgefallener Typ der für alles genutzt 
+werden kann...
 */
 class Any {
-    // protected is just seen by inheriting
-    // classes
+    // protected kann nur bei Vererbung
+    // von Klassen gesehen werden
     protected string type;
 
     this(string type) {
         this.type = type;
     }
 
-    // public is implicit by the way
+    // public ist übrigens implizit
     final string getType() {
         return type;
     }
 
-    // This needs to be implemented!
+    // Das hier muss implementiert 
+    // werden!
     abstract string convertToString();
 }
 
 class Integer: Any {
-    // just seen by Integer
+    // als Integer betrachtet
     private {
         int number;
     }
 
-    // constructor
+    // Konstruktor
     this(int number) {
-        // call base class constructor
+        // ruft Konstruktor der
+        // Basisklasse auf
         super("integer");
         this.number = number;
     }
 
-    // This is implicit. And another way
-    // to specify the protection level
+    // Dies ist implizit. 
     public:
 
     override string convertToString() {
