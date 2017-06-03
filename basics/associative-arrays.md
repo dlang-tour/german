@@ -11,14 +11,14 @@ Der Wert kann über den Schlüssel erreicht und gesetzt werden:
     arr["key1"] = 10;
 
 Um zu testen, ob ein Schlüssel in dem Assoziativen Array enthalten
-ist, kann er `in`-Ausdruck genutzt werden:
+ist, kann der `in`-Ausdruck genutzt werden:
 
     if ("key1" in arr)
         writeln("Yes");
 
 Der `in`-Ausdruck gibt einen Zeiger auf den Wert zurück, fall er 
-gefunden wurde, anderenfalls einen `null`-Zeiger. Also können der 
-Existenz-Test und das Schreiben komfortabel komibiert werden:
+gefunden wurde, anderenfalls einen `null`-Zeiger. Also können
+Existenz-Test und Schreiben komfortabel komibiert werden:
 
     if (auto val = "key1" in arr)
         *val = 20;
