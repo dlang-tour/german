@@ -1,59 +1,61 @@
 # Templates
 
-**D** allows defining templated functions similar to C++ and Java
-which is a means to define **generic** functions or objects which work
-for any type that compiles with the statements within the function's body:
+**D** erlaubt die Defintion von Funktionstemplates gleich wie in C++ und
+Java. Dies ist ein Mittel um **generische** Funktionen oder Objekte zu 
+definieren, die für jeden Typ funktionieren, der mit den Anweisungen des
+Funktionsrumpfs kompiliert:
 
     auto add(T)(T lhs, T rhs) {
         return lhs + rhs;
     }
 
-The template parameter `T` is defined in a set of parentheses
-in front of the actual function parameters. `T` is a placeholder
-which is replaced by the compiler when actually *instantiating*
-the function using the `!` operator:
+Ter Template-Parameter `T` wird in runden Klammern vor den eigentlichen
+Funktionsparametern definiert.`T` ist ein Platzhalter, der vom Compiler 
+ersetzt wird, wenn die Funktion tatsächlich mit dem `!`-Operator 
+*instantiiert* wird:
 
     add!int(5, 10);
     add!float(5.0f, 10.0f);
-    add!Animal(dog, cat); // won't compile; Animal doesn't implement +
+    add!Animal(dog, cat); // kompiliert nicht! Animal implementiert + nicht
 
-### Implicit Template Parameters
-
-Function templates have two parameter sets - the first is for
-compile-time arguments and the second is for run-time arguments.
-(Non-templated functions can accept only run-time arguments).
-If one or more compile-time arguments are left unspecified when the function is called,
-the compiler tries to deduce them from the list of run-time arguments as the types of those arguments.
+### Implizite Template-Parameter
+ 
+Funktionstemplates haben zwei Parametersätze - den ersten für 
+Kompilierzeit-Argumente und den zweiten für Laufzeit-Argumente.
+(Normale Funktionen akzeptieren nur Laufzeit-Argumente).
+Wenn ein oder mehrere Kompilierzeit-Argumente beim Aufruf ausgelassen 
+werden, versucht der Compiler deren Typ aus der Liste der Laufzeit-
+Argumente abzuleiten.
 
     int a = 5; int b = 10;
-    add(a, b); // T is to deduced to `int`
+    add(a, b); // T wird abgeleitet zu `int`
     float c = 5.0;
-    add(a, c); // T is deduced to `float`
+    add(a, c); // T wird abgeleitet zu `float` 
 
-### Template properties
+### Template-Eigenschaften
 
-A function can have any number of template parameters which
-are specified during instantiation using the `func!(T1, T2 ..)`
-syntax. Template parameters can be of any basic type
-including `string`s and floating point numbers.
+Eine Funktion kann beliebig viele Template-Parameter besitzen, welche
+während der Instantiierung mit der `func!(T1, T2 ..)`-Syntax spezifiziert 
+werden. Template-Parameter können von jeden Basistyp sein (inkl. `string` 
+und Fließkommatypen).
 
-Unlike generics in Java, templates in D are compile-time only, and yield
-highly optimized code tailored to the specific set of types
-used when actually calling the function
+Anders als Generics in Java, beziehen sich Templates in D nur auf die 
+Kompilierzeit. Dies führt zu hochoptimiertem Code maßgeschneidert für die 
+beim Funktionsaufruf genutzten Typen.
 
-Of course, `struct`, `class` and `interface` types can be defined as template
-types too.
+Natürlich können auch die Typen `struct`, `class` und `interface` als Template
+definiert werden.
 
     struct S(T) {
         // ...
     }
 
-### In-depth
+### Weiterführende Quellen
 
 - [Tutorial to D Templates](https://github.com/PhilippeSigaud/D-templates-tutorial)
 - [Templates in _Programming in D_](http://ddili.org/ders/d.en/templates.html)
 
-#### Advanced
+#### Fortgeschritten
 
 - [D Templates spec](https://dlang.org/spec/template.html)
 - [Templates Revisited](http://dlang.org/templates-revisited.html):  Walter Bright writes about how D improves upon C++ templates.
@@ -65,10 +67,10 @@ types too.
 import std.stdio : writeln;
 
 /**
-Template class that allows
-generic implementation of animals.
+Template-Klasse, die die generische
+Implementierung von animals erlaubt.
 Params:
-    noise = string to write
+    noise = zu schreibender string
 */
 class Animal(string noise) {
     void makeNoise() {
@@ -83,12 +85,12 @@ class Cat: Animal!("Meeoauw") {
 }
 
 /**
-Template function which takes any
-type T that implements a function
-makeNoise.
+Template-Funktion, die jeden Typ T
+annimmt, der eine Funktion makeNoise
+implementiert.
 Params:
-    animal = object that can make noise
-    n = number of makeNoise calls
+    animal = Objekt, das 'noise' macht
+    n = Anzahl der makeNoise-Aufrufe
 */
 void multipleNoise(T)(T animal, int n) {
     for (int i = 0; i < n; ++i) {
