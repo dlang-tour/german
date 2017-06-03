@@ -1,6 +1,6 @@
 # Ranges
 
-If a `foreach` is encountered by the compiler
+Wenn der Compiler auf ein `foreach`-Konstrukt trifft...
 
 ```
 foreach (element; range)
@@ -9,7 +9,7 @@ foreach (element; range)
 }
 ```
 
-it's internally rewritten similar to the following:
+wird es intern etwa wie folgt umgeschrieben:
 
 ```
 for (auto __rangeCopy = range;
@@ -21,17 +21,19 @@ for (auto __rangeCopy = range;
 }
 ```
 
-If the range object is a reference type (e.g. `class`), then the range will be
-consumed and won't available for subsequent iteration (that is unless the
-loop body breaks before the last loop iteration). If the range object is
-a value type, then a copy of the range will be made and depending on the
-way the range is defined the loop may or may not consume the original
-range. Most of the ranges in the standard library are structs and so `foreach`
-iteration is usually non-destructive, though not guaranteed. If this
-guarantee is important, require **forward** ranges.
+Falls das Range-Objekt ein Referenztyp ist (z.B. `class`), wird es 
+verbraucht ist für weitere Iterationen nicht mehr verfügbar (es sei
+denn, der Schleifenrumpf bricht vor der letzten iteration ab).
+Falls das Range-Objekt ein Werttyp ist, wird eine Kopie der Range 
+erzeugt und - abhängig von der Definition - wird die ursprüngliche
+Range verbraucht.
+Die meisten Ranges der Standard-Bibliothek sind Strukturen (`struct`),
+sodass eine Iteration normalerweise nicht zerstörend wirkt - allerdings
+nicht garantiert. Sollte die Garantie wichtig sein, erfordert dies
+**forward**-Ranges.
 
-Any object which fulfills the following interface is called a **range**
-and is thus a type that can be iterated over:
+Jedes Objekt mit folgendem Interface wird **Range** genannt und kann 
+somit iteriert werden:
 
 ```
     struct Range
