@@ -23,16 +23,18 @@ Existenz-Test und Schreiben komfortabel komibiert werden:
     if (auto val = "key1" in arr)
         *val = 20;
 
-Access to a key which doesn't exist yields a `RangeError`
-that immediately aborts the application. For a safe access
-with a default value, `get(key, defaultValue)` can be used.
+Zugriff auf einen nicht existierenden Schlüssel für zu einem 
+`RangeError` und dem sofortigen Abbruch der Anwendung. Für 
+sicheren Zugriff mit einen Standardwert (engl: default value)
+gibt es `get(key, defaultValue)`.
 
-AA's have the `.length` property like arrays and provide
-a `.remove(val)` member to remove entries by their key.
-It is left as an exercise to the reader to explore
-the special `.byKey` and `.byValue` ranges.
+Assoziativery Arrays bieten neben der `.length`-Eigenschaft
+herkömmlicher Arrays auch `.remove(val)`, um Einträge über 
+ihren Schlüssel zu entfernen. 
+Dem Leser wird als Übung empfohlen, die speziellen `.byKey`- 
+und `.byValue`-Ranges zu erforschen.
 
-### In-depth
+### Weiterführende Quellen
 
 - [Associative arrays in _Programming in D_](http://ddili.org/ders/d.en/aa.html)
 - [Associative arrays specification](https://dlang.org/spec/hash-map.html)
@@ -44,28 +46,29 @@ the special `.byKey` and `.byValue` ranges.
 import std.stdio : writeln;
 
 /**
-Splits the given text into words and returns
-an associative array that maps words to their
-respective word counts.
+Teilt den gegebenen Text in Wörter und gibt
+ein Assoziatives Array aus Wörtern und deren
+Anzahl zurück.
 
 Params:
-    text = text to be splitted
+    text: Zu teilender Text
 */
 int[string] wordCount(string text)
 {
-    // The function splitter lazily splits the
-    // input into a range
+    // Die Funktion splitter teilt den
+    // Text in eine Range (lazy)
     import std.algorithm.iteration : splitter;
     import std.string : toLower;
 
-    // Indexed by words and returning the count
+    // Durch Wörter indiziert und Anzahl 
+    // zurückgebend
     int[string] words;
 
     foreach(word; splitter(text.toLower(), " "))
     {
-        // Increment word count if word
-        // has been found.
-        // Integers are by default 0.
+        // Inkrementiere Wortzähler 
+        // falls Wort gefunden wurde.
+        // Integer-Standartwert ist 0.
         words[word]++;
     }
 
@@ -79,7 +82,7 @@ void main()
     auto wc = wordCount(text);
     writeln("Word counts: ", wc);
 
-    // possible iterations:
+    // Mögliche Iteration:
     // byKey, byValue, byKeyValue
     foreach (word; wc.byValue)
         writeln(word);
