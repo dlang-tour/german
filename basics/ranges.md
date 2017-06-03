@@ -99,12 +99,12 @@ void main()
     // `take` erstellt eine weitere Range,
     // die maximal N Elemente zurückgibt. 
     // Diese Range ist _lazy_ und nutzt
-    // die Original-Range nur wenn nötig
+    // die Original-Range nur wenn nötig.
     auto fib10 = take(fib, 10);
 
     // In diesem Fall werden alle Elemente 
     // genutzt und die Range in ein Array
-    // aus Integer-Werten konvertiert
+    // aus Integer-Werten konvertiert.
     int[] the10Fibs = array(fib10);
 
     writeln("Die ersten 10 Fibonacci-Zahlen: ",
