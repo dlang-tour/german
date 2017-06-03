@@ -16,7 +16,7 @@ ist, kann der `in`-Ausdruck genutzt werden:
     if ("key1" in arr)
         writeln("Yes");
 
-Der `in`-Ausdruck gibt einen Zeiger auf den Wert zurück, fall er 
+Der `in`-Ausdruck gibt einen Zeiger auf den Wert zurück, falls er 
 gefunden wurde, anderenfalls einen `null`-Zeiger. Also können
 Existenz-Test und Schreiben komfortabel komibiert werden:
 
