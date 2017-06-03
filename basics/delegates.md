@@ -1,34 +1,35 @@
-# Delegates
+# Delegate
 
-### Functions as arguments
+### Funktionen als Argumente
 
-A function can also be a parameter to another function:
+Eine Funktion kann auch Parameter einer Funktion sein:
 
     void doSomething(int function(int, int) doer) {
-        // call passed function
+        // rufe durchgereichte Funktion auf
         doer(5,5);
     }
 
     doSomething(add); // use global function `add` here
                       // add must have 2 int parameters
 
-`doer` can then be called like any other normal function.
+`doer` kann wie jede andere normale Funktion aufgerufen 
+werden.
 
-### Local functions with context
+### Lokale Functionen mit Kontext
 
-The above example uses the `function` type which is
-a pointer to a global function. As soon as a member
-function or a local function is referenced, `delegate`'s
-have to be used. It's a function pointer
-that additionally contains information about its
-context - or *enclosure*, thus also called **closure**
-in other languages. For example a `delegate`
-that points to a member function of a class also includes
-the pointer to the class object. A `delegate` created by
-a nested function includes a link to the enclosing context
-instead. However, the D compiler may automatically make a copy of
-the context on the heap if it is necessary for memory safety -
-then a delegate will link to this heap area.
+Das obige Beispiel nutzt den `function`-Typ, der ein Zeiger
+auf eine globale Funktion ist. Sobald auf eine Memberfunktion
+oder eine lokale Funktion verwiesen wird, muss ein `delegate`
+verwendet werden. Das ist ein Funktionszeiger mit zusätzlichen
+Informationen zu seinem Kontext (in anderen Programmiersprachen
+auch **Closure** genannt). Ein auf eine Memberfunktion einer 
+Klasse zeigendes `delegate` enthält z.B. einen Zeiger auf das
+Klassenobjekt. Ein `delegate`, erzeugt in einer verschachtelten
+Funktion, enthält stattdessen einen Link zu seinem umgebenden 
+Kontext. Allerdings darf der D-Compiler automatisch eine Kopie 
+des Kontextes auf dem Heap erstellen, falls dies der Speicher-
+sicherheit dient. Das Delegate enthält dann einen Link zu diesem
+Heap-Bereich
 
     void foo() {
         void local() {
@@ -37,37 +38,39 @@ then a delegate will link to this heap area.
         auto f = &local; // f is of type delegate()
     }
 
-The same function `doSomething` taking a `delegate`
-would look like this:
+Die obige Funktion `doSomething` mit einem `delegate`-Parameter
+würde so aussehen:
 
     void doSomething(int delegate(int,int) doer);
 
-`delegate` and `function` objects cannot be mixed. But the
-standard function
+`delegate`- und `function`-Objekte düfen nicht gemischt werden. 
+Daher konvertiert die Standardfunktion
 [`std.functional.toDelegate`](https://dlang.org/phobos/std_functional.html#.toDelegate)
-converts a `function` to a `delegate`.
+eine `function` in ein `delegate`.
 
-### Anonymous functions & Lambdas
+### Anonyme Funktionen und Lambdafunktionen
 
-As functions can be saved as variables and passed to other functions,
-it is laborious to give them their own name and to define them. Hence D allows
-nameless functions and one-line _lambdas_.
+Da Funktionen als Variablen gespeichert und an andere Funktionen 
+übergeben werden können, ist es mühsam, sie zu definieren und ihnen
+einen Namen zu geben. Daher erlaubt D namenlose Funktionen und 
+einzeilige _Lambdafunktionen_.
 
     auto f = (int lhs, int rhs) {
         return lhs + rhs;
     };
-    auto f = (int lhs, int rhs) => lhs + rhs; // Lambda - internally converted to the above
+    // Lambdafunktion, gleich mit obiger Funktion
+    auto f = (int lhs, int rhs) => lhs + rhs; 
 
-It is also possible to pass-in strings as template arguments to functional parts
-of D's standard library. For example they offer a convenient way
-to define a folding (aka reducer):
+Auch besteht die Möglichkeit, Strings als Template-Argumente an
+an funktionale Teile der D-Standardbibliothek zu nutzen. Dies erlaubt
+z.B. eine komfortable Art der Definition einer Reduce-Funktion:
 
     [1, 2, 3].reduce!`a + b`; // 6
 
-String functions are only possible for _one or two_ arguments and then use `a`
-as first and `b` as second argument.
+String-Funktionen sind nur möglich für _ein oder zwei_ Argumente, 
+wobei `a` als erstes und `b` als zweites Argument dient.
 
-### In-depth
+### Weiterführende Quellen
 
 - [Delegate specification](https://dlang.org/spec/function.html#closures)
 
@@ -75,7 +78,7 @@ as first and `b` as second argument.
 
 ```d
 import std.stdio : writeln;
-
+ 
 enum IntOps {
     add = 0,
     sub = 1,
@@ -84,22 +87,22 @@ enum IntOps {
 }
 
 /**
-Provides a math calculuation
+Stellt eine math. Berechnung bereit
 Params:
-    op = selected math operation
-Returns: delegate which does a math operation
+    op = gewählte math. Operation
+Returns: delegate, welches die math. 
+         Operation ausführt
 */
 auto getMathOperation(IntOps op)
 {
-    // Define 4 lambda functions for
-    // 4 different mathematical operations
+    // Definiere 4 Lambdafunktionen für
+    // 4 verschiedene math. Operationen
     auto add = (int lhs, int rhs) => lhs + rhs;
     auto sub = (int lhs, int rhs) => lhs - rhs;
     auto mul = (int lhs, int rhs) => lhs * rhs;
     auto div = (int lhs, int rhs) => lhs / rhs;
 
-    // we can ensure that the switch covers
-    // all cases
+    // switch deckt alle 4 Fälle ab
     final switch (op) {
         case IntOps.add:
             return add;
@@ -118,11 +121,10 @@ void main()
     int b = 5;
 
     auto func = getMathOperation(IntOps.add);
-    writeln("The type of func is ",
+    writeln("Der Typ von func ist ",
         typeof(func).stringof, "!");
 
-    // run the delegate func which does all the
-    // real work for us!
+    // delegate 'func' aufrufen
     writeln("result: ", func(a, b));
 }
 ```
