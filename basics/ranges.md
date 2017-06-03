@@ -48,23 +48,21 @@ Beachte: Obwohl `empty` und `front` gewöhnlich als `const`-Funktionen
 definiert werden (was impliziert, dass ein Aufruf die Range nicht 
 modifiziert), ist dies nicht erforderlich.
 
-The functions in `std.range` and `std.algorithm` provide
-building blocks that make use of this interface. Ranges allow us
-to compose complex algorithms behind an object that
-can be iterated with ease. Furthermore, ranges allow us to create **lazy**
-objects that only perform a calculation when it's really needed
-in an iteration e.g. when the next range's element is accessed.
-Special range algorithms will be presented later in the
-[D's Gems](gems/range-algorithms) section.
+Die Funktionen in `std.range` und `std.algorithm` stellen Bausteine
+zur Verfügung, die dieses Interface nutzen. Ranges erlauben die 
+einfache Erstellung komplexer iterierender Algorithmen.
+Auch erlauben Ranges die Erstellung von **Lazy**-Objekten, die
+ihre Berechnungen nur ausführen, wenn dies wirklich nötig ist, 
+z.B. wenn während einer Iteration auf das nächste Range-Element 
+zugegriffen wird.
 
-### Exercise
+### Übungsaufgabe
 
-Complete the source code to create the `FibonacciRange` range
-that returns numbers of the
-[Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number).
-Don't fool yourself into deleting the `assert`ions!
+Vervollständige den Quellcode, um eine `FibonacciRange` erzeugen,
+die Zahlen der [Fibonacci-Folge](https://de.wikipedia.org/wiki/Fibonacci-Folge).
+Der`assert`-Befehl am Ende stellt die korrekte Implementation sicher!
 
-### In-depth
+### Weiterführende Quellen
 
 - [`std.algorithm`](http://dlang.org/phobos/std_algorithm.html)
 - [`std.range`](http://dlang.org/phobos/std_range.html)
@@ -78,8 +76,8 @@ struct FibonacciRange
 {
     bool empty() const @property
     {
-        // So when does the Fibonacci sequence
-        // end?!
+        // Wann endet die 
+        // Fibonacci-Folge?!
     }
 
     void popFront()
@@ -98,18 +96,18 @@ void main()
 
     FibonacciRange fib;
 
-    // `take` creates another range which
-    // will return N elements at maximum.
-    // This range is _lazy_ and just
-    // touches the original range
-    // if actually needed
+    // `take` erstellt eine weitere Range,
+    // die maximal N Elemente zurückgibt. 
+    // Diese Range ist _lazy_ und nutzt
+    // die Original-Range nur wenn nötig
     auto fib10 = take(fib, 10);
 
-    // But we do want to touch all elements and
-    // convert the range to array of integers.
+    // In diesem Fall werden alle Elemente 
+    // genutzt und die Range in ein Array
+    // aus Integer-Werten konvertiert
     int[] the10Fibs = array(fib10);
 
-    writeln("The 10 first Fibonacci numbers: ",
+    writeln("Die ersten 10 Fibonacci-Zahlen: ",
         the10Fibs);
     assert(the10Fibs ==
         [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]);
