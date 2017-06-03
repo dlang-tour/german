@@ -43,9 +43,10 @@ somit iteriert werden:
         void popFront();
     }
  ```
-Note that while it is customary for `empty` and `front` to be defined as `const`
-functions (implying that calling them won't modify the range), this is not
-required.
+ 
+Beachte: Obwohl `empty` und `front` gewöhnlich als `const`-Funktionen
+definiert werden (was impliziert, dass ein Aufruf die Range nicht 
+modifiziert), ist dies nicht erforderlich.
 
 The functions in `std.range` and `std.algorithm` provide
 building blocks that make use of this interface. Ranges allow us
