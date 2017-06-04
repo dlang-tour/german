@@ -57,7 +57,7 @@ definiert werden.
 
 #### Fortgeschritten
 
-- [D Templates spec](https://dlang.org/spec/template.html)
+- [Spezifikation: D Templates](https://dlang.org/spec/template.html)
 - [Templates Revisited](http://dlang.org/templates-revisited.html):  Walter Bright writes about how D improves upon C++ templates.
 - [Variadic templates](http://dlang.org/variadic-function-templates.html): Articles about the D idiom of implementing variadic functions with variadic templates
 
