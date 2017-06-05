@@ -17,8 +17,8 @@ werden.
 
 ### Lokale Funktionen mit Kontext
 
-Das obige Beispiel nutzt den `function`-Typ, der ein Zeiger
-auf eine globale Funktion ist. Sobald auf eine Memberfunktion
+Im obigen Beispiel ist `doSomething` vom Typ `function`, und damit
+ein Zeiger auf eine globale Funktion. Sobald auf eine Memberfunktion
 oder eine lokale Funktion verwiesen wird, muss ein `delegate`
 verwendet werden. Das ist ein Funktionszeiger mit zusätzlichen
 Informationen zu seinem Kontext (in anderen Programmiersprachen
