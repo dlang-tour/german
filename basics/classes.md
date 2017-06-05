@@ -18,7 +18,7 @@ nicht wert-weise (engl.: by value) kopiert.
     Bar bar = foo; // bar zeigt auf foo
 
 Der Garbage Collector stellt sicher, dass der genutzte Speicher wieder
-freigegeben wird, sobald keine Referenzen auf das Objekt mehr existieren.
+freigegeben wird, sobald keine Referenzen mehr auf das Objekt existieren.
 
 ### Vererbung
 
