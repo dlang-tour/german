@@ -48,8 +48,8 @@ in der Regel die bessere Lösung verglichen mit dem `try-finally`-Muster.
 
 ### Benutzerdefinierte Exceptions
 
-Durch das Erben von `Exception` kann eine benutzerdefinierte Exception
-einfach erstellt werden:
+Eine benutzerdefinierte Exception kann durch Erben von der Klasse 
+`Exception` erzeugt werden:
 
 ```d
 class UserNotFoundException : Exception
