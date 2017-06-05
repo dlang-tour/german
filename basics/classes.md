@@ -131,7 +131,7 @@ class Float: Any {
 
     override string convertToString() {
         import std.string : format;
-        // We want to control precision
+        // Präzision anpassen
         return format("%.1f", number);
     }
 }
