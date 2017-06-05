@@ -59,8 +59,9 @@ zugegriffen wird.
 ### Übungsaufgabe
 
 Vervollständige den Quellcode, um eine `FibonacciRange` erzeugen,
-die Zahlen der [Fibonacci-Folge](https://de.wikipedia.org/wiki/Fibonacci-Folge).
-Der`assert`-Befehl am Ende stellt die korrekte Implementation sicher!
+die Zahlen der [Fibonacci-Folge](https://de.wikipedia.org/wiki/Fibonacci-Folge)
+generiert. Der`assert`-Befehl am Ende stellt die Korrektheit deiner
+Implementation sicher!
 
 ### Weiterführende Quellen
 
