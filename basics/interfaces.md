@@ -2,7 +2,7 @@
 
 D erlaubt die Definition von Interfaces (`interface`),
 die technisch Klassentypen (`class`) entsprechen, aber deren
-Member von jeder erbenden Klasse impelementiert werden müssen.
+Member von jeder erbenden Klasse implementiert werden müssen.
 
     interface Animal {
         void makeNoise();
