@@ -1,37 +1,39 @@
 # D Programme lokal ausführen
 
-Eine D Installation beinhaltet unter anderem den D Compiler `dmd`,
+Eine D-Installation beinhaltet unter anderem den D Compiler `dmd`,
 ein Skripttool `rdmd` und den Paketmanager `dub`.
 
-### DMD Compiler
+### DMD 
 
-Der *DMD* Compiler kompiliert D Dateien und erstellt eine Binärdatei.
-Auf der Kommandozeile kann *DMD* mit dem Dateinamen aufgerufen werden:
+DMD (Digital Mars D) ist der Referenz-Compiler von D und wird für den Einstieg
+empfohlen, da er die Spezifikation der Sprache am genauesten implementiert.
+Er übersetzt D-Quelldateien in ausführbaren Maschinencode.
+Auf der Kommandozeile kann DMD mit dem Dateinamen aufgerufen werden:
 
     dmd hallo.d
 
-Es gibt viele Optionen, die das Verhalten des *DMD* Compilers verändern.
+DMD bietet viele Optionen zur Beeinflussung des Kompliliervorgangs.
 Diese sind in der [Online-Dokumentation](https://dlang.org/dmd.html#switches))
 oder per `dmd --help` zu finden.
+Neben DMD gibt es noch weitere [D-Compiler](https://wiki.dlang.org/Compilers).
 
 ### Fliegende Kompilierung mit `rdmd`
 
-Das Programm `rdmd`, welches zusammen mit dem DMD Compiler angeboten wird,
-sorgt dafür, dass alle Abhängigkeiten kompiliert sind und führt die kompilierte
-Datei automatisch aus:
+Das Programm `rdmd`wird zusammen mit DMD angeboten. Es sorgt für die Kompilierung
+aller Abhängigkeiten und führt die erzeugte Datei automatisch aus:
 
     rdmd hallo.d
 
-Auf UNIX System kann das Shebangkommando `#!/usr/bin/env rdmd` als erste Zeile
-in einer D-Quelldatei mit Ausführberechtigungen eingefügt werden und erlaubt eine
-Ausführung der Datei analog zu Skriptsprachen.
+Auf UNIX Systemen ist die Ausführung einer D-Quelldatei analog zu Skriptsprachen möglich.
+Dazu wird der Datei die Ausführberechtigung erteilt und das Shebang-Kommando
+`#!/usr/bin/env rdmd` als erste Zeile eingefügt.
 
 Weitere Informationen sind in der [Online-Dokumentation](https://dlang.org/rdmd.html)
 oder per `rdmd --help` zu finden.
 
 ### Paketmanager `dub`
 
-Der Standardpaketmanager für D ist [`dub`](http://code.dlang.org). Wenn `dub` lokal
+Der Standard-Paketmanager für D ist [`dub`](http://code.dlang.org). Wenn `dub` lokal
 installiert ist, kann ein neues Projekt `hello` mit folgenden Kommando angelegt
 werden:
 
@@ -40,7 +42,7 @@ werden:
 Wenn der Paketmanager per `dub` innerhalb eines Projektes ausgeführt wird,
 werden alle Abhängigkeiten des Projektes herunterladen, kompiliert, gelinkt
 und anschließend wird die Anwendung ausgeführt.
-Das Kommando `dub build` verhält sich ähnlich, aber führt die Anwendung nicht aus.
+Das Kommando `dub build` verhält sich ähnlich, führt aber die Anwendung nicht aus.
 
 Weitere Informationen sind in der [Online-Dokumentation](https://code.dlang.org/docs/commandline)
 oder per `dub --help` zu finden.
