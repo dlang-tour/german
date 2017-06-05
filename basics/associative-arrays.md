@@ -18,12 +18,12 @@ ist, kann der `in`-Ausdruck genutzt werden:
 
 Der `in`-Ausdruck gibt einen Zeiger auf den Wert zurück, falls er 
 gefunden wurde, anderenfalls einen `null`-Zeiger. Also können
-Existenz-Test und Schreiben komfortabel komibiert werden:
+Existenz-Test und Schreiben komfortabel komibiniert werden:
 
     if (auto val = "key1" in arr)
         *val = 20;
 
-Zugriff auf einen nicht existierenden Schlüssel für zu einem 
+Zugriff auf einen nicht existierenden Schlüssel führt zu einem 
 `RangeError` und dem sofortigen Abbruch der Anwendung. Für 
 sicheren Zugriff mit einen Standardwert (engl: default value)
 gibt es `get(key, defaultValue)`.
@@ -67,7 +67,7 @@ int[string] wordCount(string text)
     foreach(word; splitter(text.toLower(), " "))
     {
         // Inkrementiere Wortzähler 
-        // falls Wort gefunden wurde.
+        // falls ein Wort gefunden wurde.
         // Integer-Standartwert ist 0.
         words[word]++;
     }
