@@ -15,7 +15,7 @@ Eine Funktion kann auch Parameter einer Funktion sein:
 `doer` kann wie jede andere normale Funktion aufgerufen 
 werden.
 
-### Lokale Functionen mit Kontext
+### Lokale Funktionen mit Kontext
 
 Das obige Beispiel nutzt den `function`-Typ, der ein Zeiger
 auf eine globale Funktion ist. Sobald auf eine Memberfunktion
@@ -35,7 +35,7 @@ Heap-Bereich
         void local() {
             writeln("local");
         }
-        auto f = &local; // f is of type delegate()
+        auto f = &local; // f ist vom Typ delegate
     }
 
 Die obige Funktion `doSomething` mit einem `delegate`-Parameter
@@ -72,7 +72,7 @@ wobei `a` als erstes und `b` als zweites Argument dient.
 
 ### Weiterführende Quellen
 
-- [Delegate specification](https://dlang.org/spec/function.html#closures)
+- [Spezifikation: Delegates](https://dlang.org/spec/function.html#closures)
 
 ## {SourceCode}
 
@@ -125,6 +125,6 @@ void main()
         typeof(func).stringof, "!");
 
     // delegate 'func' aufrufen
-    writeln("result: ", func(a, b));
+    writeln("Ergebnis: ", func(a, b));
 }
 ```
