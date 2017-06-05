@@ -3,7 +3,7 @@
 {{#img-right}}dman-teacher-foreach.jpg{{/img-right}}
 
 Mit der `foreach`-Schleife besitzt D ein Konstrukt, das 
-Iterationen besser lesbar und weinger fehlerträchtig macht.
+Iterationen besser lesbar und weniger fehlerträchtig macht.
 
 ### Elementweise Iteration
 
@@ -14,9 +14,8 @@ Ein gegebenes Array `arr` vom Typ `int[]` kann mithilfe der
         writeln(e);
     }
 
-Das erste Feld der `foreach`-Definition ist der Name der in der 
-Schleifen-Iteration benutzte Variable. Ihr Typ wird automatisch
-abgeleitet:
+Das erste Feld der `foreach`-Definition ist der Name der 
+Schleifenvariable. Ihr Typ wird automatisch abgeleitet:
 
     foreach (e; arr) {
         // typeof(e) == int
@@ -24,16 +23,16 @@ abgeleitet:
     }
 
 Das zweite Feld muss ein Array sein - oder ein spezielles 
-iterierbares Objekt, das **Range** genannt wird. Es wird im 
-nächsten Abschnitt behandelt. 
+iterierbares Objekt, das **Range** genannt wird. Die Details 
+werden im [nächsten Abschnitt](basics/ranges) genauer behandelt.
 
-### Zugriff über Referenz
+### Zugriff über eine Referenz
 
 Elemente des Arrays oder der Range werden während des Iterierens
-kopiert. Für Basistypen ist die akzeptabel, für große Typen mag
+kopiert. Für Basistypen ist dies akzeptabel, für große Typen kann
 das aber ein Problem darstellen. Um das Kopieren zu verhindern,
-oder um die Elemente *in-place* zu ändern, kann `ref` verwendet 
-werden:
+oder um die Elemente *in-place* (direkt in ihren Speicherzellen) 
+zu ändern, kann `ref` verwendet werden:
 
     foreach (ref e; arr) {
         e = 10; // Wert in-place überschreiben
