@@ -43,7 +43,7 @@ würde so aussehen:
 
     void doSomething(int delegate(int,int) doer);
 
-`delegate`- und `function`-Objekte düfen nicht gemischt werden. 
+`delegate`- und `function`-Objekte können nicht gemischt werden. 
 Daher konvertiert die Standardfunktion
 [`std.functional.toDelegate`](https://dlang.org/phobos/std_functional.html#.toDelegate)
 eine `function` in ein `delegate`.
@@ -62,7 +62,7 @@ einzeilige _Lambdafunktionen_.
     auto f = (int lhs, int rhs) => lhs + rhs; 
 
 Auch besteht die Möglichkeit, Strings als Template-Argumente an
-an funktionale Teile der D-Standardbibliothek zu nutzen. Dies erlaubt
+funktionale Teile der D-Standardbibliothek zu nutzen. Dies erlaubt
 z.B. eine komfortable Art der Definition einer Reduce-Funktion:
 
     [1, 2, 3].reduce!`a + b`; // 6
