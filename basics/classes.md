@@ -8,17 +8,17 @@ Jeder `class`-Typ erbt implizit von [`Object`](https://dlang.org/phobos/object.h
     class Foo { } // inherits from Object
     class Bar: Foo { } // Bar is a Foo too
 
-In D werden Klassen generell mit `new` auf dem Heap instantiiert:
+In D werden Klassen generell mit `new` auf dem Heap instanziiert:
 
     auto bar = new Bar;
 
-Klassenobjekte dind immer Referenztypen und werden, anders als `struct`, 
-nicht als Wert (engl.: by value) kopiert.
+Klassenobjekte sind immer Referenztypen und werden, anders als `struct`, 
+nicht wert-weise (engl.: by value) kopiert.
 
     Bar bar = foo; // bar points to foo
 
-Der Garbage Collector stellt sicher, dass der Speicher freigegeben wird, 
-sobald keine Referenzen auf das Objekt mehr existieren.
+Der Garbage Collector stellt sicher, dass der genutzte Speicher wieder
+freigegeben wird, sobald keine Referenzen auf das Objekt mehr existieren.
 
 ### Vererbung
 
@@ -47,8 +47,8 @@ dass sie nicht instanziiert wird
 Der Inhalt von Klassenobjekten wird mithilfe der Operatoren `==` and `!=` 
 verglichen. Daher ist der Vergleich gegen `null` nicht zulässig, da `null`
 keinen Inhalt besitzt.
-Das `is` vergleicht auf Identität. Um auf Nicht-Identität zu prüfen, sollte
-`e1 !is e2` verwendet werden.
+Das `is` vergleicht die Identität von Objekten. Um auf Nicht-Identität zu prüfen, 
+sollte `e1 !is e2` verwendet werden.
 
 ```d
 MyClass c;
@@ -58,15 +58,15 @@ if (c is null)  // ok
     ...
 ```
 
-Bei `struct`-Oobjekten werden alle Bits verglichen, für andere Operanden-Typen
+Bei `struct`-Objekten werden alle Bits verglichen, für andere Operanden-Typen
 ist Identität gleichwertig mit Gleichheit.
 
 ### Weiterführende Quellen
 
-- [Classes in _Programming in D_](http://ddili.org/ders/d.en/class.html)
-- [Inheritance in _Programming in D_](http://ddili.org/ders/d.en/inheritance.html)
-- [Object class in _Programming in D_](http://ddili.org/ders/d.en/object.html)
-- [Classes in D spec](https://dlang.org/spec/class.html)
+- [Klassen in _Programming in D_](http://ddili.org/ders/d.en/class.html)
+- [Vererbung in _Programming in D_](http://ddili.org/ders/d.en/inheritance.html)
+- [Objekte in _Programming in D_](http://ddili.org/ders/d.en/object.html)
+- [Spezifikation: Klassen in D](https://dlang.org/spec/class.html)
 
 ## {SourceCode}
 
@@ -86,13 +86,13 @@ class Any {
         this.type = type;
     }
 
-    // public ist übrigens implizit
+    // public ist implizit
     final string getType() {
         return type;
     }
 
-    // Das hier muss implementiert 
-    // werden!
+    // Diese Fuktion muss  
+    // implementiert werden!
     abstract string convertToString();
 }
 
@@ -115,7 +115,8 @@ class Integer: Any {
 
     override string convertToString() {
         import std.conv : to;
-        // The swiss army knife of conversion.
+        // Das Schweizer-Taschenmesser 
+        // der Konvertierung...
         return to!string(number);
     }
 }
