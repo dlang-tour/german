@@ -8,7 +8,7 @@ Member von jeder erbenden Klasse implementiert werden müssen.
         void makeNoise();
     }
 
-Die `makeNoise`-Memberfunktion muss von `Dog` impelementiert 
+Die `makeNoise`-Memberfunktion muss von `Dog` implementiert 
 werden, weil es von dem  `Animal`-Interface erbt.
 Letztlich verhält sich `makeNoise` wie eine `abstract`-Memberfunktion
 einer Basisklasse.
