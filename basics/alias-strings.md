@@ -14,7 +14,7 @@ Willkommen UTF-8 `string`!
 
 Aufgrund ihrer Unveränderlichkeit (engl.: immutablility) können 
 `string`s über verschiedene Threads hinweg geteilt werden. Da `string` 
-ein Slice ist, können Teile ohne jede Speicher-Allokation entnommnen werden.
+ein Slice ist, können Teile jede Speicher-Allokationen entnommnen werden.
 Die Standard-Funktion `std.algorithm.splitter`](https://dlang.org/phobos/std_algorithm_iteration.html#.splitter) 
 z.B. teilt einen String anhand von Zeilensprüngen (newline-Zeichen) 
 ohne jede Speicher-Allokation.
