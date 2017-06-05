@@ -1,6 +1,6 @@
 # Exceptions
 
-Dieser Abschnitt befasst sich nur mit User-`Exceptions` - System-`Error` sind 
+Dieser Abschnitt befasst sich nur mit Benutzer-`Exceptions` - System-`Error` sind 
 normalerweise fatal und sollten __nie__ auffangen werden.
 
 ### Exceptions auffangen
@@ -22,7 +22,7 @@ catch (FileException e)
 
 Die Verwendung mehrerer `catch`-Blocks ist möglich. Ein abschließender
 `finally`-Block wird unabhängig von einem Fehlerauftreten ausgeführt.
-Exceptions werden mit`throw` geworfen.
+Exceptions werden mit `throw` geworfen.
 
 ```d
 try
@@ -43,7 +43,7 @@ finally
 }
 ```
 
-Beachte: Die Verwendung eines [scope guards](gems/scope-guards) ist 
+Beachte: Die Verwendung eines [scope guards](https://tour.dlang.org/tour/en/gems/scope-guards) ist 
 in der Regel die bessere Lösung verglichen mit dem `try-finally`-Muster.
 
 ### Benutzerdefinierte Exceptions
@@ -89,14 +89,14 @@ genutzt werden kann, aber `Exceptions` anstatt von `AssertError` wirft.
 ```d
 import std.exception : enforce;
 float magic = 1_000_000_000;
-enforce(magic + 42 - magic == 42, "Floating-point math is fun");
+enforce(magic + 42 - magic == 42, "Floatingpoint-Arithmetik macht Spaß!");
 
 // throw custom exceptions
-enforce!StringException('a' != 'A', "Case-sensitive algorithm");
+enforce!StringException('a' != 'A', "Groß- / Kleinschreibung beachten!");
 ```
 
 `std.exception` bietet darüberhinaus die Möglichkeit, die Behandlung 
-nichtfataler Fehler mit `collect` zu verkürzen. 
+nicht-fataler Fehler mit `collect` zu verkürzen. 
 
 ```d
 import std.exception : collectException;
