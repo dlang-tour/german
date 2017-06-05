@@ -2,7 +2,7 @@
 
 D besitzt integrierte *Assoziative Arrays* (auch als Hashtabelle 
 oder Hashmap bekannt). Ein Assoziatives Array mit ein Schlüssel 
-vom Typ `string` und einem Wert vomTyp `int` wird folgendermaßen 
+des Typs `string` und einem Wert des Typs `int` wird folgendermaßen 
 erzeugt:
 
     int[string] arr;
