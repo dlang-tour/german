@@ -19,7 +19,7 @@ ist, kann der `in`-Ausdruck genutzt werden:
 
 Der `in`-Ausdruck gibt einen Zeiger auf den Wert zurück, falls er 
 gefunden wurde, anderenfalls einen `null`-Zeiger. Also können
-Existenz-Test und Schreiben komfortabel komibiniert werden:
+Existenz-Test und Schreiben komfortabel kombiniert werden:
 
     if (auto val = "key1" in arr)
         *val = 20;
