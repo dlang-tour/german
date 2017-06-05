@@ -12,8 +12,9 @@ In D werden Klassen generell mit `new` auf dem Heap instanziiert:
 
     auto bar = new Bar;
 
-Klassenobjekte sind immer Referenztypen und werden, anders als `struct`, 
-nicht wert-weise (engl.: by value) kopiert.
+Klassenobjekte sind immer Referenztypen. Anders als `struct`s, 
+die beim Aufruf kopiert werden (engl: call by value), werden Objekte
+nur als Referenz weitergereicht (engl.: call by reference).
 
     Bar bar = foo; // bar zeigt auf foo
 
