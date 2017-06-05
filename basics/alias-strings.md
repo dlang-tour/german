@@ -54,7 +54,7 @@ Diese kleine Beispiel verdeutlicht die unterschiedlichen Interpretationen:
     import std.uni : byGrapheme;
     writeln(s.byGrapheme.walkLength); // 1
 
-Hier ist die tatsächliche Länge des Arrays `s` ist 3, weil es 3 Code Units
+Hier ist die tatsächliche Länge des Arrays `s` 3, weil es 3 Code Units
 enthält: `0x41`, `0x03` and `0x08`. Von diesen definieren zwei einen einzelnen
 Code Point (kombinierende diakritische Zeichen) und 
 [`walkLength`](https://dlang.org/library/std/range/primitives/walk_length.html)
