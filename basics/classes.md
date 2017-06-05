@@ -97,7 +97,7 @@ class Any {
 }
 
 class Integer: Any {
-    // als Integer betrachtet
+    // nur von dieser Klasse sichtbar
     private {
         int number;
     }
