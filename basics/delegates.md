@@ -1,4 +1,4 @@
-# Delegate
+# Delegates
 
 ### Funktionen als Argumente
 
