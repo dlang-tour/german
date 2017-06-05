@@ -16,7 +16,7 @@ solange eine bestimmte Bedingung erfüllt ist:
 Die `do .. while`-Schleife führt den gegebenen Code-Block aus,
 solange eine bestimmte Bedingung erfüllt ist. Aber im Gegensatz
 zur `while`-Schleife wird der Code-Block ausgeführt, bevor 
-die Bedingung das erste Mal abgeprüft wird.
+die Bedingung das erste Mal geprüft wird.
 
     do {
         foo();
