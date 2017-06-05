@@ -5,8 +5,8 @@ Java or C++.
 
 Jeder `class`-Typ erbt implizit von [`Object`](https://dlang.org/phobos/object.html).
 
-    class Foo { } // inherits from Object
-    class Bar: Foo { } // Bar is a Foo too
+    class Foo { } // erbt von Object
+    class Bar: Foo { } // Bar ist auch ein Foo
 
 In D werden Klassen generell mit `new` auf dem Heap instanziiert:
 
@@ -15,7 +15,7 @@ In D werden Klassen generell mit `new` auf dem Heap instanziiert:
 Klassenobjekte sind immer Referenztypen und werden, anders als `struct`, 
 nicht wert-weise (engl.: by value) kopiert.
 
-    Bar bar = foo; // bar points to foo
+    Bar bar = foo; // bar zeigt auf foo
 
 Der Garbage Collector stellt sicher, dass der genutzte Speicher wieder
 freigegeben wird, sobald keine Referenzen auf das Objekt mehr existieren.
@@ -52,9 +52,9 @@ sollte `e1 !is e2` verwendet werden.
 
 ```d
 MyClass c;
-if (c == null)  // error
+if (c == null)  // Fehler
     ...
-if (c is null)  // ok
+if (c is null)  // Ok
     ...
 ```
 
@@ -144,7 +144,7 @@ void main()
         ];
 
     foreach (any; anys) {
-        writeln("any's type = ", any.getType());
+        writeln("Typ von any = ", any.getType());
         writeln("Inhalt = ",
             any.convertToString());
     }
