@@ -1,12 +1,12 @@
 # Alias & Strings
 
-Nun da uns Arrays bekannt sind und wir mit den Basis-Typen 
+Nun, da uns Arrays bekannt sind und wir mit den Basis-Typen 
 und dem Schlüsselwort`immutable` beschäftigt haben, wird es
 Zeit zwei neue Konstrukte in einer Zeile einzuführen:
 
     alias string = immutable(char)[];
     
-Der Begriff `string` wrid durch das Schlüsselwort `alias` definiert, 
+Der Begriff `string` wird durch das Schlüsselwort `alias` definiert, 
 und zwar als Slice bestehend aus `immutable(char)`s.
 Das bedeutet, sobald ein `string` konstruiert wurde, wird sich sein 
 Inhalt nie mehr ändern. Und damit sind wir bei dem zweiten Konstrukt:
@@ -14,9 +14,10 @@ Willkommen UTF-8 `string`!
 
 Aufgrund ihrer Unveränderlichkeit (engl.: immutablility) können 
 `string`s über verschiedene Threads hinweg geteilt werden. Da `string` 
-ein Slice ist, können Teile ohne Speicher-Allokation entnommnen werden.
-Die Standard-Funktion `std.algorithm.splitter` z.B. teilt einen String 
-anhand von Zeilensprüngen (newline-Zeichen) ohne jede Speicher-Allokation.
+ein Slice ist, können Teile ohne jede Speicher-Allokation entnommnen werden.
+Die Standard-Funktion `std.algorithm.splitter`](https://dlang.org/phobos/std_algorithm_iteration.html#.splitter) 
+z.B. teilt einen String anhand von Zeilensprüngen (newline-Zeichen) 
+ohne jede Speicher-Allokation.
 
 Neben dem  UTF-8 `string` gibt es zwei weitere Typen:
 
@@ -34,7 +35,7 @@ einfach ineinander konvertiert werden:
 Ein einfacher `string` ist als ein Array aus 8-bit Unicode [code
 units](http://unicode.org/glossary/#code_unit) definiert. Alle Array-Operationen 
 können auf Strings angewandt werden, aber dies wird nur auf der Code-Unit-Ebene 
-funktionieren, nicht aber auf Zeichen-Ebene! Gleichzeitig interpretiert die
+funktionieren, nicht aber auf Zeichen-Ebene! Gleichzeitig interpretieren die
 Algorithmen der Standard-Bibliothek Strings als Sequenzen aus 
 [Code Points](http://unicode.org/glossary/#code_point). Darüber hinaus gibt es
 die Option der Behandlung der Sequenz als
@@ -63,9 +64,9 @@ Berechnung, dass sich diese beiden Code Points zu einem einzigen angezeigten
 Zeichen zusammensetzen.
 Korrekte Unicode-Verarbeitung kann sehr kompliziert sein. Trotzdem dürfen 
 D-Entwickler String-Variablen als magische Byte-Arrays betrachten und sich darauf
-verlassen, dass die Standard-Bibliothek "schon das Richtige tut". 
-Die meiste Unicode-Funktionalität wird durch das Modul 
-[`std.uni`](https://dlang.org/library/std/uni.html) bereitgestellt, grundlegenderes
+verlassen, dass die Standard-Bibliothek "das Richtige tut". 
+Die meiste Unicode-Funktionalität wird in dem Modul 
+[`std.uni`](https://dlang.org/library/std/uni.html) bereitgestellt, Grundlegenderes
 in [`std.utf`](https://dlang.org/library/std/utf.html).
 
 ### Mehrzeilige Strings
