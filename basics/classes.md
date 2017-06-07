@@ -145,7 +145,7 @@ void main()
         ];
 
     foreach (any; anys) {
-        writeln("Typ von any = ", any.getType());
+        writeln("Typ von any: ", any.getType());
         writeln("Inhalt = ",
             any.convertToString());
     }
