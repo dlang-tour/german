@@ -28,7 +28,7 @@ ein Property verwendet werden:
     import std.uni : toLower;
     "D rockt!".toLower; // "d rockt!"
 
-UFCS ist besonders im Umgang mit *Ranges* wichtig, wo mehrere
+UFCS ist besonders beim Umgang mit *Ranges* wichtig, wo mehrere
 Algorithmen zu komplexen Operationen zusammengefügt werden
 können, und dies mit klaren und wartbaren Code:
 
