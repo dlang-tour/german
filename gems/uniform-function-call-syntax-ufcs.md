@@ -1,42 +1,43 @@
 # Uniform Function Call Syntax (UFCS)
 
-**UFCS** is a key feature of D and enables code reusability
-and scalability through well-defined encapsulation.
+**UFCS** (dt. etwa: einheitliche Funktionsaufruf-Syntax) ist 
+ein Hauptmerkmal von D, dass Wiederverwendbarkeit und 
+Skalierbarkeit durch klar definierte Kapselung ermöglicht.
 
-UFCS allows that any call to a free function
-`fun(a)` can be written as member function call `a.fun()`.
+UCFS erlaubt es, den Aufruf der freien Funktion `fun(a)` als
+Memberfunktionsaufruf `a.fun()` zu schreiben.
 
-If `a.fun()` is seen by the compiler and the type doesn't
-have a member function called `fun()`, it tries to find a
-global functions whose first parameter matches that of `a`.
+Wenn `a.fun()` vom Compiler gesehen wird, und der Typ von `a`
+keine Memberfunktion `fun()` besitzt, wird versucht eine 
+globale Funktion zu finden, deren erster Parameter dem von `a`
+entspricht.
 
-This feature is especially useful when chaining complex
-function calls. Instead of writing
+Dieses Feature ist besonders bei der Verkettung von 
+Funktionsaufrufen nützlich.
 
     foo(bar(a))
 
-It is possible to write
+kann dank UFCS auch so geschrieben werden:
 
     a.bar().foo()
 
-Moreover in D it is not necessary to use parenthesis for functions
-without arguments, which means that _any_ function can be used
-like a property:
+Ferner können in D für Funktionen ohne Argumente die runden 
+Klammern weggelassen werden. Somit kann _jede_ Funktion wie 
+ein Property verwendet werden:
 
     import std.uni : toLower;
-    "D rocks".toLower; // "d rocks"
+    "D rockt!".toLower; // "d rockt!"
 
-UFCS is especially important when dealing with
-*ranges* where several algorithms can be put
-together to perform complex operations, still allowing
-to write clear and manageable code.
+UFCS ist besonders im Umgang mit *Ranges* wichtig, wo mehrere
+Algorithmen zu komplexen Operationen zusammengefügt werden
+können, und dies mit klaren und wartbaren Code:
 
     import std.algorithm : group;
     import std.range : chain, retro, front, retro;
     [1, 2].chain([3, 4]).retro; // 4, 3, 2, 1
     [1, 1, 2, 2, 2].group.dropOne.front; // tuple(2, 3u)
 
-### In-depth
+### Weiterführende Quellen
 
 - [UFCS in _Programming in D_](http://ddili.org/ders/d.en/ufcs.html)
 - [_Uniform Function Call Syntax_](http://www.drdobbs.com/cpp/uniform-function-call-syntax/232700394) by Walter Bright
@@ -51,14 +52,14 @@ import std.range : iota;
 
 void main()
 {
-    "Hello, %s".writefln("World");
+    "Hallo, %s".writefln("Welt");
 
-    10.iota // returns numbers from 0 to 9
-      // filter for even numbers
+    10.iota // Zahlen von 0 bis 9
+      // Filter für gerade Zahlen
       .filter!(a => a % 2 == 0)
-      .writeln(); // writes them to stdout
+      .writeln(); // Ausgabe in stdout
 
-    // Traditional style:
+    // Traditioneller Stil:
     writeln(filter!(a => a % 2 == 0)
     			   (iota(10)));
 }
