@@ -1,27 +1,28 @@
-# Scope guards
+# Scope Guards
 
-Scope guards allow executing statements at certain conditions
-if the current block is left:
+Scope Guards (dt. etwa: Bereichswächter) erlauben die Ausführung
+von Anweisungen unter bestimmten Bedingungen, wenn der aktuelle
+Codeblock verlassen wird:
 
-* `scope(exit)` will always call the statements
-* `scope(success)` statements are called when no exceptions
-  have been thrown
-* `scope(failure)` denotes statements that will be called when
-  an exception has been thrown before the block's end
+* `scope(exit)` wird die Anweisungen immer ausführen
+* `scope(success)` Anweisungen werden ausgeführt, wenn keine 
+  Exception geworfen wurde
+* `scope(failure)` Anweisungen werden ausgeführt, wenn vor
+  dem Blockende eine Exception geworfen wurde
 
-Using scope guards makes code much cleaner and allows to place
-resource allocation and clean up code next to each other.
-These little helpers also improve safety because they make sure
-certain cleanup code is *always* called independent of which paths
-are actually taken at runtime.
+Die Verwendung von Scope Guards erhöht die Code-Klarheit, weil so
+Ressourcenallokation und Aufräum-Code nebeneinander stehen können.
+Auch kann sichergestellt werden, dass bestimmter Code *immer*
+ausgeführt wird, unabhängig von dem zur Laufzeit ausgeführten Pfad.
 
-The D `scope` feature effectively replaces the RAII idiom
-used in C++ which often leads to special scope guards objects
-for special resources.
+D's `scope` bietet einen effektiven Ersatz für das in C++ 
+verwendete RAII-Idiom, dass oft zur Implementierung spezieller Scope 
+Guard-Objekte für spezielle Ressourcen führt.
 
-Scope guards are called in the reverse order they are defined.
+Scope Guards werden in umgekehrter Reihenfolge ausgeführt, wie sie
+definiert wurden.
 
-### In-depth
+### Weiterführende Quellen
 
 - [`scope` in _Programming in D_](http://ddili.org/ders/d.en/scope.html)
 
@@ -38,18 +39,18 @@ void main()
     {
         writeln("\t<head>");
         scope(exit) writeln("\t</head>");
-        "\t<title>%s</title>".writefln("Hello");
-    } // the scope(exit) on the previous line
-      // is executed here
+        "\t<title>%s</title>".writefln("Hallo");
+    } // scope(exit) der vorigen Zeile
+      // wird hier ausgeführt
 
     writeln("\t<body>");
     scope(exit) writeln("\t</body>");
 
-    writeln("\t\t<h1>Hello World!</h1>");
+    writeln("\t\t<h1>Hallo Welt!</h1>");
 
-    // scope guards allow placing allocations
-    // and their clean up code next to each
-    // other
+    // Scope Guards erlauben es, Allokationen
+    // und zugehöriges Aufräumen nebeneibander
+    // zu schreiben
     import core.stdc.stdlib : free, malloc;
     int* p = cast(int*) malloc(int.sizeof);
     scope(exit) free(p);
