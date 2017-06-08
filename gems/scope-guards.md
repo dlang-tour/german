@@ -10,8 +10,8 @@ Codeblock verlassen wird:
 * `scope(failure)` Anweisungen werden ausgeführt, wenn vor
   dem Blockende eine Exception geworfen wurde
 
-Die Verwendung von Scope Guards erhöht die Code-Klarheit, weil so
-Ressourcenallokation und Aufräum-Code nebeneinander stehen können.
+Die Verwendung von Scope Guards erhöht die Klarheit des Quellcodes, weil 
+so Ressourcenallokation und Aufräum-Code nebeneinander stehen können.
 Auch kann sichergestellt werden, dass bestimmter Code *immer*
 ausgeführt wird, unabhängig von dem zur Laufzeit ausgeführten Pfad.
 
