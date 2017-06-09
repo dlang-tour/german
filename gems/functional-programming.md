@@ -6,7 +6,7 @@ funktionalem Stil.
 In D kann eine Funktion als `pure` (dt.: rein, pur) deklariert
 werden, und so anzeigen, dass für eine Eingabe eine Ausgabe 
 generiert wird, die nur von dieser abhängig ist.
-Reine (`pure`) Funktionen dürfen weder auf globale veränderliche Zustände  
+Reine (`pure`) Funktionen dürfen weder auf globale veränderliche Zustände
 zugreifen noch diese verändern und dürfen selbst nur Funktionen 
 aufrufen, die ihrerseits als `pure` markiert sind.
 
