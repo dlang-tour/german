@@ -1,11 +1,12 @@
-# Unittesting
+# Unittests
 
-Tests are an excellent way to ensure stable, bug-free applications.
-They serve as an interactive documentation and allow to modify
-code without fear to break functionality. D provides a convenient
-and native syntax for `unittest` block as part of the D language.
-Anywhere in a D module `unittest` blocks can be used to test
-functionality of the source code.
+Tests sind ein exzellenter Weg der Gewährleistung von Stabilität 
+und Fehlerfreiheit in der Anwendungsentwicklung. Sie dienen als 
+interaktive Dokumentation und erlauben Codeveränderungen ohne 
+Angst davor, bereits bestehende Funktionaliät zu zertören. 
+D bietet mit `unittest`-Blöcken eine bequeme, native Syntax, die 
+überall in einem D-Modul eingesetzt werden kann, um 
+Quellcode-Funtionalität zu prüfen.
 
     // Block for my function
     unittest
@@ -14,8 +15,8 @@ functionality of the source code.
         assert(myAbs(1)  == 1);
     }
 
-This allows straightforward [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
-on demand.
+Dies erlaubt unkomplizierte [testgetriebene Entwicklung](https://en.wikipedia.org/wiki/Test-driven_development)
+auf Abruf.
 
 ### Run & execute `unittest` blocks
 
