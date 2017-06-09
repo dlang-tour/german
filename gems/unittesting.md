@@ -18,41 +18,42 @@ Quellcode-Funtionalität zu prüfen.
 Dies erlaubt unkomplizierte [testgetriebene Entwicklung](https://en.wikipedia.org/wiki/Test-driven_development)
 auf Abruf.
 
-### Run & execute `unittest` blocks
+### Ausführung von `unittest`-Blöcken
 
-`unittest` blocks can contain arbitrary code which is just
-compiled in and run when the command line flag `-unittest`
-is passed to the DMD compiler. DUB also features compiling
-and running unittest through the `dub test` command.
+`unittest`-Blöcke können beliebigen Code enthalten, der 
+mitkompiliert und ausgeführt wird, wenn das DMD-Compiler-Flag
+`-unittest` gesetzt ist. Auch DUB bietet die Kompilierung und
+Ausführung von Unittests mit dem Befehl `dub test`.
 
-### Verify examples with `assert`
+### Funktionsnachweis mittels `assert`
 
-Typically `unittest`s contain `assert` expressions that test
-the functionality of a given function. `unittest` blocks
-are typically located near the definition of a function
-which might be at the top level of the source, or even
-within classes or structs.
+Typischerweise enthalten `unittest`s `assert`-Ausdrücke, die
+die Funktionalität einer gegebenen Funktione sicherstellen.
+`unittest`-Blöcke befinden sich in der Regel in der Nähe der 
+Definition einer Funktion, z.B. am Kopf des Quellcodes oder 
+sogar in Klassen und Strukturen.
 
-### Increasing code coverage
+### Erhöhung der Code-Abdeckung
 
-Unittest are a powerful weapon to ensure bullet-proof applications.
-A common measurement to check how much of a program
-is being covered by tests, is the _code coverage_.
-It is the ratio of executed versus existing lines of code.
-The DMD compiler allows to easily generate code coverage reports
-by adding `-cov`. For every module a `.lst` file, which contains
-detailed statistics, will be generated.
+Unittests sind eine mächtige Waffe für die Entwickung robuster
+Anwendungen. Ein Indikator für den Grad der Überprüfung des Codes
+durch Tests ist die _Code-Abdeckung_ (engl.: code coverage - 
+Verhältnis ausgeführter zu  existierender Codezeilen). 
+Der DMD-Compiler erlaubt eine einfache Berichterstellung der 
+Code-Abdeckung durch Hinzufügen von `-cov`. Damit wird für jedes 
+Modul eine `.lst`-Datei mit detailierten Statistiken erzeugt.
 
-As the compiler is able to infer attributes for templated code
-automatically, it is a common pattern to add annotated unittests
-to ensure such attributes for the tested code:
+Da der Compiler Attribute von Template-Quellcode automatisch 
+ableiten kann, ist es ein gängiges Muster, Unittests mit 
+Annotationen zu versehen, um die Verwendung gewünschter Attribute 
+sicherzustellen:
 
     unittest @safe @nogc nothrow pure
     {
         assert(myAbs() == 1);
     }
 
-### In-depth
+### Weiterführende Quellen
 
 - [Unit Testing in _Programming in D_](http://ddili.org/ders/d.en/unit_testing.html)
 - [Unittesting in D](https://dlang.org/spec/unittest.html)
@@ -71,7 +72,7 @@ struct Vector3 {
         return x*rhs.x + y*rhs.y + z*rhs.z;
     }
 
-    // That's okay!
+    // Das ist ok!
     unittest {
         assert(Vector3(1,0,0).dot(
           Vector3(0,1,0) == 0);
@@ -83,7 +84,7 @@ struct Vector3 {
           x, y, z);
     }
 
-    // .. and that too!
+    // .. und das auch!
     unittest {
         assert(Vector3(1,0,0).toString() ==
           "x:1.0 y:0.0 z:0.0");
@@ -93,21 +94,22 @@ struct Vector3 {
 void main()
 {
     Vector3 vec = Vector3(0,1,0);
-    writeln(`This vector has been tested: `,
+    writeln(`Dieser Vektor wurde getestet: `,
       vec);
 }
-
+123456789012345678901234567890123456789012345678
 /*
-Or just somewhere else.
-Nothing is compiled in and just
-ignored in normal mode. Run dub test
-locally or compile with dmd -unittest
-to actually test your modules.
+Oder irgendwo anders.
+Im Normal-Modus werden Unittests ignoriert.
+Rufe 'dub test' auf oder kompiliere
+mit dmd -unittest, um Unittests tatsächlich
+auszuführen"
 */
 unittest {
     Vector3 vec;
-    // .init a special built-in property that
-    // returns the initial value of type.
+    // .init ist eine spezielles 
+    // Property in D, die den
+    // Initialwert des Typs angibt.
     assert(vec.x == double.init);
 }
 ```
