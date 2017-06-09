@@ -18,7 +18,7 @@ Bibliotheken wie [Pegged](https://github.com/PhilippeSigaud/Pegged),
 die einen Grammatik-Parser aus einer als String definierten 
 Grammatik im Quellcode erzeugt.
 
-### In-depth
+### Weiterführende Quellen
 
 - [Mixins in D](https://dlang.org/spec/template-mixin.html)
 
