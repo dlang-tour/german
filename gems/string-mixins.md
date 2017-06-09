@@ -1,23 +1,22 @@
 # String Mixins
 
-The `mixin` expression takes an arbitrary string and
-compiles it and generates instructions accordingly. It
-is purely a **compile-time** mechanism and can only work
-on strings available during compilation - a comparison
-with the evil JavaScript `eval` would be highly unfair.
+Der `mixin`-Ausdruck nimmt einen beliebigen String, 
+kompiliert diesen und generiert dementsprechende 
+Befehle. Dies ist ein reiner **Kompilierzeit**-Mechanismus,
+der nur mit Strings arbeitet, die während der Kompilierung
+zur Verfügung stehen.
 
     mixin("int b = 5");
-    assert(b == 5); // compiles just fine
+    assert(b == 5); // wird einwandfrei kompiliert
 
-`mixin` also works with strings that are constructed
-dynamically as long as the available information doesn't
-depend on runtime values.
+`mixin` arbeitet auch mit Strings, die dynamisch erzeugt werden,
+sofern die benötigten Informationen nicht auf Laufzeit-Werten
+beruhen.
 
-`mixin` together with **CTFE** from the next section allows
-writing impressive libraries like [Pegged](https://github.com/PhilippeSigaud/Pegged)
-which generates
-a grammar parser from a grammar defined as a string
-in the source code.
+Die Kombination von `mixin` und **CTFE** erlauben beeindruckende
+Bibliotheken wie [Pegged](https://github.com/PhilippeSigaud/Pegged),
+die einen Grammatik-Parser aus einer als String definierten 
+Grammatik im Quellcode erzeugt.
 
 ### In-depth
 
@@ -35,11 +34,11 @@ auto calculate(string op, T)(T lhs, T rhs)
 
 void main()
 {
-    // A whole new approach to Hello World!
+    // 'Hello World' mal anders!
     mixin(`writeln("Hello World");`);
 
-    // pass the operation to perform as a
-    // template parameter.
+    // Reiche den gewünschten Operator 
+    // als Template-Parameter weiter.
     writeln("5 + 12 = ", calculate!"+"(5,12));
     writeln("10 - 8 = ", calculate!"-"(10,8));
     writeln("8 * 8 = ", calculate!"*"(8,8));
