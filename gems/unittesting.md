@@ -30,8 +30,7 @@ Ausführung von Unittests mit dem Befehl `dub test`.
 Typischerweise enthalten `unittest`s `assert`-Ausdrücke, die
 die Funktionalität einer gegebenen Funktione sicherstellen.
 `unittest`-Blöcke befinden sich in der Regel in der Nähe der 
-Definition einer Funktion, z.B. am Kopf des Quellcodes oder 
-sogar in Klassen und Strukturen.
+einer Funktionsdefinition oder sogar in Klassen und Strukturen.
 
 ### Erhöhung der Code-Abdeckung
 
