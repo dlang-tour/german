@@ -21,7 +21,7 @@ kann dank UFCS auch so geschrieben werden:
 
     a.bar().foo()
 
-Ferner können in D für Funktionen ohne Argumente die runden 
+Ferner können in D bei Funktionen ohne Argumente die runden 
 Klammern weggelassen werden. Somit kann _jede_ Funktion wie 
 ein Property verwendet werden:
 
