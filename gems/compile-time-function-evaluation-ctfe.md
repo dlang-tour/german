@@ -1,51 +1,51 @@
 # Compile Time Function Evaluation (CTFE)
 
-CTFE is a mechanism which allows the compiler to execute
-functions at **compile time**. There is no special set of the D
-language necessary to use this feature - whenever
-a function just depends on compile time known values
-the D compiler might decide to interpret
-it during compilation.
+CTFE (dt.: Funktionsauswertung zur Kompilierzeit) ist ein 
+Mechanismus, der dem Compiler die Ausführung von Funktionen
+zur **Kompilierzeit** ermöglicht. Für den Gebrauch dieses
+Features sind es keine speziellen D-Befehle nötig - 
+immer, wenn eine Funktion nur auf zur Kompilierzeit 
+bekannten Werten beruht, kann der D-Compiler die 
+Entscheidung treffen, die Funktion schon während der 
+Kompilierung auszuwerten.
 
-    // result will be calculated at compile
-    // time. Check the machine code, it won't
-    // contain a function call!
+    // Ergebnis wird zur Kompilierzeit 
+    // berechnet. Der erzeugte Machinencode 
+    // enthält keinen Funktionsaufruf!
     static val = sqrt(50);
 
-Keywords like `static`, `immutable` or `enum`
-instruct the compiler to use CTFE whenever possible.
-The great thing about this technique is that
-functions don't need to be rewritten to use
-it, and the same code can perfectly be shared:
+Schlüsselwörter wie `static`, `immutable` oder `enum`
+weisen den Compiler an, CTFE zu nutzen, wann immer 
+dies möglich ist. Großartig daran ist, dass die Funktion 
+nicht neu geschrieben werden muss:
 
-    int n = doSomeRuntimeStuff();
-    // same function as above but this
-    // time it is just called the classical
-    // run-time way.
+    int n = berechneZurLaufzeit();
+    // Die gleiche Funktion wie oben, aber 
+    // dieses Mal klassisch zur Laufzeit
+    // ausgeführt.
     auto val = sqrt(n);
 
-One prominent example in D is the [std.regex](https://dlang.org/phobos/std_regex.html)
-library. It provides at type `ctRegex` type which uses
-*string mixins* and CTFE to generate a highly optimized
-regular expression automaton that is generated during
-compilation. The same code base is re-used for
-the run-time version `regex` that allows to compile
-regular expressions only available at run-time.
+Ein herausragendes Beispiel in D ist die 
+[std.regex](https://dlang.org/phobos/std_regex.html)-Bibliothek.
+Sie bietet einen `ctRegex`-Typ (ct: compile time), der 
+*String Mixins* und CTFE nutzt, um während der Kompilierung
+hochoptimierte Reguläre Ausdrücke zu generieren. 
+Die Laufzeitvariante `regex` nutzt die gleiche Codebasis.
 
     auto ctr = ctRegex!(`^.*/([^/]+)/?$`);
     auto tr = regex(`^.*/([^/]+)/?$`);
-    // ctr and tr can be used interchangely
-    // but ctr will be faster!
+    // ctr und tr liefern das gleiche Ergebnis,
+    // nur dass ctr schneller ist!
 
-Not all language features are available
-during CTFE but the supported feature set is increased
-with every release of the compiler.
+Nicht alle Sprachfeatures stehen für CTFE zur Verfügung. 
+Allerdings wird die Menge derunterstützten Features ständig 
+erweitert.
 
-### In-depth
+### Weiterführende Quellen
 
-- [Introduction to regular expressions in D](https://dlang.org/regular-expression.html)
+- [Einführung in Reguläre Ausdrücke in D](https://dlang.org/regular-expression.html)
 - [std.regex](https://dlang.org/phobos/std_regex.html)
-- [Conditional compilation](https://dlang.org/spec/version.html)
+- [Bedingte Kompilierung](https://dlang.org/spec/version.html)
 
 ## {SourceCode}
 
@@ -53,21 +53,20 @@ with every release of the compiler.
 import std.stdio : writeln;
 
 /**
-Calculate the square root of a number
-using Newton's approximation scheme.
-
+Berechnet die Quadratwurzel einer Zahl
+mithilfe des Newton'schen Approximationsschemas.
 Params:
-    x = number to be squared
+    x = Wurzelargument
     
-Returns: square root of x 
+Returns: Quadratwurzel von x 
 */
 auto sqrt(T)(T x) {
-    // our epsilon when to stop the
-    // approximation because we think the change
-    // isn't worth another iteration.
+    // Epsilon ist Abbruchgrenze der
+    // Approximation, ab der eine
+    // weitere Iteration unnötig ist.
     enum GoodEnough = 0.01;
     import std.math : abs;
-    // choose a good starting value.
+    // Wähle einen guten Startwert!
     T z = x*x, old = 0;
     int iter;
     while (abs(z - old) > GoodEnough) {
@@ -80,10 +79,10 @@ auto sqrt(T)(T x) {
 
 void main() {
     double n = 4.0;
-    writeln("The sqrt of runtime 4 = ",
+    writeln("Die Wurzel von 4 = ",
         sqrt(n));
     static cn = sqrt(4.0);
-    writeln("The sqrt of compile time 4 = ",
+    writeln("Die Wurzel von Kompilierzeit 4 = ",
         cn);
 }
 ```
