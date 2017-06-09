@@ -1,46 +1,46 @@
-# Functional programming
+# Funktionale Programmierung
 
-D puts an emphasis on *functional programming* and provides
-first-class support for development
-in a functional style.
-
-In D a function can be declared as `pure` which implies
-that given the same input parameters, always the **same**
-output is generated. `pure` functions cannot access or change
-any mutable global state and are thus just allowed to call other
-functions which are `pure` themselves.
+D legt besonderen Wert auf *funktionale Programmierung* und
+bietet erstklassige Unterstützung für Entwicklung mit 
+funktionalem Stil. 
+In D kann eine Funktion als `pure` (dt.: rein, pur) deklariert
+werden, und so anzeigen, dass für eine Eingabe eine Ausgabe 
+generiert wird, die nur von dieser abhängig ist.
+Reine (`pure`) Funktionen dürfen weder auf globale veränderliche Zustände  
+zugreifen noch diese verändern und dürfen selbst nur Funktionen 
+aufrufen, die ihrerseits als `pure` markiert sind.
 
     int add(int lhs, int rhs) pure {
-        // ERROR: impureFunction();
+        // Fehler: impureFunction();
         return lhs + rhs;
     }
 
-This variant of `add` is called **strongly pure function**
-because it returns a result dependent only on its input
-parameters without modifying them. D also allows the
-definition of **weakly pure functions** which might
-have mutable parameters:
+Diese Variante von `add` wird als **starke reine Funktion**
+(engl.: strongly pure function) bezeichnet, weil ihr 
+zurückgegebenes Ergebnis nur von den Eingangsparametern 
+abhängt, ohne diese zu modifizieren. D erlaubt auch **schwache
+reine Funktionen** (engl.: weakly pure function),
+die veränderliche Parameter haben können:
 
     void add(ref int result, int lhs, int rhs) pure {
         result = lhs + rhs;
     }
 
-These functions are still considered pure and can't
-access or change any mutable global state. Just passed-in
-mutable parameters might be altered.
+Diese Funktionen werden immer noch als rein angenommen und 
+können auf globale veränderliche Zustande weder zugreifen
+noch diese ändern. Nur Eingangsparameter dürfen Änderungen 
+erfahren.
+Wegen der durch `pure` auferlegten Einschränkungen eignen
+sich reine Funktionen ideal für Multithreading-Umgebungen 
+zur Vermeidung von Data-Racing. Auch können reine Funktionen
+einfach zwischengespeichert werden und erlauben eine Reihe 
+von Optimierungen durch den Compiler.
 
-Due to the constraints imposed by `pure`, pure functions
-are ideal for multi-threading environments to prevent
-data races *by design*. Additionally pure functions
-can be cached easily and allow a range of compiler
-optimizations.
+Das Attribut `pure` wird für Template-Funktionen und 
+`auto`-Funktionen automatisch vom Compiler abgeleitet 
+(dies gilt auch für `@safe`, `nothrow` und `@nogc`).
 
-The attribute `pure` is automatically inferred
-by the compiler for templated functions and `auto` functions,
-where applicable (this is also true for `@safe`, `nothrow`,
-and `@nogc`).
-
-### In-depth
+### Weiterführende Quellen
 
 - [Functional DLang Garden](https://garden.dlang.io/)
 
@@ -50,12 +50,11 @@ and `@nogc`).
 import std.bigint : BigInt;
 
 /**
- * Computes the power of a base
- * with an exponent.
- *
+ * Berechnet die Potenz anhand
+ * der Basis und des Exponenten
  * Returns:
- *     Result of the power as an
- *     arbitrary-sized integer
+ *     Ergebnis als
+ *     Integer beliebiger Größe
  */
 BigInt bigPow(uint base, uint power) pure
 {
@@ -73,9 +72,12 @@ void main()
     import std.functional : memoize;
     import std.stdio : writefln, writeln;
 
-    // memoize caches the result of the function
-    // call depending on the input parameters.
-    // pure functions are great for that!
+    
+    // memoize speichert das Ergebnis des 
+    // Funktionaufrufs abhängig vom den 
+    // Eingangsparametern zwischen.
+    // Reine Funktionen sind dafür bestens
+    // geeignet!
     alias fastBigPow = memoize!(bigPow);
 
     void test()
@@ -87,6 +89,6 @@ void main()
     foreach (i; 0 .. 10)
         benchmark!test(1)[0]
         	.to!("msecs", double)
-        	.writeln("took: miliseconds");
+        	.writeln("brauchte: Millisekunden);          
 }
 ```
