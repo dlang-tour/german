@@ -1,8 +1,8 @@
 # Funktionale Programmierung
 
 D legt besonderen Wert auf *funktionale Programmierung* und
-bietet erstklassige Unterstützung für Entwicklung mit 
-funktionalem Stil. 
+bietet erstklassige Unterstützung für die Entwicklung im 
+funktionalen Stil. 
 In D kann eine Funktion als `pure` (dt.: rein, pur) deklariert
 werden, und so anzeigen, dass für eine Eingabe eine Ausgabe 
 generiert wird, die nur von dieser abhängig ist.
