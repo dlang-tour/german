@@ -40,7 +40,7 @@ können, und dies mit klaren und wartbaren Code:
 ### Weiterführende Quellen
 
 - [UFCS in _Programming in D_](http://ddili.org/ders/d.en/ufcs.html)
-- [_Uniform Function Call Syntax_](http://www.drdobbs.com/cpp/uniform-function-call-syntax/232700394) by Walter Bright
+- [_Uniform Function Call Syntax_](http://www.drdobbs.com/cpp/uniform-function-call-syntax/232700394) von Walter Bright
 - [`std.range`](http://dlang.org/phobos/std_range.html)
 
 ## {SourceCode}
