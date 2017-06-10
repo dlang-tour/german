@@ -1,30 +1,32 @@
 # Traits
 
-One of D's powers is its compile-time function evaluation (CTFE) system.
-Combined with introspection, generic programs can be written and
-heavy optimizations can be achieved.
+Eine von D's Stärken ist CTFE (Funktionsauswertung zur 
+Kompilierzeit), die, kombiniert mit Introspektion, das
+Schreiben hoch optimierter generischer Programme möglich macht.
 
-## Explicit contracts
+## Explizite Contracts
 
-Traits allow to specify explicitly what input is accepted.
-For example `splitIntoWords` can operate on any arbitrary string type:
+Traits (dt.: Merkmale / Eigenschaften) erlauben es, explizit
+erlaubte Eingangstypen zu spezifizieren.
+Z.B. kann `splitIntoWords` beliebigen String-Typen
+verarbeiten:
 
 ```d
 S[] splitIntoWord(S)(S input)
 if (isSomeString!S)
 ```
-
-This applies to template parameters as well and `myWrapper` can ensure that the
-passed-in symbol is a callable function:
+Dies gilt auch für Template-Parameter. Z.B. kann 
+`myWrapper` sicherstellen, dass das hineingereichte 
+Symbol eine aufrufbare Funktion ist:
 
 ```d
 void myWrapper(alias f)
 if (isCallable!f)
 ```
-
-As a simple example, [`commonPrefix`](https://dlang.org/phobos/std_algorithm_searching.html#.commonPrefix)
-from `std.algorithm.searching`, which returns the common prefix of two ranges,
-will be analyzed:
+Als einfaches Beispiel wird die Funktion
+[`commonPrefix`](https://dlang.org/phobos/std_algorithm_searching.html#.commonPrefix)
+aus `std.algorithm.searching` analysiert, 
+die das gemeinsame Präfix zweier Ranges ausgibt:
 
 ```d
 auto commonPrefix(alias pred = "a == b", R1, R2)(R1 r1, R2 r2)
@@ -34,14 +36,16 @@ if (isForwardRange!R1
     !isNarrowString!R1)
 ```
 
-This means that the function is only callable and thus compiles if:
+Dies bedeutet, dass die Funktion nur aufrufbar ist und 
+damit kompiliert, wenn:
 
-- `r1` is save-able (guaranteed by `isForwardRange`)
-- `r2` is iterable (guaranteed by `isInputRange`)
-- `pred` is callable with element types of `r1` and `r2`
-- `r1` isn't a narrow string (`char[]`, `string`, `wchar` or `wstring`) - for simplicity, otherwise decoding might be needed
+- `r1` speicherbar ist (garantiert durch `isForwardRange`)
+- `r2` iterierbar ist (garantiert durch `isInputRange`)
+- `pred` mit den Elementtypen von `r1` und `r2` aufrufbar ist
+- `r1` kein narrow string (`char[]`, `string`, `wchar` or `wstring`) 
+ ist - der Einfachheit halber, sonst müsste eine Dekodierung stattfinden
 
-### Specialization
+### Spezialisierung
 
 Many APIs aim to be general-purpose, however they don't want to pay with extra
 runtime for this generalization.
