@@ -1,20 +1,21 @@
 # opDispatch & opApply
 
-D allows overriding operators like `+`, `-` or
-the call operator `()` for
-[classes and structs](https://dlang.org/spec/operatoroverloading.html).
-We will have a closer look at the two special
-operator overloads `opDispatch` and `opApply`.
+D erlaubt es, Operatoren wie `+`, `-` oder den Aufrufoperator
+`()` für [Klassen und Strukturen](https://dlang.org/spec/operatoroverloading.html)
+zu überladen.
+Im Folgenden werden die beiden speziellen Operatorüberladungen
+`opDispatch` und `opApply` genauer beleuchtet.
 
 ### opDispatch
 
-`opDispatch` can be defined as a member function of either
-`struct` or `class` types. Any unknown member function call
-to that type is passed to `opDispatch`,
-passing the unknown member function's name as `string`
-template parameter. `opDispatch` is a *catch-all*
-member function and allows another level of generic
-programming - completely in **compile time**!
+`opDispatch` kann als Memberfunktionen eines `struct`- 
+oder `class`-Typs definiert werden. Jede unbekannte Memberfunktionsaufruf
+für diesen Typ wird an `opDispatch` weitergeleitet,
+wobei sowohl Name als auch Parameter der unbekannten
+Funktion als `string` durchgereicht werden.
+Damit ist `opDispatch` eine *alles auffangede* Memberfunktion
+und erlaubt eine andere Ebene der Generischen Programmierung,
+und das komplett zur **Kompilierzeit**!
 
     struct C {
         void callA(int i, int j) { ... }
@@ -33,11 +34,11 @@ programming - completely in **compile time**!
 
 ### opApply
 
-An alternative way to implementing a `foreach` traversal
-instead of defining a user defined *range* is to implement
-an `opApply` member function. Iterating with `foreach`
-over such a type will call `opApply` with a special
-delegate as a parameter:
+Eine alternative Implementing eines `foreach`-Durchlaufs,
+verglichen mit der Definition einer benuterdefinierten *Range*,
+ist die Erstellung einer `opApply`-Memberfunktion.
+Das Iterieren mit `foreach` oder ähnlichem wird ein
+spezielles Delegate als Parameter aufrufen:
 
     class Tree {
         Tree lhs;
@@ -54,34 +55,33 @@ delegate as a parameter:
         ...
     }
 
-The compiler transform the `foreach` body to a special
-delegate that is passed to the object. Its one and only
-parameter will contain the current
-iteration's value. The magic `int` return value
-must be interpreted and if it is not `0`, the iteration
-must be stopped.
+Der Compiler wandelt den `foreach`-Rumpf in ein spezielles
+Delegate um, dass an das Objekt übergeben wird. Sein einziger
+Parameter ist jeweils der aktuelle Wert der Iteration.
+Der magische `int`-Rückgabewert muss interpretiert werden und,
+falls dieser nicht  `0` ist, die Iteration abgebrochen werden.
 
-### In-depth
+### Weiterführende Quellen
 
-- [Operator overloading in _Programming in D_](http://ddili.org/ders/d.en/operator_overloading.html)
+- [Operatorüberladung in _Programming in D_](http://ddili.org/ders/d.en/operator_overloading.html)
 - [`opApply` in _Programming in D_](http://ddili.org/ders/d.en/foreach_opapply.html)
-- [Operator overloading in D](https://dlang.org/spec/operatoroverloading.html)
+- [Operatorüberladung in D](https://dlang.org/spec/operatoroverloading.html)
 
 ## {SourceCode}
 
 ```d
 /*
-A Variant is something that might contain
-any other type:
+Variant ist etwas, dass jeden anderen Typ
+enthalten könnnte:
 https://dlang.org/phobos/std_variant.html
 */
 
 import std.variant : Variant;
 
 /*
-Type that can be filled with opDispatch
-with any number of members. Like
-JavaScript's var.
+Typ, der mittels opDispatch mit jeder 
+Anzahl an Membern gefüllt werden kann.
+Wie JavaScript's var.
 */
 struct var {
     private Variant[string] values;
@@ -107,8 +107,7 @@ void main() {
     writeln("test.bar = ", test.bar);
     test.foobar = 3.1415;
     writeln("test.foobar = ", test.foobar);
-    // ERROR because it doesn't exist
-    // already
+    // FEHLER, weil es noch nicht existert
     // writeln("test.notthere = ",
     //   test.notthere);
 }
