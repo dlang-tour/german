@@ -122,17 +122,17 @@ import std.stdio : writeln;
 import std.traits : isNarrowString;
 
 /**
-Returns the common prefix of two ranges
-without the auto-decoding special case.
+Gibt den gemeinsamen Präfix zweier Ranges zurück
+(ohne den Auto-Dekoding Spezialfall).
 
 Params:
-    pred = Predicate for commonality comparison
-    r1 = A forward range of elements.
-    r2 = An input range of elements.
+    pred = Predicate des Gemeinsamkeitsvergleichs
+    r1 = Eine Forward Range aus Elementen.
+    r2 = Eine Input Range aus Elementen.
 
 Returns:
-A slice of r1 which contains the characters
-that both ranges start with.
+Ein Slice von r1, welches die Zeichen enthält,
+mit denen beie Ranges beginnen.
  */
 auto commonPrefix(alias pred = "a == b", R1, R2)
                  (R1 r1, R2 r2)
