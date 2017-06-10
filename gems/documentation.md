@@ -1,58 +1,57 @@
-# Documentation
+# Dokumentation
 
-D tries to integrate important parts of modern
-software engineering directly into the language.
-Besides *contract programming* and *unittesting*
-D allows to natively generate [documentation](https://dlang.org/phobos/std_variant.html)
-out of your source code.
+D möchte wichtige Bereiche moderner Softwareentwicklung 
+in die Sprache integrieren. Neben *Contract Programming* 
+und *Unittests* bietet D nativ die Erzeugung der 
+[Quellcode-Dokumentation](https://dlang.org/phobos/std_variant.html) an.
 
-Using a standard schema for documenting types
-and functions the command `dmd -D` conveniently
-generates HTML documentation based on the source
-files passed on command line.
-In fact the whole [Phobos library documentation](https://dlang.org/phobos)
-has been generated with *DDoc*.
+Dabei wird ein Standard-Schema für die Dokumentation
+von Typen und Funktionen angewendet. Der Befehl
+`dmd -D` erstellt auf bequeme Art eine HTML-Dokumentation
+anhand der in der Kommandozeile übergebenen Quelldateien.
+Tatsächlich wird die komplette [Phobos Bibliotheks-Dokumentation](https://dlang.org/phobos)
+mit *DDoc* generiert.
 
-The following comment styles are considered
-by DDoc for inclusion into the source code
-documentation:
+Die fogenden Kommentarstile werden von DDoc
+für die Einbindung in die Quellcode-Dokumentation
+berücksichtig:
 
-* `/// Three slashes before type or function`
-* `/++ Multiline comment with two +  +/`
-* `/** Multiline comment with two *  */`
+* `/// Drei Slashes vor Typ bzw. Funktion`
+* `/++ Mehrzeiliger Kommentar mit zwei +  +/`
+* `/** Mehrzeiliger Kommentar mit zwei *  */`
 
-Have a look at the source code example
-to see some standardized documentation
-sections.
+Der Beispielquellcode zeigt einige
+standardisierte Dokumentationssektionen.
 
-### In-depth
+### Weiterführende Quellen
 
-- [DDoc design](https://dlang.org/spec/ddoc.html)
-- [Phobos standard library documentation](https://dlang.org/phobos)
+- [DDoc Design](https://dlang.org/spec/ddoc.html)
+- [Phobos Bibliotheks-Dokumentation](https://dlang.org/phobos)
 
 ## {SourceCode:incomplete}
 
 ```d
 /**
-  Calculates the square root of a number.
+  Berechnet die Quadratwurzel einer Zahl.
 
-  Here could be a longer paragraph that
-  elaborates on the great win for
-  society for having a function that is actually
-  able to calculate a square root of a given
-  number.
+  Hier könnte ein längerer Absatz mit
+  einer detailierten Beschreibung der
+  großartigen und für den Fortbestand
+  der Menschheit entscheidenden 
+  Implikationen, die die Berechnung der
+  Quadratwurze zweifelsohne besitzt, 
+  stehen.
 
-  Example:
+  Beispiel:
   -------------------
   double sq = sqrt(4);
   -------------------
   Params:
-    number = the number the square root should
-             be calculated from.
-
+    number = die Zahl, die quadriert 
+             werden soll
   License: use freely for any purpose
-  Throws: throws nothing.
-  Returns: the squrare root of the input.
+  Throws:  es wird nicht geworfen
+  Returns: die Quadratwurzel von number
 */
 T sqrt(T)(T number) {
 }
