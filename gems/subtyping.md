@@ -1,29 +1,30 @@
-# Subtyping
+# Subtypen in D
 
-`struct` can't inherit from other `struct`s. But
-for those poor `struct`s D provides another great
-means to extend their functionality: **subtyping**.
+D bietet Vererbung für Klassen an, nicht aber für 
+`struct`s. Zur Erweiterung der Funktionalität von 
+`struct`s gibt es allerdings ein weiteres großartiges
+Mittel: Die Verwendung von Subtypen.
 
-A struct type can define one of its members as
-`alias this`:
+Einer der Member eines `struct`s kann als 
+`alias this` definiert werden:
 
     struct SafeInt {
         private int theInt;
         alias theInt this;
     }
 
-Any function or operation on `SafeInt` that can't
-be handled by the type itself will be forwarded
-to the `alias this`ed member. From the outside
-`SafeInt` then looks like a normal integer.
+Jede Funktion oder Operation an `SafeInt`s,
+die nicht vom Typ selbst behandelt werden kann, 
+wird an den `alias this`-Member weitergeleitet.
+Von außen betrachtet ist `SafeInt` also ein 
+normaler Integer.
 
-This allows extending other types
-with new functionality but with zero overhead
-in terms of memory or runtime. The compiler
-makes sure to do the right thing when
-accessing the `alias this` member.
+Dies erlaubt die Erweiterung anderer Typen
+mit neuer Funktionalität, aber ohne Mehraufwand
+(engl.: zero overhead) in Bezug auf Speicher oder
+Laufzeit. 
 
-`alias this` work with classes too.
+`alias this` funktioniert auch mit Klassen!
 
 ## {SourceCode}
 
@@ -43,15 +44,15 @@ struct Vector3 {
 void main()
 {
     Vector3 vec;
-    // we're basically talking with
-    // double[] here.
+    // Wir interagieren hier im 
+    // Wesentlichen mit double[].
     vec = [ 0.0, 1.0, 0.0 ];
     assert(vec.length == 3);
     assert(vec[$ - 1] == 0.0);
 
     auto vec2 = Vector3([1.0,0.0,0.0]);
-    // but this functionality has been
-    // extended!
+    // Allerdings wurde die Funktionaliät
+    // erweitert!
     writeln("vec dot vec2 = ", vec.dot(vec2));
 }
 ```
