@@ -1,15 +1,16 @@
-# Attributes
+# Attribute
 
-Functions can be attributed in various ways in D.
-Let's have a look at two built-in attributes
-as well as *user-defined attributes*. There
-are also the built-ins `@safe`, `@system` and `@trusted`
-which have been mentioned in the first chapter.
+Funktionen können in D auf verschiedene Arten mit 
+Attributen versehen werden. Im folgenden werden
+zwei spracheigene und die benutzerdefinierten 
+Attribute näher beleuchtet. Darüber hinaus gibt
+es `@safe`, `@system` und `@trusted`, die bereits
+im ersten Kapitel erwähnt wurden.
 
 ### `@property`
 
-A function marked as `@property` looks like
-a normal member to the outside world:
+Eine als `@property` markierte Funktion sieht für
+die äußere Welt wie ein normaler Member aus.
 
     struct Foo {
         @property bar() { return 10; }
@@ -17,27 +18,26 @@ a normal member to the outside world:
     }
     
     Foo foo;
-    writeln(foo.bar); // actually calls foo.bar()
+    writeln(foo.bar); // ruft tatsächlich foo.bar() auf
     foo.bar = 10; // calls foo.bar(10);
-
+    
 ### `@nogc`
 
-When the D compiler encounters a function that is marked as `@nogc`
-it will make sure that **no** memory allocations are done
-within the context of that function. A `@nogc`
-function is just allowed to call other `@nogc`
-functions.
-
+Wenn der D-Compiler auf eine als `@nogc` markierte Funktion
+trifft, wird sichergestellt, dass **keine** Speicherallokationen
+im Kontext dieser Funktion vorgenommen werden. Eine 
+`@nogc`-Funktion darf nur Funktionen aufrufen, die ihrerseits
+als `@nogc` markiert sind.
 
     void foo() @nogc {
-      // ERROR:
+      // FEHLER:
         auto a = new A;
     }
 
-### User-defined attributes (UDAs)
+### Benutzerdefinierte Attribute (UDAs)
 
-Any function or type in D can be attributed with user-defined
-types:
+Jede Funktion und jeder Typ in D kann mit benutzerdefinierten 
+Attributen (engl: user-defined attributes, UDAs) versehen werden:
 
     struct Bar { this(int x) {} }
     
@@ -49,21 +49,24 @@ types:
       }
     }
 
-Any type, built-in or user-defined, can be attributed
-to functions. The function `foo()` in this example
-will have the attributes `"Hello"` (type `string`)
-and `Bar` (type `Bar` with value `10`). To get
-the attributes of a function (or type) use
-the built-in compiler *traits*
-`__traits(getAttributes, Foo)` which returns
-a [`TypeTuple`](https://dlang.org/phobos/std_typetuple.html).
+Jeder Typ, spracheigen oder benutzerdefiniert, kann
+Funktionen als Attribut beigefügt werden.
+Die Funktion `foo()` in diesem Beispiel besitzt die 
+Attribute `"Hello"` vom Typ `string` und `Bar` von Typ 
+`Bar` mit dem Wert `10`. Zugang zu den Attributen 
+bieten die im Compiler integrierten *Traits* 
+(dt.: Merkmale / Eigenschaften) mittels
+`__traits(getAttributes, Foo)`, die einen 
+[`TypeTuple`](https://dlang.org/phobos/std_typetuple.html)
+zurückgeben.
 
-UDAs allow to enhance generic code by giving user-defined
-types another dimension that helps compile time
-generators to adapt to that specific type.
+Benutzerdefinierte Attribute können generischen Code
+verbessern, indem sie benutzerdefinierten Typen eine
+weitere Dimension hinzufügen, die Kompilierzeit-Generatoren
+helfen, sich diesen spezifischen Typen anzupassen.
 
-### In-depth
+### Weiterführende Quellen
 
-- [User Defined Attributes in _Programming in D_](http://ddili.org/ders/d.en/uda.html)
-- [Attributes in D](https://dlang.org/spec/attribute.html)
+- [Benutzerdefinierte Attribute in _Programming in D_](http://ddili.org/ders/d.en/uda.html)
+- [Attribute in D](https://dlang.org/spec/attribute.html)
 
