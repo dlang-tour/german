@@ -2,11 +2,11 @@
 
 D möchte wichtige Bereiche moderner Softwareentwicklung 
 in die Sprache integrieren. Neben *Contract Programming* 
-und *Unittests* bietet D nativ die Erzeugung der 
+und *Unittests* bietet D nativ die Erzeugung einer 
 [Quellcode-Dokumentation](https://dlang.org/phobos/std_variant.html) an.
 
-Dabei wird ein Standard-Schema für die Dokumentation
-von Typen und Funktionen angewendet. Der Befehl
+Für die Dokumentation von Typen und Funktionen wird
+ein Standard-Schema angewendet. Der Befehl
 `dmd -D` erstellt auf bequeme Art eine HTML-Dokumentation
 anhand der in der Kommandozeile übergebenen Quelldateien.
 Tatsächlich wird die komplette [Phobos Bibliotheks-Dokumentation](https://dlang.org/phobos)
@@ -14,14 +14,14 @@ mit *DDoc* generiert.
 
 Die fogenden Kommentarstile werden von DDoc
 für die Einbindung in die Quellcode-Dokumentation
-berücksichtig:
+berücksichtigt:
 
 * `/// Drei Slashes vor Typ bzw. Funktion`
 * `/++ Mehrzeiliger Kommentar mit zwei +  +/`
 * `/** Mehrzeiliger Kommentar mit zwei *  */`
 
 Der Beispielquellcode zeigt einige
-standardisierte Dokumentationssektionen.
+standartisierte Dokumentationsabschnitte.
 
 ### Weiterführende Quellen
 
