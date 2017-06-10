@@ -48,8 +48,8 @@ und `class`-Typen, der die Überprüfung des Objektzustands
 während dessen gesamter Lebenszeit erlaubt. 
 
 `invariant()` wird zu folgenden Zeitpunkten ausgeführt:
-* nach Ausführung des Konstrukors
-* vor Ausführung des Destruktor
+* nach Ausführung des Konstruktors
+* vor Ausführung des Destruktors
 * vor Eintritt in eine Memberfunktion
 * nach Beendigung einer Memberfunktion
 
