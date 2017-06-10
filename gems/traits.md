@@ -8,7 +8,7 @@ Schreiben hoch optimierter generischer Programme möglich macht.
 
 Traits (dt.: Merkmale / Eigenschaften) erlauben es, explizit
 erlaubte Eingangstypen zu spezifizieren.
-Z.B. kann `splitIntoWords` beliebigen String-Typen
+Z.B. kann `splitIntoWords` beliebige String-Typen
 verarbeiten:
 
 ```d
@@ -47,15 +47,19 @@ damit kompiliert, wenn:
 
 ### Spezialisierung
 
-Many APIs aim to be general-purpose, however they don't want to pay with extra
-runtime for this generalization.
-With the power of introspection and CTFE, it is possible to specialize a method
-on compile-time to achieve the best performance given the input types.
+Viele APIs zielen auf Vielseitigkeit, allerdings soll 
+die Verallgemeinerung nicht mit zusätzlicher Laufzeit
+erkauft werden.
+Mit Introspektion und CTFE ist es möglich, eine Funktion
+zur Kompilierzeit zu spezialisieren, um so die beste 
+Performance für gegebene Eingangstypen zu erreichen.
 
-A common problem is that in contrast to arrays you might not know the exact length
-of a stream or list before walking through it.
-Hence a simple implementation of the `std.range` method `walkLength`
-which generalizes for any iterable type would be:
+Ein gängiges Problem ist, dass die Länge eines Streams
+oder einer Liste, im Gegensatz zu z.B. einem Array, vor
+dem Durchschreiten nicht bekannt ist. 
+Das folgende Beispiel stellt eine einfache Implementation 
+der `std.range`-Methode `walkLength` dar, die das 
+Durchschreiten für alle iterierbaren Typen verallgemeinert:
 
 ```d
 static if (hasMember!(r, "length"))
@@ -66,24 +70,20 @@ else
 
 #### `commonPrefix`
 
-The use of compile-time introspection is ubiquitous in Phobos. For example
-`commonPrefix` differentiates between `RandomAccessRange`s
-and linear iterable ranges because in `RandomAccessRange` it's possible to jump
-between positions and thus speed-up the algorithm.
+Die Verwendung von Introspektion zur Kompilierzeit ist 
+in Phobos allgegenwärtig. Z.B. differenziert `commonPrefix` 
+zwischen `RandomAccessRange`s und linear iterierbaren Ranges,
+da es in einer `RandomAccessRange` möglich ist zwischen 
+Positionen zu springen und so den Algorithmus zu beschleunigen.
 
-#### More CTFE magic
+#### Weitere CTFE-Magie
 
-[std.traits](https://dlang.org/phobos/std_traits.html) wraps most of
-D's [traits](https://dlang.org/spec/traits.html) except for some like
-`compiles` that can't be wrapped as it would lead to an immediate compile error:
+[std.traits](https://dlang.org/phobos/std_traits.html) umfasst die 
+meisten von D's [traits](https://dlang.org/spec/traits.html).
 
-```d
-__traits(compiles, obvious error - $%42); // false
-```
+#### Spezielle Schlüsselwörter
 
-#### Special keywords
-
-Additionally for debugging purposes D provides a couple of special keywords:
+Zusätzlich bietet D einige spezielle Schlüsselwörter für Debuggingzwecke:
 
 ```d
 void test(string file = __FILE__, size_t line = __LINE__, string mod = __MODULE__,
@@ -94,18 +94,18 @@ void test(string file = __FILE__, size_t line = __LINE__, string mod = __MODULE_
 }
 ```
 
-With D's CLI evaluation one doesn't even need `time` - CTFE can be used!
+Mit D's CLI-Auswertung wird `time` nicht benötigt - CTFE kann benutzt werden!
 
 ```d
 rdmd --force --eval='pragma(msg, __TIMESTAMP__);'
 ```
 
-## In-depth
+## Weiterführende Quellen
 
 - [std.range.primitives](https://dlang.org/phobos/std_range_primitives.html)
 - [std.traits](https://dlang.org/phobos/std_traits.html)
 - [std.meta](https://dlang.org/phobos/std_meta.html)
-- [Specification on Traits in D](https://dlang.org/spec/traits.html)
+- [Spezifikation von Traits in D](https://dlang.org/spec/traits.html)
 
 ## {SourceCode}
 
