@@ -19,8 +19,7 @@ D's `scope` bietet einen effektiven Ersatz für das in C++
 verwendete RAII-Idiom, dass oft zur Implementierung spezieller Scope 
 Guard-Objekte für spezielle Ressourcen führt.
 
-Scope Guards werden in umgekehrter Reihenfolge ausgeführt, wie sie
-definiert wurden.
+Scope Guards werden in umgekehrter Reihenfolge ihrer Defintion ausgeführt.
 
 ### Weiterführende Quellen
 
