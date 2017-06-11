@@ -21,7 +21,7 @@ auf Abruf.
 ### Ausführung von `unittest`-Blöcken
 
 `unittest`-Blöcke können beliebigen Code enthalten, der 
-mitkompiliert und ausgeführt wird, wenn das DMD-Compiler-Flag
+nur kompiliert und ausgeführt wird, wenn das DMD-Compiler-Flag
 `-unittest` gesetzt ist. Auch DUB bietet die Kompilierung und
 Ausführung von Unittests mit dem Befehl `dub test` an.
 
