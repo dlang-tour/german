@@ -37,6 +37,7 @@ in D Unicode-Strings, während sie in Sprachen wie C und C++
 als einfache Byte-Arrays implementiert sind.
 
 In D gilt folgende Zuordnung:
+
 | Stringtyp | Zeichentyp | Kodierung |
 |-----------|------------|-----------|
 | `string`  | `char`     | UTF-8     |
