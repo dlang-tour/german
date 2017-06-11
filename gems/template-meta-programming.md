@@ -15,22 +15,24 @@ Code-Blocks. Im Gegensatz zu `if` wird die Bedingung
 zur Kompilierzeit ausgewertet:
 
     static if(is(T == int))
-        writeln("T is an int");
+        writeln("T ist ein int");
     static if (is(typeof(x) :  int))
-        writeln("Variable x implicitely converts to int");
+        writeln("Variable x konvertiert implizit zu int");
 
-The [`is` expression](http://wiki.dlang.org/Is_expression) is
-a generic helper that evaluates conditions at compile time.
+Der [`is`-Ausdruck](http://wiki.dlang.org/Is_expression) ist
+ein generischer Helfer, der Bedingungen zu Kompilierzeit
+auswertet.
 
-    static if(is(T == int)) { // T is template parameter
+    static if(is(T == int)) { // T ist Templateparameter
         int x = 10;
     }
 
-Braces are omitted if the condition is `true` - no new scope is created.
-`{ {` and `} }` explicitly create a new block.
+Klammern werden weggelassen, wenn die Bedingung erfüllt
+ist - kein weiterer Scope wird erzeugt.
+`{ {` and `} }` erstellt explizit einen neuen Block.
 
-`static if` can be used anywhere in the code - in functions,
-at global scope or within type definitions.
+`static if` kann überall im Code genutzt werden - in
+Funktionen, im globalen Scope oder in Typdefinitionen.
 
 ### `mixin template`
 
