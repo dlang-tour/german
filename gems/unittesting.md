@@ -3,10 +3,10 @@
 Tests sind ein exzellenter Weg der Gewährleistung von Stabilität 
 und Fehlerfreiheit in der Anwendungsentwicklung. Sie dienen als 
 interaktive Dokumentation und erlauben Codeveränderungen ohne 
-Angst davor, bereits bestehende Funktionaliät zu zertören. 
+Angst davor, bereits bestehende Funktionalität zu zerstören. 
 D bietet mit `unittest`-Blöcken eine bequeme, native Syntax, die 
 überall in einem D-Modul eingesetzt werden kann, um 
-Quellcode-Funtionalität zu prüfen.
+Quellcode-Funktionalität zu prüfen.
 
     // Block for my function
     unittest
@@ -23,12 +23,12 @@ auf Abruf.
 `unittest`-Blöcke können beliebigen Code enthalten, der 
 mitkompiliert und ausgeführt wird, wenn das DMD-Compiler-Flag
 `-unittest` gesetzt ist. Auch DUB bietet die Kompilierung und
-Ausführung von Unittests mit dem Befehl `dub test`.
+Ausführung von Unittests mit dem Befehl `dub test` an.
 
 ### Funktionsnachweis mittels `assert`
 
 Typischerweise enthalten `unittest`s `assert`-Ausdrücke, die
-die Funktionalität einer gegebenen Funktione sicherstellen.
+die Funktionalität einer gegebenen Funktion sicherstellen.
 `unittest`-Blöcke befinden sich in der Regel in der Nähe der 
 einer Funktionsdefinition oder sogar in Klassen und Strukturen.
 
@@ -36,10 +36,10 @@ einer Funktionsdefinition oder sogar in Klassen und Strukturen.
 
 Unittests sind eine mächtige Waffe für die Entwickung robuster
 Anwendungen. Ein Indikator für den Grad der Überprüfung des Codes
-durch Tests ist die _Code-Abdeckung_ (engl.: code coverage - 
-Verhältnis ausgeführter zu  existierender Codezeilen). 
-Der DMD-Compiler erlaubt eine einfache Berichterstellung der 
-Code-Abdeckung durch Hinzufügen von `-cov`. Damit wird für jedes 
+durch Tests ist die _Code-Abdeckung_ (engl.: code coverage -
+Verhältnis ausgeführter zu  existierender Codezeilen).
+Der DMD-Compiler erlaubt eine einfache Berichterstellung der
+Code-Abdeckung durch Hinzufügen von `-cov`. Damit wird für jedes
 Modul eine `.lst`-Datei mit detailierten Statistiken erzeugt.
 
 Da der Compiler Attribute von Template-Quellcode automatisch 
@@ -54,8 +54,8 @@ sicherzustellen:
 
 ### Weiterführende Quellen
 
-- [Unit Testing in _Programming in D_](http://ddili.org/ders/d.en/unit_testing.html)
-- [Unittesting in D](https://dlang.org/spec/unittest.html)
+- [Unittests in _Programming in D_](http://ddili.org/ders/d.en/unit_testing.html)
+- [Unittests in D](https://dlang.org/spec/unittest.html)
 
 ## {SourceCode}
 
@@ -96,7 +96,7 @@ void main()
     writeln(`Dieser Vektor wurde getestet: `,
       vec);
 }
-123456789012345678901234567890123456789012345678
+
 /*
 Oder irgendwo anders.
 Im Normal-Modus werden Unittests ignoriert.
