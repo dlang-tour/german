@@ -38,53 +38,54 @@ Funktionen, im globalen Scope oder in Typdefinitionen.
 
 ### `mixin template`
 
-Anywhere you see *boiler plate*, `mixin template`
-is your friend:
+Überall, wo Textbausteine gefragt sind, können 
+`mixin template`s genutzt werden:
 
     mixin template Foo(T) {
         T foo;
     }
     ...
-    mixin Foo!int; // int foo available from here on.
+    mixin Foo!int; // int foo ab hier verfügbar.
 
-`mixin template` might contain any number of
-complex expressions that are inserted at the instantiation
-point. Say good-bye to the
-pre-processor if you're coming from C!
+`mixin template` können eine beliebige Anzahl an komplexen
+Ausdrücken enthalten und werden am Instanziierungspunkt
+eingesetzt. 
+Dies macht einen Präprozessor, wie ihn z.B. C und C++ 
+besitzen, überfüssig.
 
-### Template constraints
+### Template-Beschränkungen
 
-A template might be defined with any number of
-constraints that enforce what properties
-a type must have:
+Ein Template kann mit beliebig vielen Beschränkungen
+(engl.: contraints) definiert werden, um so Eigenschaften
+eines Typs erzwingen:
 
     void foo(T)(T value)
-      if (is(T : int)) { // foo!T only valid if T
-                         // converts to int
+      if (is(T : int)) { // foo!T nur gültig wenn T
+                         // zu int konvertiert
     }
 
-Constraints can be combined in boolean expression
-and might even contain function calls that can be evaluated
-at compile-time. For example `std.range.primitives.isRandomAccessRange`
-checks whether a type is a range that supports
-the `[]` operator.
+Beschränkungen können in booleschen Ausdrücken kombiniert
+werden und sogar Funktionsaufrufe enthalten, sofern diese
+zur Kompilierzeit ausgwwertet werden können.
+Z.B. prüft `std.range.primitives.isRandomAccessRange`,
+ob ein Typ eine Range ist, die den `[]`-Operator unterst
 
-### In-depth
+### Weiterführende Quellen
 
-### Basics references
+### Grundlegende Verweise
 
-- [Tutorial to D Templates](https://github.com/PhilippeSigaud/D-templates-tutorial)
-- [Conditional compilation](http://ddili.org/ders/d.en/cond_comp.html)
+- [Tutorial zum Thema D-Templates](https://github.com/PhilippeSigaud/D-templates-tutorial)
+- [Bedingte Kompilierung](http://ddili.org/ders/d.en/cond_comp.html)
 - [std.traits](https://dlang.org/phobos/std_traits.html)
-- [More templates  _Programming in D_](http://ddili.org/ders/d.en/templates_more.html)
+- [Weiteres zu Templates in _Programming in D_](http://ddili.org/ders/d.en/templates_more.html)
 - [Mixins in  _Programming in D_](http://ddili.org/ders/d.en/mixin.html)
 
-### Advanced references
+### Fortgeschrittene Verweise
 
-- [Conditional compilation](https://dlang.org/spec/version.html)
+- [Bedingte Kompilierung](https://dlang.org/spec/version.html)
 - [Traits](https://dlang.org/spec/traits.html)
-- [Mixin templates](https://dlang.org/spec/template-mixin.html)
-- [D Templates spec](https://dlang.org/spec/template.html)
+- [Mixin Templates](https://dlang.org/spec/template-mixin.html)
+- [Spezifikation: D-Templates](https://dlang.org/spec/template.html)
 
 ## {SourceCode}
 
@@ -105,14 +106,15 @@ private:
     T x,y,z;
 
     /*
-    Generator for getter and setter because
-    we really hate boiler plate!
+    Generator für Getter und Setter zur
+    Vermeidung sich wiederholender 
+    Textbausteine (engl.:boiler plate)!
     
     var -> T getVAR() and void setVAR(T)
     */
     mixin template GetterSetter(string var) {
-        // Use mixin to construct function
-        // names
+        // Nutze mixin zur Erzeugung von
+        // Funktionsnamen
         mixin("T get%s() const { return %s; }"
           .format(var.toUpper, var));
 
@@ -121,8 +123,8 @@ private:
     }
 
     /*
-    Easily generate getX, setX etc.
-    functions with a mixin template.
+    Einfache Generierung der Funktionen
+    getX, setX etc. mit einem Mixin-Template.
     */
     mixin GetterSetter!"x";
     mixin GetterSetter!"y";
@@ -130,8 +132,8 @@ private:
 
 public:
     /*
-    The dot function is only available
-    for floating points types
+    Die dot-Funktion ist nur für 
+    Floatingpoint-Typen verfügbar.
     */
     static if (isFloatingPoint!T) {
         T dot(Vector3!T rhs) {
@@ -144,19 +146,20 @@ public:
 void main()
 {
     auto vec = Vector3!double(3,3,3);
-    // That doesn't work because of the template
-    // constraint!
+    // Folgendes funktioniert aufgrund der 
+    // Template-Beschränkung nicht!
     // Vector3!string illegal;
 
     auto vec2 = Vector3!double(4,4,4);
     writeln("vec dot vec2 = ", vec.dot(vec2));
 
     auto vecInt = Vector3!int(1,2,3);
-    // doesn't have the function dot because
-    // we statically enabled it only for float's
+    // hat die Function dot nicht weil diese
+    // statisch nur für Floatingpoint-Typen    
+    // definiert wurde
     // vecInt.dot(Vector3!int(0,0,0));
 
-    // generated getter and setters!
+    // generierte Getter und Setters!
     vecInt.setX(3);
     vecInt.setZ(1);
     writeln(vecInt.getX, ",",
