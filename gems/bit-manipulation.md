@@ -3,7 +3,7 @@
 Ein sehr gutes Beispiel für die Erzeugung von Code zur 
 Kompilierzeit in D mit Mixins ist Bitmanipulation.
 
-### Simple bit manipulation
+### Einfache Bitmanipulation
 
 D bietet die folgenden Operatoren für Bitmanipulation:
 
