@@ -96,8 +96,8 @@ import std.string : format;
 import std.stdio : writeln;
 
 /*
-A Vector that just works for
-numbers, integers or floating points.
+A Vector, der nur mit Integer- oder
+Floatingpoint-Typen arbeitet.
 */
 struct Vector3(T)
   if (is(T: real))
@@ -152,9 +152,9 @@ void main()
 
     auto vec2 = Vector3!double(4,4,4);
     writeln("vec dot vec2 = ", vec.dot(vec2));
-
+    
     auto vecInt = Vector3!int(1,2,3);
-    // hat die Function dot nicht weil diese
+    // besitzt die Function dot nicht, da diese
     // statisch nur für Floatingpoint-Typen    
     // definiert wurde
     // vecInt.dot(Vector3!int(0,0,0));
