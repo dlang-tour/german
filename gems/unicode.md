@@ -1,29 +1,32 @@
 # Unicode in D
 
-Unicode is a global standard for encoding and representing text
-in computers. D fully supports Unicode in both the language and
-the standard library.
+Unicode ist ein globaler Standard für Textkodierung und 
+-repräsentation in Computern. D unterstützt Unicode 
+vollständig, sowohl sprachseitig als auch in der 
+Standard-Bibliothek.
 
-## What and Why
+## Was und Warum
 
-Computers, at the lowest level, have no notion of what text is,
-as they only deal with numbers. As a result, computer code needs
-a way to take text data and transform it to and from a binary
-representation. The method of transformation is called an
-*encoding scheme*, and Unicode is one such scheme.
+Computer haben auf der niedrigsten Ebene keinen Begriff 
+davon, was ein Text ist, da sie nur mit Zahlen umgehen.
+Daher braucht es eine Möglichkeit, Textdaten in eine
+binäre Repräsentation zu wandeln und umgekehrt. Die Methode
+der Umwandlung wird Kodierungsschema (engl.:encoding scheme)
+genannt, Unicode ist ein solches Schema.
 
-To see the numerical representations underlying the strings in
-the example, simply run the code.
+Der Beispielcode veranschaulicht unterliegende numerische
+Darstellung von Strings.
 
-Unicode is unique in that its design allows it to represent all
-the languages of the world using the same encoding scheme. Before
-Unicode, computers made by different companies or shipped in
-different areas had a hard time communicating, and in some cases
-an encoding scheme wasn't supported at all, making viewing the text
-on that computer impossible.
+Unicode ist einzigartig, weil es alle Sprachen der Welt in
+einem Kodierungsschema repräsentiert. Vor Unicode war eine
+Kommunikation zwischen Computern unterschiedlicher Hersteller
+oder Herkunftsländer eine schwierige Angelegenheit, manchmal
+wurden Kodierungsschemata gar nicht unterstützt, was die 
+Darstellung des Textes auf diesem Computer unmöglich machte.
 
-For more info on Unicode and the technical details, check the
-Wikipedia article on Unicode in the "In-Depth" section.
+Für weitere Informationen und technische Details wird der
+[Wikipedia-Artikel über Unicode](https://de.wikipedia.org/wiki/Unicode)
+empfohlen.
 
 ## How
 
