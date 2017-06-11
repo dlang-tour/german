@@ -27,9 +27,11 @@ auswertet.
         int x = 10;
     }
 
-Klammern werden weggelassen, wenn die Bedingung erfüllt
-ist - kein weiterer Scope wird erzeugt.
-`{ {` and `} }` erstellt explizit einen neuen Block.
+Wenn die Bedingung erfüllt ist, wird der Inhalt des Blocks
+kopiert. Die umschließenden Klammern werden weggelassen 
+und kein weiterer Scope erstellt.
+`{ {` und `} }` sorgen für die explizite Erstellung eines 
+neuen Blocks / Scopes.
 
 `static if` kann überall im Code genutzt werden - in
 Funktionen, im globalen Scope oder in Typdefinitionen.
