@@ -20,8 +20,8 @@ zur Kompilierzeit ausgewertet:
         writeln("Variable x konvertiert implizit zu int");
 
 Der [`is`-Ausdruck](http://wiki.dlang.org/Is_expression) ist
-ein generischer Helfer, der Bedingungen zu Kompilierzeit
-auswertet.
+ein generischer Helfer, der Bedingungen zur Kompilierzeit
+auswertet:
 
     static if(is(T == int)) { // T ist Templateparameter
         int x = 10;
@@ -30,11 +30,11 @@ auswertet.
 Wenn die Bedingung erfüllt ist, wird der Inhalt des Blocks
 kopiert. Die umschließenden Klammern werden weggelassen 
 und kein weiterer Scope erstellt.
-`{ {` und `} }` sorgen für die explizite Erstellung eines 
-neuen Blocks / Scopes.
+Ein neuer Block / Scope kann allerdings explizit mit `{ {` und `} }`
+erzeugt werden.
 
 `static if` kann überall im Code genutzt werden - in
-Funktionen, im globalen Scope oder in Typdefinitionen.
+Funktionen, im globalen Scope sowie in Typdefinitionen.
 
 ### `mixin template`
 
