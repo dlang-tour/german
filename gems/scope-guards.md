@@ -49,7 +49,7 @@ void main()
     writeln("\t\t<h1>Hallo Welt!</h1>");
 
     // Scope Guards erlauben es, Allokationen
-    // und zugehöriges Aufräumen nebeneibander
+    // und zugehöriges Aufräumen nebeneinander
     // zu schreiben
     import core.stdc.stdlib : free, malloc;
     int* p = cast(int*) malloc(int.sizeof);
