@@ -15,7 +15,7 @@ Quellcode-Funktionalität zu prüfen.
         assert(myAbs(1)  == 1);
     }
 
-Dies erlaubt unkomplizierte [testgetriebene Entwicklung](https://en.wikipedia.org/wiki/Test-driven_development)
+Dies erlaubt unkomplizierte [testgetriebene Entwicklung](https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung)
 auf Abruf.
 
 ### Ausführung von `unittest`-Blöcken
