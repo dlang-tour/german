@@ -36,7 +36,7 @@ jeder modernen Maschine unterstützt. D hat aus den Fehlern
 in D Unicode-Strings, während sie in Sprachen wie C und C++
 als einfache Byte-Arrays implementiert sind.
 
-In D gilt folgende Zuordnung:
+Für D-Strings gilt folgende Zuordnung:
 
 | Stringtyp | Zeichentyp | Kodierung |
 |-----------|------------|-----------|
@@ -45,51 +45,46 @@ In D gilt folgende Zuordnung:
 | `dstring` | `dchar`    | UTF-32    |
 
 
-According to the spec, it is an error to store non-Unicode
-data in the D string types; expect your program to fail in
-different ways if your string is encoded improperly.
+Der Spezifikation nach führt das Speichern von Nicht-Unicode-Daten
+in D-Stringtypen zu einem Fehler. Programme scheitern auf
+verschiedene Arten, wenn ein String nicht korrekt kodiert ist.
 
-In order to store other string encodings, or to obtain C/C++
-behavior, you can use `ubyte[]` or `char*`.
+Um andere Stringkodierungen nutzen, oder C/C++-Verhalten zu 
+erhalten, können `ubyte[]` oder `char*` genutzt werden.
 
-## Strings in Range Algorithms
+## Strings in Range-Algorithmen
 
-*Reading the [gem on range algorithms](gems/range-algorithms) is
-suggested for this section.*
+*Die Lektüre der Sektion [Range Algorithmen](gems/range-algorithms) 
+wird für diesen Abschnitt empfohlen.*
 
-There are some important caveats to keep in mind with Unicode
-in D.
+Ein paar wichtige Hinweise sind im Umgang mit Unicode in D zu beachten.
 
-First, as a convenience feature, when iterating over a string
-using the range functions, Phobos will encode the elements of
-`string`s and `wstrings` into UTF-32 code-points as each item.
-This practice, known as **auto decoding**, means that
+Wenn mit den Range-Funktionen über einen String iteriert wird,
+wird Phobos bequemerweise alle `string`s und `wstrings` in UTF-32
+Codepoints wandeln. Dies wird auch als **Autodecoding** bezeichnet:
 
 ```
 static assert(is(typeof(utf8.front) == dchar));
 ```
 
-This behavior has a lot of implications, the main one that
-confuses most people is that `std.traits.hasLength!(string)`
-equals `False`. Why? Because, in terms of the range API,
-`string`'s `length` returns **the number of elements in the string**,
-rather than the number of elements the *range function will iterate over*.
+Dieses Verhalten hat einige Implikationen. Viele Leute verwirrt,
+dass `std.traits.hasLength!(string)` zu `False` ausgewertet wird.
+Hinsichtlich der Range-API liegt dies in der Tatsache begründet,
+dass die `length`-Methode von `string` die **Anzahl der Elemente in
+dem String** und nicht die Anzahl der Elemente, *über die die 
+Range-Funktion iteriert*, zurückgibt.
 
-From the example, you can see why these two things might not always
-be equal. As such, range algorithms in Phobos act as if `string`s
-do not have length information.
+Anhand dieses Beispiels wird deutlich, warum diese beiden Dinge
+nicht immer gleich sein müssen. Daher verhalten sich dei Range-Algorithmen
+aus Phobos so, als ob `string`s keine `length`-Methode hätten.
 
-For more information on the technical details of auto decoding,
-and what it means for your program, check the links in the
-"In-Depth" section.
+### Weiterführende Quellen
 
-### In-Depth
-
-- [Unicode on Wikipedia](https://en.wikipedia.org/wiki/Unicode)
-- [Basic Unicode Functions in Phobos](https://dlang.org/phobos/std_uni.html)
-- [Tools for Decoding and Encoding UTF in Phobos](https://dlang.org/phobos/std_utf.html)
-- [An in Depth Look at Auto Decoding](https://jackstouffer.com/blog/d_auto_decoding_and_you.html)
-- [An in Depth Essay on Benefits of Using UTF-8](http://utf8everywhere.org/)
+- [Unicode auf Wikipedia](https://de.wikipedia.org/wiki/Unicode)
+- [Grundlegende Unicode-Funktionen in Phobos](https://dlang.org/phobos/std_uni.html)
+- [Tools für UTF-Dekodierung und -Kodierung in Phobos](https://dlang.org/phobos/std_utf.html)
+- [Ein vertiefender Blick in Autodecoding](https://jackstouffer.com/blog/d_auto_decoding_and_you.html)
+- [Eine vertiefende Abhandlung der Vorteile von UTF-8](http://utf8everywhere.org/)
 
 ## {SourceCode}
 
@@ -115,10 +110,10 @@ void main()
     }
     writeln();
 
-    // Because the specified the element type is
-    // dchar, look-ahead is used to encode the
-    // string to UTF-32 code points.
-    // For non-strings, a simple cast is used
+    // Da die Elemente von Typ dchar sind,
+    // wird look-ahead zur Kodierung des
+    // Strings in UTF-32 Codepoints genutzt.
+    // FÜr Nicht-Strings wird einfach gecasted
     foreach (dchar item; utf16)
     {
         auto c = cast(ushort) item;
@@ -126,7 +121,7 @@ void main()
     }
     writeln();
 
-    // a result of auto-decoding
+    // ein Autodecoding-Ergebnis
     static assert(
         is(typeof(utf8[0]) == immutable(char))
     );
