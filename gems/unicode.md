@@ -36,15 +36,13 @@ jeder modernen Maschine unterstützt. D hat aus den Fehlern
 in D Unicode-Strings, während sie in Sprachen wie C und C++
 als einfache Byte-Arrays implementiert sind.
 
+In D gilt folgende Zuordnung:
 | Stringtyp | Zeichentyp | Kodierung |
 |-----------|------------|-----------|
 | `string`  | `char`     | UTF-8     |
 | `wstring` | `wchar`    | UTF-16    |
 | `dstring` | `dchar`    | UTF-32    |
 
-In D, `string`, `wstring`, and `dstring` are UTF-8, UTF-16, and
-UTF-32 encoded strings respectively. Their character types are
-`char`, `wchar`, and `dchar`.
 
 According to the spec, it is an error to store non-Unicode
 data in the D string types; expect your program to fail in
