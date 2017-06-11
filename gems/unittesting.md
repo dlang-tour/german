@@ -98,7 +98,6 @@ void main()
 }
 
 /*
-Oder irgendwo anders.
 Im Normal-Modus werden Unittests ignoriert.
 Rufe 'dub test' auf oder kompiliere
 mit dmd -unittest, um Unittests tatsächlich
