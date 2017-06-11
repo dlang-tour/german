@@ -8,7 +8,7 @@ D bietet mit `unittest`-Blöcken eine bequeme, native Syntax, die
 überall in einem D-Modul eingesetzt werden kann, um 
 Quellcode-Funktionalität zu prüfen.
 
-    // Block for my function
+    // Unittest der Funktion myAbs
     unittest
     {
         assert(myAbs(-1) == 1);
