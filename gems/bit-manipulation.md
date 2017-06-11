@@ -58,29 +58,36 @@ void setFieldA(bool b);
 }
 ```
 
-## `std.bitmanip` to the rescue
+## Les- und Wartbarkeit mit `std.bitmanip` 
 
-It's a lot of fun to write ones' custom bit manipulation code and
-D provides the full toolbox to do so. However in most cases one doesn't want to
-copy&paste such bit manipulation code as this is very error-prone and hard to maintain.
-Hence in D `std.bitmanip` helps you to write maintainable, easy-to-read bit manipulations
-with `std.bitmanip` and the power of mixins - without sacrificing performance.
+D bietet einen kompletten Werkzeugkoffer zur Erzeugung 
+benutzerdefinierter Bitmanipulationen. Allerdings ist
+bitmanipulierender Code oft fehlerträchtig und schwer 
+zu warten.
+`std.bitmanip` schafft hier Abhilfe, indem es (unter 
+Zuhilfenahme von Mixins) erlaubt, wartbare, leicht 
+lesbare Bitmanipulationen zu schreiben - ohne dabei 
+Performance zu opfern.
 
-Have a look at the exercise section. A `BitVector` is defined, but it still uses
-just X bits and is nearly indistinguishable from a regular struct.
+Das Beispiel zeigt eine `BitVector`-Definition, die, 
+obwohl sie nur X Bits benutzt, kaum von regulären Strukturen 
+unterscheidbar ist.
 
-`std.bitmanip` and `core.bitop` contain more helpers that are greatly helpful
-for applications that require low-memory consumption.
+`std.bitmanip` und `core.bitop` beinhalten weitere Helfer,
+die sehr hilfreich für Anwendungen sind, die die Anforderung
+eines geringen Speicherverbrauchs stellen.
 
-### Padding and alignment
+### Auffüllen und Ausrichtung
 
-As the compiler will add padding for variables with a size lower than the current
-OS memory layout (`size_t.sizeof`) e.g. `bool`, `byte`, `char`, it is recommended
-to start with fields of high alignments.
+Der Compiler wird Variablen auffüllen (engl.: Padding), die 
+eine Größe kleiner als das Speicherlayout des Betriebssystems 
+(`size_t.sizeof`) besitzen, wie z.B. `bool`, `byte` oder `char`.
+Daher wird die Ausrichtung (engl.: Allignment) der Felder 
+beginnend bei Bit 0 empfohlen.
 
-## In-depth
+## Weiterführende Quellen
 
-- [std.bitmanip](http://dlang.org/phobos/std_bitmanip.html) - Bit-level manipulation facilities
+- [std.bitmanip](http://dlang.org/phobos/std_bitmanip.html)
 - [_Bit Packing like a Madman_](http://dconf.org/2016/talks/sechet.html)
 
 ## {SourceCode}
@@ -89,8 +96,8 @@ to start with fields of high alignments.
 struct BitVector
 {
     import std.bitmanip : bitfields;
-    // creates a private field with the
-    // following proxies
+    // erzeugt ein private Feld mit 
+    // folgenden Proxies
     mixin(bitfields!(
         uint, "x",    2,
         int,  "y",    3,
@@ -108,11 +115,11 @@ void main()
     writefln("x: %d, y: %d, z: %d",
               vec.x, vec.y, vec.z);
 
-    // only 8 bit - 1 byte are used
+    // nur 8 bit - 1 Byte werden benutzt
     writeln(BitVector.sizeof);
 
     struct Vector { int x, y, z; }
-    // 4 bytes (int) per variable
+    // 4 Byte (int) pro Variable
     writeln(Vector.sizeof);
 
 	struct BadVector
@@ -121,8 +128,8 @@ void main()
 		int x, y, z;
 		bool b;
 	}
-	// due to padding,
-	// 4 bytes are used for each field
+	// wegen des Auffüllens (padding)
+	// werden 4 Byte pro Feld verwendet
 	writeln(BadVector.sizeof);
 }
 ```
