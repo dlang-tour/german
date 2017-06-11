@@ -5,7 +5,7 @@ Unicode ist ein globaler Standard für Textkodierung und
 vollständig, sowohl sprachseitig als auch in der 
 Standard-Bibliothek.
 
-## Was und Warum
+## Warum Unicode?
 
 Computer haben auf der niedrigsten Ebene keinen Begriff 
 davon, was ein Text ist, da sie nur mit Zahlen umgehen.
@@ -28,7 +28,7 @@ Für weitere Informationen und technische Details wird der
 [Wikipedia-Artikel über Unicode](https://de.wikipedia.org/wiki/Unicode)
 empfohlen.
 
-## Wie
+## Unicode in D
 
 Unicode hat die meisten dieser Probleme gelöst und wird von
 jeder modernen Maschine unterstützt. D hat aus den Fehlern
