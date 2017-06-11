@@ -11,7 +11,7 @@ Computer haben auf der niedrigsten Ebene keinen Begriff
 davon, was ein Text ist, da sie nur mit Zahlen umgehen.
 Daher braucht es eine Möglichkeit, Textdaten in eine
 binäre Repräsentation zu wandeln und umgekehrt. Die Methode
-der Umwandlung wird Kodierungsschema (engl.:encoding scheme)
+der Umwandlung wird Kodierungsschema (engl.: encoding scheme)
 genannt, Unicode ist ein solches Schema.
 
 Der Beispielcode veranschaulicht unterliegende numerische
@@ -28,12 +28,19 @@ Für weitere Informationen und technische Details wird der
 [Wikipedia-Artikel über Unicode](https://de.wikipedia.org/wiki/Unicode)
 empfohlen.
 
-## How
+## Wie
 
-Unicode has fixed most of those problems and is supported on every
-modern machine. D learns from the mistakes of older languages,
-as such **all** strings in D are Unicode strings, whereas strings
-in languages such as C and C++ are just arrays of bytes.
+Unicode hat die meisten dieser Probleme gelöst und wird von
+jeder modernen Maschine unterstützt. D hat aus den Fehlern
+älterer Programmiersprachen gelernt. So sind **alle** Strings 
+in D Unicode-Strings, während sie in Sprachen wie C und C++
+als einfache Byte-Arrays implementiert sind.
+
+| Stringtyp | Zeichentyp | Kodierung |
+|-----------|------------|-----------|
+| `string`  | `char`     | UTF-8     |
+| `wstring` | `wchar`    | UTF-16    |
+| `dstring` | `dchar`    | UTF-32    |
 
 In D, `string`, `wstring`, and `dstring` are UTF-8, UTF-16, and
 UTF-32 encoded strings respectively. Their character types are
