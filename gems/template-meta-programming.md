@@ -1,17 +1,18 @@
-# Template meta programming
+# Template-Metaprogrammierung
 
-If you ever got in touch with *template meta programming*
-in C++ you will be relieved what tools D offers to make
-your life easier. Template meta programming is a technique
-that enables decision-making depending on template type properties
-and thus allows to make generic types even more flexible
-based on the type they are going to be instantiated with.
+Wenn du jemals mit *Template-Metaprogrammierung* in C++
+in Berührung gekommen bist, wirst du mit Erleichterung
+lesen, dass D einige Werkzeuge bereitstellt, um dir das Leben
+leichter zu machen.
+Metaprogrammierung ist eine Technik, die Entscheidungen
+abhängig von Template-Typeigenschaften ermöglicht und so noch
+flexiblere Gestaltungsmöglichkeiten für generische Typen bietet.
 
 ### `static if` & `is`
 
-Like the normal `if`, `static if` conditionally
-compiles a code block based on a condition that can
-be evaluated at compile time:
+`static if` erlaubt die bedingte Kompilierung eines
+Code-Blocks. Im Gegensatz zu `if` wird die Bedingung
+zur Kompilierzeit ausgewertet:
 
     static if(is(T == int))
         writeln("T is an int");
