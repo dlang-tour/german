@@ -1,24 +1,26 @@
-# Bit manipulation
+# Bitmanipulation
 
-An excellent example of D's ability to generate code on compile-time with mixins,
-is bit manipulation.
+Ein sehr gutes Beispiel für die Erzeugung von Code zur 
+Kompilierzeit in D mit Mixins ist Bitmanipulation.
 
 ### Simple bit manipulation
 
-D offers the following operators for bit manipulation:
+D bietet die folgenden Operatoren für Bitmanipulation:
 
-- `&` bitwise and
-- `|` bitwise or
-- `~` bitwise negative
-- `<<`  bitwise signed   left-shift
-- `>>`  bitwise signed   right-shift (preserves the sign of the high-order bit)
-- `>>>` bitwise unsigned right-shift
+- `&` bitweises Und
+- `|` bitweises Oder
+- `~` bitweise Negation
+- `<<`  bitweise vorzeichenbewahrende Links-Verschiebung
+- `>>`  bitweise vorzeichenbewahrende Rechts-Verschiebung
+- `>>>` bitweise vorzeichenlose Rechts-Verschiebung
 
-### A practical example
+### Ein praktisches Beispiel 
 
-A common example for bit manipulation is to read the value of a bit.
-D provides `core.bitop.bt` for most common tasks, however to get used to bit
-manipulation, let's start with a verbose implementation of testing a bit:
+Ein gängiges Beispiel für Bitmanipulation ist das Einlesen
+eines Bitwertes. D bietet `core.bitop.bt` für die meisten 
+allgemeinen Aufgaben. Nichtsdestotrotz werden wir zum besseren
+Verständnis die ausführliche Implementierung eines Bit-Tests
+vornehmen:
 
 ```d
 enum posA = 1;
@@ -29,9 +31,11 @@ bool getFieldA()
 }
 ```
 
-A generalization is to test for blocks that are longer than 1. Hence
-a special read mask with the length of the block is needed
-and the data block is shifted accordingly before applying the mask:
+Eine Verallgemeinerung ist der Test von Bitblöcken, 
+die aus mehreren aneinandergereihten Bits bestehen. 
+Dazu wird eine spezielle Maske der Länge des Blocks 
+benötigt. Der Datenblock wird entsprechend verschoben, 
+bevor die Maske angewendet wird:
 
 ```d
 enum posA = 1;
@@ -43,8 +47,9 @@ uint getFieldA()
 }
 ```
 
-Setting such a block can equivalently be defined by negating the mask and thus
-only allowing writes within the specified block:
+Das Setzen solch eines Blocks kann genauso durch 
+Negation der Maske erreicht werden, wodurch das Schreiben
+nur innerhalb des spezifizierten Blocks möglich ist:
 
 ```d
 void setFieldA(bool b);
