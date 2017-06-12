@@ -13,7 +13,8 @@ Codeblock verlassen wird:
 Die Verwendung von Scope Guards erhöht die Klarheit des Quellcodes, weil 
 so Ressourcenallokation und Aufräum-Code nebeneinander stehen können.
 Auch kann sichergestellt werden, dass bestimmter Code *immer*
-ausgeführt wird, unabhängig von dem zur Laufzeit ausgeführten Pfad.
+ausgeführt wird, unabhängig davon, ob zur Laufzeit ein Fehler auftritt
+oder nicht.
 
 D's `scope` bietet einen effektiven Ersatz für das in C++ 
 verwendete RAII-Idiom, dass oft zur Implementierung spezieller Scope 
