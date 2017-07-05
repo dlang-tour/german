@@ -4,3 +4,9 @@ repo: dlang-tour/german
 ordering:
 - welcome
 - basics
+translations:
+ editor.run: Ausführen
+ editor.reset: Zurücksetzen
+ editor.format: Formatieren
+ editor.keyboard_shortcuts: Tastenkombinationen
+ editor.export": Exportieren
