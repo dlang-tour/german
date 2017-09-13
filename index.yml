@@ -4,6 +4,7 @@ repo: dlang-tour/german
 ordering:
 - welcome
 - basics
+- gems
 translations:
  editor.run: Ausführen
  editor.reset: Zurücksetzen
