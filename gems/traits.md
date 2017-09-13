@@ -126,7 +126,7 @@ Gibt den gemeinsamen Präfix zweier Ranges zurück
 (ohne den Auto-Dekoding Spezialfall).
 
 Params:
-    pred = Predicate des Gemeinsamkeitsvergleichs
+    pred = Predicate des Vergleichs
     r1 = Eine Forward Range aus Elementen.
     r2 = Eine Input Range aus Elementen.
 
