@@ -83,12 +83,12 @@ void main()
     void test()
     {
         writefln(".uintLength() = %s ",
-        	   fastBigPow(5, 10000).uintLength);
+            fastBigPow(5, 10000).uintLength);
     }
 
     foreach (i; 0 .. 10)
         benchmark!test(1)[0]
         	.to!("msecs", double)
-        	.writeln("brauchte: Millisekunden);          
+        	.writeln("brauchte: Millisekunden");          
 }
 ```
