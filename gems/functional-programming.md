@@ -89,6 +89,6 @@ void main()
     foreach (i; 0 .. 10)
         benchmark!test(1)[0]
         	.to!("msecs", double)
-        	.writeln("brauchte: Millisekunden");          
+        	.writeln("brauchte: Millisekunden");
 }
 ```
