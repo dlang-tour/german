@@ -30,7 +30,7 @@ ein Property verwendet werden:
 
 UFCS ist besonders beim Umgang mit *Ranges* wichtig, wo mehrere
 Algorithmen zu komplexen Operationen zusammengefügt werden
-können, und dies mit klaren und wartbaren Code:
+können. Dies führt zu klarem und wartbarem Code:
 
     import std.algorithm : group;
     import std.range : chain, retro, front, retro;
