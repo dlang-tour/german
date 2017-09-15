@@ -9,13 +9,13 @@ Im Folgenden werden die beiden speziellen Operatorüberladungen
 ### opDispatch
 
 `opDispatch` kann als Memberfunktionen eines `struct`- 
-oder `class`-Typs definiert werden. Jede unbekannte Memberfunktionsaufruf
+oder `class`-Typs definiert werden. Jeder unbekannte Memberfunktionsaufruf
 für diesen Typ wird an `opDispatch` weitergeleitet,
 wobei sowohl Name als auch Parameter der unbekannten
 Funktion als `string` durchgereicht werden.
-Damit ist `opDispatch` eine *alles auffangede* Memberfunktion
-und erlaubt eine andere Ebene der Generischen Programmierung,
-und das komplett zur **Kompilierzeit**!
+Damit ist `opDispatch` eine Art *alles auffangede* Memberfunktion
+und schafft so ganz neue Möglichkeiten der Generischen Programmierung
+- komplett zur **Kompilierzeit**!
 
     struct C {
         void callA(int i, int j) { ... }
@@ -37,7 +37,7 @@ und das komplett zur **Kompilierzeit**!
 Eine alternative Implementing eines `foreach`-Durchlaufs,
 verglichen mit der Definition einer benuterdefinierten *Range*,
 ist die Erstellung einer `opApply`-Memberfunktion.
-Das Iterieren mit `foreach` oder ähnlichem wird ein
+Durch das Iterieren mit `foreach` oder ähnlichem wird ein
 spezielles Delegate als Parameter aufrufen:
 
     class Tree {
@@ -56,9 +56,9 @@ spezielles Delegate als Parameter aufrufen:
     }
 
 Der Compiler wandelt den `foreach`-Rumpf in ein spezielles
-Delegate um, dass an das Objekt übergeben wird. Sein einziger
+Delegate um, das an das Objekt übergeben wird. Sein einziger
 Parameter ist jeweils der aktuelle Wert der Iteration.
-Der magische `int`-Rückgabewert muss interpretiert werden und,
+Der magische `int`-Rückgabewert muss interpretiert und,
 falls dieser nicht  `0` ist, die Iteration abgebrochen werden.
 
 ### Weiterführende Quellen
