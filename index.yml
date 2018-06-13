@@ -5,6 +5,7 @@ ordering:
 - welcome
 - basics
 - gems
+- vibed
 translations:
  editor.run: Ausführen
  editor.reset: Zurücksetzen
