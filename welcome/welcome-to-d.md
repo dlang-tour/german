@@ -12,7 +12,7 @@ Sprache, welche direkt zu __effizientem__, __nativem__ Maschinencode kompiliert.
 ### Was ist D?
 
 D ist die Akkumulation von Jahrzehnten an Erfahrung im Compilerbau
-für viele verschiedene Sprachen und D hat eine Vielzahl an einzigartigen
+vieler verschiedener Sprachen und beinhaltet eine Vielzahl an einzigartigen
 [Features](http://dlang.org/overview.html):
 
 {{#dmandesktop}}
