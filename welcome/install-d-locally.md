@@ -1,33 +1,45 @@
 # D lokal installieren
 
-Auf der [Website der Programmiersprache](https://dlang.org) wird stets die neuste
-Version des Referenz-Compilers **DMD** (Digital Mars D) zum [Download](http://dlang.org/download.html)
-angeboten und kann wie folgt installiert werden:
+Der Referenz-Compiler der D Programmiersprache ist DMD (Digital Mars D).
+Weiterhin werden die Compiler [LDC](https://github.com/ldc-developers/ldc)
+und [GDC](https://gdcproject.org) angeboten, welche einen D Compiler jeweils
+mit [LLVM](http://llvm.org) und mit [GCC](https://gcc.gnu.org/) implementieren.
+Für Anfänger wird aber DMD empfohlen.
+
+## Installation
+
+Der [Downloadbereich auf dlang.org](https://dlang.org/download.html) bietet
+Download-Links zu den verschiedenen D Compilern an. Diese können hier als ausführbare
+Dateien für verschiedene Betriebssysteme heruntergeladen und installiert werden.
+
+Zusätlich gibt es ein [Installations-Script](https://dlang.org/install.html) für
+verschiedene POSIX-ähnliche Systeme (Linux, FreeBSD, MacOS) welches verschiedene
+Versionen und Compiler gleichzeitig installieren kann, ohne Administrationsreche
+zu benötigen.
+
+## Pakete
+
+Für verschiedene Betriebssysteme werden auch **Community-basierte Packages** angeboten:
 
 ### Windows
 
-* [Installer](http://downloads.dlang.org/releases/2.x/{{latest-release}}/dmd-{{latest-release}}.exe)
-* oder: [Archive](http://downloads.dlang.org/releases/2.x/{{latest-release}}/dmd.{{latest-release}}.windows.7z)
-* mit [chocolatey](https://chocolatey.org/packages/dmd): `choco install dmd`
+* [chocolatey](https://chocolatey.org/packages/dmd): `choco install dmd`
 
 ### Mac OS X
 
-* `.dmg` [package](http://downloads.dlang.org/releases/2.x/{{latest-release}}/dmd.{{latest-release}}.dmg)
-* oder: [Archive](http://downloads.dlang.org/releases/2.x/{{latest-release}}/dmd.{{latest-release}}.osx.tar.xz)
-* mit [Homebrew](http://brew.sh): `brew install dmd`
+* [Homebrew](https://formulae.brew.sh/formula/dmd): `brew install dmd`
 
 ### Linux / FreeBSD
 
-DMD kann am schnellsten durch Ausführen von `curl -fsS https://dlang.org/install.sh | bash -s dmd`
+DMD kann am schnellsten durch Ausführen von
+`curl -fsS https://dlang.org/install.sh | bash -s dmd`
 im Benutzerverzeichnis installiert werden.
-
-Für viele Distributionen werden auch Pakete angeboten:
 
 * [ArchLinux](https://wiki.archlinux.org/index.php/D_(programming_language))
 * [Debian/Ubuntu](http://d-apt.sourceforge.net)
-* [Fedora/CentOS](http://dlang.org/download.html#dmd)
+* [Fedora/CentOS](https://dlang.org/download.html#dmd)
 * [Gentoo](https://wiki.gentoo.org/wiki/Dlang)
-* [OpenSuse](http://dlang.org/download.html#dmd)
+* [openSUSE](https://dlang.org/download.html#dmd)
 
 ### Andere Compiler
 
