@@ -43,7 +43,7 @@ finally
 }
 ```
 
-Beachte: Die Verwendung eines [scope guards](https://tour.dlang.org/tour/en/gems/scope-guards) ist 
+Beachte: Die Verwendung eines [scope guards](gems/scope-guards) ist 
 in der Regel die bessere Lösung verglichen mit dem `try-finally`-Muster.
 
 ### Benutzerdefinierte Exceptions
