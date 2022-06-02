@@ -108,7 +108,7 @@ void main()
       // wird ignoriert.
     ];
     writeln("Before: ", toBeEncrypted);
-    / Hier verschlüsseln/verschieben wir
+    // Hier verschlüsseln/verschieben wir
     // den Text um 16 Zeichen.
     auto encrypted = encrypt(toBeEncrypted, 16);
     writeln("After: ", encrypted);
