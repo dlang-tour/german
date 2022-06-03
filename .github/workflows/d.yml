@@ -20,6 +20,10 @@ jobs:
 
     - name: 'Run sanitycheck'
       run: |
+        echo "Check for trailing whitespace"
+        grep -nr --include \*.md '\s$' . ; test $? -eq 1
+        echo "Check for tabs"
+        grep -nrP --include \*.md '\t' . ; test $? -eq 1
         git clone https://github.com/dlang-tour/core ../tour
         mkdir -p ../tour/public/content/lang
         mv * ../tour/public/content/lang
