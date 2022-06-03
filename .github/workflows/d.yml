@@ -21,12 +21,12 @@ jobs:
     - name: 'Run sanitycheck'
       run: |
         echo "Check for trailing whitespace"
-        if [ grep -nr --include \*.md '\s$' . ]; then
+        if [ ! grep -nr --include \*.md '\s$' . ]; then
           echo "Found trailing whitespace, please remove"
           exit 1
         fi
         echo "Check for tabs"
-        if [ grep -nrP --include \*.md '\t' . ]; then
+        if [ ! grep -nrP --include \*.md '\t' . ]; then
           echo "Found tabs, please replace with spaces"
           exit 1
         fi
