@@ -1,6 +1,6 @@
 # Bitmanipulation
 
-Ein sehr gutes Beispiel für die Erzeugung von Code zur 
+Ein sehr gutes Beispiel für die Erzeugung von Code zur
 Kompilierzeit in D mit Mixins ist Bitmanipulation.
 
 ### Einfache Bitmanipulation
@@ -14,10 +14,10 @@ D bietet die folgenden Operatoren für Bitmanipulation:
 - `>>`  bitweise vorzeichenbewahrende Rechts-Verschiebung
 - `>>>` bitweise vorzeichenlose Rechts-Verschiebung
 
-### Ein praktisches Beispiel 
+### Ein praktisches Beispiel
 
 Ein gängiges Beispiel für Bitmanipulation ist das Einlesen
-eines Bitwertes. D bietet `core.bitop.bt` für die meisten 
+eines Bitwertes. D bietet `core.bitop.bt` für die meisten
 allgemeinen Aufgaben. Nichtsdestotrotz werden wir zum besseren
 Verständnis die ausführliche Implementierung eines Bit-Tests
 vornehmen:
@@ -31,10 +31,10 @@ bool getFieldA()
 }
 ```
 
-Eine Verallgemeinerung ist der Test von Bitblöcken, 
-die aus mehreren aneinandergereihten Bits bestehen. 
-Dazu wird eine spezielle Maske der Länge des Blocks 
-benötigt. Der Datenblock wird entsprechend verschoben, 
+Eine Verallgemeinerung ist der Test von Bitblöcken,
+die aus mehreren aneinandergereihten Bits bestehen.
+Dazu wird eine spezielle Maske der Länge des Blocks
+benötigt. Der Datenblock wird entsprechend verschoben,
 bevor die Maske angewendet wird:
 
 ```d
@@ -47,7 +47,7 @@ uint getFieldA()
 }
 ```
 
-Das Setzen solch eines Blocks kann genauso durch 
+Das Setzen solch eines Blocks kann genauso durch
 Negation der Maske erreicht werden, wodurch das Schreiben
 nur innerhalb des spezifizierten Blocks möglich ist:
 
@@ -58,19 +58,19 @@ void setFieldA(bool b);
 }
 ```
 
-## Les- und Wartbarkeit mit `std.bitmanip` 
+## Les- und Wartbarkeit mit `std.bitmanip`
 
-D bietet einen kompletten Werkzeugkoffer zur Erzeugung 
+D bietet einen kompletten Werkzeugkoffer zur Erzeugung
 benutzerdefinierter Bitmanipulationen. Allerdings ist
-bitmanipulierender Code oft fehlerträchtig und schwer 
+bitmanipulierender Code oft fehlerträchtig und schwer
 zu warten.
-`std.bitmanip` schafft hier Abhilfe, indem es (unter 
-Zuhilfenahme von Mixins) erlaubt, wartbare, leicht 
-lesbare Bitmanipulationen zu schreiben - ohne dabei 
+`std.bitmanip` schafft hier Abhilfe, indem es (unter
+Zuhilfenahme von Mixins) erlaubt, wartbare, leicht
+lesbare Bitmanipulationen zu schreiben - ohne dabei
 Performance zu opfern.
 
-Das Beispiel zeigt eine `BitVector`-Definition, die, 
-obwohl sie nur X Bits benutzt, kaum von regulären Strukturen 
+Das Beispiel zeigt eine `BitVector`-Definition, die,
+obwohl sie nur X Bits benutzt, kaum von regulären Strukturen
 unterscheidbar ist.
 
 `std.bitmanip` und `core.bitop` beinhalten weitere Helfer,
@@ -79,10 +79,10 @@ eines geringen Speicherverbrauchs stellen.
 
 ### Auffüllen und Ausrichtung
 
-Der Compiler wird Variablen auffüllen (engl.: Padding), die 
-eine Größe kleiner als das Speicherlayout des Betriebssystems 
+Der Compiler wird Variablen auffüllen (engl.: Padding), die
+eine Größe kleiner als das Speicherlayout des Betriebssystems
 (`size_t.sizeof`) besitzen, wie z.B. `bool`, `byte` oder `char`.
-Daher wird die Ausrichtung (engl.: Allignment) der Felder 
+Daher wird die Ausrichtung (engl.: Allignment) der Felder
 beginnend bei Bit 0 empfohlen.
 
 ## Weiterführende Quellen
@@ -96,7 +96,7 @@ beginnend bei Bit 0 empfohlen.
 struct BitVector
 {
     import std.bitmanip : bitfields;
-    // erzeugt ein private Feld mit 
+    // erzeugt ein private Feld mit
     // folgenden Proxies
     mixin(bitfields!(
         uint, "x",    2,
@@ -122,14 +122,14 @@ void main()
     // 4 Byte (int) pro Variable
     writeln(Vector.sizeof);
 
-	struct BadVector
-	{
-		bool a;
-		int x, y, z;
-		bool b;
-	}
-	// wegen des Auffüllens (padding)
-	// werden 4 Byte pro Feld verwendet
-	writeln(BadVector.sizeof);
+    struct BadVector
+    {
+        bool a;
+        int x, y, z;
+        bool b;
+    }
+    // wegen des Auffüllens (padding)
+    // werden 4 Byte pro Feld verwendet
+    writeln(BadVector.sizeof);
 }
 ```

@@ -1,18 +1,18 @@
 # Uniform Function Call Syntax (UFCS)
 
-**UFCS** (dt. etwa: einheitliche Funktionsaufruf-Syntax) ist 
-ein Hauptmerkmal von D, dass Wiederverwendbarkeit und 
+**UFCS** (dt. etwa: einheitliche Funktionsaufruf-Syntax) ist
+ein Hauptmerkmal von D, dass Wiederverwendbarkeit und
 Skalierbarkeit durch klar definierte Kapselung ermöglicht.
 
 UCFS erlaubt es, den Aufruf der freien Funktion `fun(a)` als
 Memberfunktionsaufruf `a.fun()` zu schreiben.
 
 Wenn `a.fun()` vom Compiler gesehen wird, und der Typ von `a`
-keine Memberfunktion `fun()` besitzt, wird versucht eine 
+keine Memberfunktion `fun()` besitzt, wird versucht eine
 globale Funktion zu finden, deren erster Parameter dem von `a`
 entspricht.
 
-Dieses Feature ist besonders bei der Verkettung von 
+Dieses Feature ist besonders bei der Verkettung von
 Funktionsaufrufen nützlich.
 
     foo(bar(a))
@@ -21,8 +21,8 @@ kann dank UFCS auch so geschrieben werden:
 
     a.bar().foo()
 
-Ferner können in D bei Funktionen ohne Argumente die runden 
-Klammern weggelassen werden. Somit kann _jede_ Funktion wie 
+Ferner können in D bei Funktionen ohne Argumente die runden
+Klammern weggelassen werden. Somit kann _jede_ Funktion wie
 ein Property verwendet werden:
 
     import std.uni : toLower;
@@ -47,7 +47,7 @@ können. Dies führt zu klarem und wartbarem Code:
 
 ```d
 import std.stdio : writefln, writeln;
-import std.algorithm.iteration : filter;
+import std.algorithm.iteration : filter; 
 import std.range : iota;
 
 void main()
@@ -61,6 +61,6 @@ void main()
 
     // Traditioneller Stil:
     writeln(filter!(a => a % 2 == 0)
-    			   (iota(10)));
+                   (iota(10)));
 }
 ```

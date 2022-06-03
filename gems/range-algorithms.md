@@ -3,7 +3,7 @@
 Die Standardmodule [std.range](http://dlang.org/phobos/std_range.html)
 und [std.algorithm](http://dlang.org/phobos/std_algorithm.html)
 bieten eine Vielfalt an großartigen Funktionen, die, basierend
-auf *Ranges* als Grundbausteinen, zu komplexen Operationen 
+auf *Ranges* als Grundbausteinen, zu komplexen Operationen
 zusammengefügt werden konnen, und dies auf eine lesbare Art und Weise.
 
 Das Großartige an diesen Algorithmen ist die Anwendbarkeit
@@ -32,18 +32,18 @@ definierten Prädikats:
 
     theBigBigRange.take(10);
 
-`zip` - Iteriert parallel über zwei Ranges und bindet die Elemente 
+`zip` - Iteriert parallel über zwei Ranges und bindet die Elemente
 zu Tupeln:
 
     assert(zip([1,2], ["hello","world"]).front
       == tuple(1, "hello"));
 
-`generate` - Erzeugt eine Range basierend auf einer Funktion, 
+`generate` - Erzeugt eine Range basierend auf einer Funktion,
 die bei jedem Iterationsschritt aufgerufen wird, z.B.:
 
     alias RandomRange = generate!(x => uniform(1, 1000));
 
-`cycle` - Erzeugt eine Range, welche die gegebene Eingangs-Range 
+`cycle` - Erzeugt eine Range, welche die gegebene Eingangs-Range
 für immer wiederholt:
 
     auto c = cycle([1]);
@@ -68,7 +68,7 @@ import std.string : format;
 
 void main()
 {
-    string text = "Diese Tour gibt dir 
+    string text = "Diese Tour gibt dir
     einen Überblick über diese mächtige
     und ausdrucksstarke Programmiersprache,
     die direkt zu effizientem, *nativem*
@@ -83,8 +83,8 @@ void main()
     auto wordCharCounts = words
       .map!"a.count";
 
-    // Ausgabe der Zeichenanzahl 
-    // pro Word beginnend mit 
+    // Ausgabe der Zeichenanzahl
+    // pro Word beginnend mit
     // der geringsten Anzahl!
     zip(wordCharCounts, words)
       // Array-Konvertierung für's Sortieren
@@ -92,10 +92,10 @@ void main()
       .sort()
       // keine Kopie nötig!
       .uniq()
-      // Alle Wörter mit gleicher Anzahl 
+      // Alle Wörter mit gleicher Anzahl
       // an Zeichen in eine Reihe:
       // chunkBy generiert eine Range aus
-      // Ranges, getrennt durch die 
+      // Ranges, getrennt durch die
       // Länge
       .chunkBy!(a => a[0])
       // Diese Elemente werden verbunden

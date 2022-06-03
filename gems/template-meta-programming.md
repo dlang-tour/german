@@ -28,7 +28,7 @@ auswertet:
     }
 
 Wenn die Bedingung erfüllt ist, wird der Inhalt des Blocks
-kopiert. Die umschließenden Klammern werden weggelassen 
+kopiert. Die umschließenden Klammern werden weggelassen
 und kein weiterer Scope erstellt.
 Ein neuer Block / Scope kann allerdings explizit mit `{ {` und `} }`
 erzeugt werden.
@@ -38,7 +38,7 @@ Funktionen, im globalen Scope sowie in Typdefinitionen.
 
 ### `mixin template`
 
-Überall, wo Textbausteine gefragt sind, können 
+Überall, wo Textbausteine gefragt sind, können
 `mixin template`s genutzt werden:
 
     mixin template Foo(T) {
@@ -49,8 +49,8 @@ Funktionen, im globalen Scope sowie in Typdefinitionen.
 
 `mixin template` können eine beliebige Anzahl an komplexen
 Ausdrücken enthalten und werden am Instanziierungspunkt
-eingesetzt. 
-Dies macht einen Präprozessor, wie ihn z.B. C und C++ 
+eingesetzt.
+Dies macht einen Präprozessor, wie ihn z.B. C und C++
 besitzen, überfüssig.
 
 ### Template-Beschränkungen
@@ -107,9 +107,9 @@ private:
 
     /*
     Generator für Getter und Setter zur
-    Vermeidung sich wiederholender 
+    Vermeidung sich wiederholender
     Textbausteine (engl.:boiler plate)!
-    
+
     var -> T getVAR() and void setVAR(T)
     */
     mixin template GetterSetter(string var) {
@@ -132,7 +132,7 @@ private:
 
 public:
     /*
-    Die dot-Funktion ist nur für 
+    Die dot-Funktion ist nur für
     Floatingpoint-Typen verfügbar.
     */
     static if (isFloatingPoint!T) {
@@ -146,16 +146,16 @@ public:
 void main()
 {
     auto vec = Vector3!double(3,3,3);
-    // Folgendes funktioniert aufgrund der 
+    // Folgendes funktioniert aufgrund der
     // Template-Beschränkung nicht!
     // Vector3!string illegal;
 
     auto vec2 = Vector3!double(4,4,4);
     writeln("vec dot vec2 = ", vec.dot(vec2));
-    
+
     auto vecInt = Vector3!int(1,2,3);
     // besitzt die Function dot nicht, da diese
-    // statisch nur für Floatingpoint-Typen    
+    // statisch nur für Floatingpoint-Typen
     // definiert wurde
     // vecInt.dot(Vector3!int(0,0,0));
 

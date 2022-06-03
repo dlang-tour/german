@@ -15,7 +15,7 @@ solange eine bestimmte Bedingung erfüllt ist:
 
 Die `do .. while`-Schleife führt den gegebenen Code-Block aus,
 solange eine bestimmte Bedingung erfüllt ist. Aber im Gegensatz
-zur `while`-Schleife wird der Code-Block ausgeführt, bevor 
+zur `while`-Schleife wird der Code-Block ausgeführt, bevor
 die Bedingung das erste Mal geprüft wird.
 
     do {
@@ -24,7 +24,7 @@ die Bedingung das erste Mal geprüft wird.
 
 ### 3) Klassische `for`-Schleife
 
-Die klassische `for`-Schleife, bekannt aus C/C++ oder Java, 
+Die klassische `for`-Schleife, bekannt aus C/C++ oder Java,
 mit _Initialisierung_ , _Test_ und _Fortsetzung_:
 
     for (int i = 0; i < arr.length; i++) {
@@ -32,7 +32,7 @@ mit _Initialisierung_ , _Test_ und _Fortsetzung_:
 
 ### 4) `foreach`
 
-Die [`foreach`-Schleife](basics/foreach), die in der nächsten Sektion 
+Die [`foreach`-Schleife](basics/foreach), die in der nächsten Sektion
 im Detail eingeführt wird:
 
     foreach (el; arr) {
@@ -64,12 +64,12 @@ Das Schlüsselwort `continue` startet die nächste Schleifen-Iteration.
 import std.stdio;
 
 /*
-Berechnet den Mittelwert 
+Berechnet den Mittelwert
 der Elemente eines Arrays.
 */
 double average(int[] array) {
     // Die Eigenschaft .empty für Arrays ist in
-    // D nicht nativ und wird durch Import aus 
+    // D nicht nativ und wird durch Import aus
     // std.array bereitgestellt.
     import std.array: empty, front;
 

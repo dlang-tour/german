@@ -41,7 +41,7 @@ verarbeiten.
         // if not commented out, next line will
         // result in error (can't modify const):
         // s[0] = 'x';
-    
+
         import std.stdio : writeln;
         writeln(s);
     }
