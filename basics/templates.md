@@ -1,7 +1,7 @@
 # Templates
 
 **D** erlaubt die Defintion von Funktionstemplates wie C++ und
-Java. Dies ist ein Mittel um **generische** Funktionen oder Objekte zu 
+Java. Dies ist ein Mittel um **generische** Funktionen oder Objekte zu
 definieren, die für jeden Typ funktionieren, der mit den Anweisungen des
 Funktionsrumpfs kompiliert:
 
@@ -10,8 +10,8 @@ Funktionsrumpfs kompiliert:
     }
 
 Der Template-Parameter `T` wird in runden Klammern vor den eigentlichen
-Funktionsparametern definiert. `T` ist ein Platzhalter, der vom Compiler 
-ersetzt wird, wenn die Funktion tatsächlich mit dem `!`-Operator 
+Funktionsparametern definiert. `T` ist ein Platzhalter, der vom Compiler
+ersetzt wird, wenn die Funktion tatsächlich mit dem `!`-Operator
 *instanziiert* wird:
 
     add!int(5, 10);
@@ -19,28 +19,28 @@ ersetzt wird, wenn die Funktion tatsächlich mit dem `!`-Operator
     add!Animal(dog, cat); // kompiliert nicht! Animal implementiert + nicht
 
 ### Implizite Template-Parameter
- 
-Funktionstemplates haben zwei Parametersätze - den ersten für 
+
+Funktionstemplates haben zwei Parametersätze - den ersten für
 Kompilierzeit-Argumente und den zweiten für Laufzeit-Argumente.
 (Normale Funktionen akzeptieren nur Laufzeit-Argumente).
-Wenn ein oder mehrere Kompilierzeit-Argumente beim Aufruf ausgelassen 
+Wenn ein oder mehrere Kompilierzeit-Argumente beim Aufruf ausgelassen
 werden, versucht der Compiler deren Typ aus der Liste der Laufzeit-
 Argumente abzuleiten.
 
     int a = 5; int b = 10;
     add(a, b); // T wird abgeleitet zu `int`
     float c = 5.0;
-    add(a, c); // T wird abgeleitet zu `float` 
+    add(a, c); // T wird abgeleitet zu `float`
 
 ### Template-Eigenschaften
 
 Eine Funktion kann beliebig viele Template-Parameter besitzen, welche
-während der Instanziierung mit der `func!(T1, T2 ..)`-Syntax spezifiziert 
-werden. Template-Parameter können von jedem Basistyp sein (inkl. `string` 
+während der Instanziierung mit der `func!(T1, T2 ..)`-Syntax spezifiziert
+werden. Template-Parameter können von jedem Basistyp sein (inkl. `string`
 und Fließkommatypen).
 
-Anders als Generics in Java, beziehen sich Templates in D nur auf die 
-Kompilierzeit. Dies führt zu hochoptimiertem Code maßgeschneidert für die 
+Anders als Generics in Java, beziehen sich Templates in D nur auf die
+Kompilierzeit. Dies führt zu hochoptimiertem Code maßgeschneidert für die
 beim Funktionsaufruf genutzten Typen.
 
 Natürlich können auch die Typen `struct`, `class` und `interface` als Template

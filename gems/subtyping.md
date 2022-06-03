@@ -1,11 +1,11 @@
 # Subtypen in D
 
-D bietet Vererbung für Klassen an, nicht aber für 
-`struct`s. Zur Erweiterung der Funktionalität von 
+D bietet Vererbung für Klassen an, nicht aber für
+`struct`s. Zur Erweiterung der Funktionalität von
 `struct`s gibt es allerdings ein weiteres großartiges
 Mittel: Die Verwendung von Subtypen.
 
-Einer der Member eines `struct`s kann als 
+Einer der Member eines `struct`s kann als
 `alias this` definiert werden:
 
     struct SafeInt {
@@ -14,15 +14,15 @@ Einer der Member eines `struct`s kann als
     }
 
 Jede Funktion oder Operation an `SafeInt`s,
-die nicht vom Typ selbst behandelt werden kann, 
+die nicht vom Typ selbst behandelt werden kann,
 wird an den `alias this`-Member weitergeleitet.
-Von außen betrachtet ist `SafeInt` also ein 
+Von außen betrachtet ist `SafeInt` also ein
 normaler Integer.
 
 Dies erlaubt die Erweiterung anderer Typen
 mit neuer Funktionalität, aber ohne Mehraufwand
 (engl.: zero overhead) in Bezug auf Speicher oder
-Laufzeit. 
+Laufzeit.
 
 `alias this` funktioniert auch mit Klassen!
 
@@ -44,7 +44,7 @@ struct Vector3 {
 void main()
 {
     Vector3 vec;
-    // Wir interagieren hier im 
+    // Wir interagieren hier im
     // Wesentlichen mit double[].
     vec = [ 0.0, 1.0, 0.0 ];
     assert(vec.length == 3);

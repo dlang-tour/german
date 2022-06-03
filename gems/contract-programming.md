@@ -1,20 +1,20 @@
 # Contract Programming
 
 Contract Programming (dt.: vertragsbasierte Programmierung)
-in D umfasst einen Satz von Sprachkonstrukten, die die 
+in D umfasst einen Satz von Sprachkonstrukten, die die
 Quellcodequalität durch bestimmte Prüfroutinen (sog. Contracts)
 erhöhen und korrektes Verhalten sicherstellen sollen.
 
-Contracts stehen nur im **Debug-Modus** zur Verfügung und 
+Contracts stehen nur im **Debug-Modus** zur Verfügung und
 werden im Release-Modus nicht ausgeführt.
-Deshalb sollten sie nicht für die Überprüfung von 
+Deshalb sollten sie nicht für die Überprüfung von
 Benutzereingaben eingesetzt werden.
 
 ### `assert`
 
-Der `assert(...)`-Ausdruck bietet die einfachste Form 
+Der `assert(...)`-Ausdruck bietet die einfachste Form
 des Contract Programming und prüft ob eine bestimmte
-Bedingung eingehalten wird, anderenfalls bricht das 
+Bedingung eingehalten wird, anderenfalls bricht das
 Programm ab.
 
     assert(sqrt(4) == 2);
@@ -38,14 +38,14 @@ Eingangsparameter und Rückgabewerte von Funktionen.
 
 Der Inhalt des `in`-Blocks könnte auch im Rumpf der Funktion
 stehen, auf diese Art wird aber die Intention viel klarer.
-Im `out`-Block der Funktion kann der Rückgabewert mit 
+Im `out`-Block der Funktion kann der Rückgabewert mit
 `out(result)` erfasst und entsprechend geprüft werden.
 
 ### Überprüfung mit invariant
 
 `invariant()` ist eine spezielle Memberfunktion von `struct`-
 und `class`-Typen, der die Überprüfung des Objektzustands
-während dessen gesamter Lebenszeit erlaubt. 
+während dessen gesamter Lebenszeit erlaubt.
 
 `invariant()` wird zu folgenden Zeitpunkten ausgeführt:
 * nach Ausführung des Konstruktors
@@ -103,10 +103,10 @@ struct Date {
     /**
     Serialisiere Datenobjekt aus einem
     YYYY-MM-DD String.
-    
+
     Params:
         date = zu serialisiernder String
-        
+
     Returns: Datnobjekt
     /*
     void fromString(string date)
@@ -156,7 +156,7 @@ void main() {
 
     // Dies wird invariant fehlschlagen lassen.
     // Überprüfe Benutzereingaben nicht mit
-    // Contracts! 
+    // Contracts!
     // Stattdessen Exceptions werfen!
     date.fromString("2016-13-7");
 

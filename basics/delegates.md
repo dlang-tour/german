@@ -12,7 +12,7 @@ Eine Funktion kann auch Parameter einer Funktion sein:
     doSomething(add); // use global function `add` here
                       // add must have 2 int parameters
 
-`doer` kann wie jede andere normale Funktion aufgerufen 
+`doer` kann wie jede andere normale Funktion aufgerufen
 werden.
 
 ### Lokale Funktionen mit Kontext
@@ -22,11 +22,11 @@ ein Zeiger auf eine globale Funktion. Sobald auf eine Memberfunktion
 oder eine lokale Funktion verwiesen wird, muss ein `delegate`
 verwendet werden. Das ist ein Funktionszeiger mit zusätzlichen
 Informationen zu seinem Kontext (in anderen Programmiersprachen
-auch **Closure** genannt). Ein auf eine Memberfunktion einer 
+auch **Closure** genannt). Ein auf eine Memberfunktion einer
 Klasse zeigendes `delegate` enthält z.B. einen Zeiger auf das
 Klassenobjekt. Ein `delegate`, erzeugt in einer verschachtelten
-Funktion, enthält stattdessen einen Link zu seinem umgebenden 
-Kontext. Allerdings darf der D-Compiler automatisch eine Kopie 
+Funktion, enthält stattdessen einen Link zu seinem umgebenden
+Kontext. Allerdings darf der D-Compiler automatisch eine Kopie
 des Kontextes auf dem Heap erstellen, falls dies der Speicher-
 sicherheit dient. Das Delegate enthält dann einen Link zu diesem
 Heap-Bereich
@@ -43,23 +43,23 @@ würde so aussehen:
 
     void doSomething(int delegate(int,int) doer);
 
-`delegate`- und `function`-Objekte können nicht gemischt werden. 
+`delegate`- und `function`-Objekte können nicht gemischt werden.
 Daher konvertiert die Standardfunktion
 [`std.functional.toDelegate`](https://dlang.org/phobos/std_functional.html#.toDelegate)
 eine `function` in ein `delegate`.
 
 ### Anonyme Funktionen und Lambdafunktionen
 
-Da Funktionen als Variablen gespeichert und an andere Funktionen 
+Da Funktionen als Variablen gespeichert und an andere Funktionen
 übergeben werden können, ist es mühsam, sie zu definieren und ihnen
-einen Namen zu geben. Daher erlaubt D namenlose Funktionen und 
+einen Namen zu geben. Daher erlaubt D namenlose Funktionen und
 einzeilige _Lambdafunktionen_.
 
     auto f = (int lhs, int rhs) {
         return lhs + rhs;
     };
     // Lambdafunktion, gleich mit obiger Funktion
-    auto f = (int lhs, int rhs) => lhs + rhs; 
+    auto f = (int lhs, int rhs) => lhs + rhs;
 
 Auch besteht die Möglichkeit, Strings als Template-Argumente an
 funktionale Teile der D-Standardbibliothek zu nutzen. Dies erlaubt
@@ -67,7 +67,7 @@ z.B. eine komfortable Art der Definition einer Reduce-Funktion:
 
     [1, 2, 3].reduce!`a + b`; // 6
 
-String-Funktionen sind nur möglich für _ein oder zwei_ Argumente, 
+String-Funktionen sind nur möglich für _ein oder zwei_ Argumente,
 wobei `a` als erstes und `b` als zweites Argument dient.
 
 ### Weiterführende Quellen
@@ -78,7 +78,7 @@ wobei `a` als erstes und `b` als zweites Argument dient.
 
 ```d
 import std.stdio : writeln;
- 
+
 enum IntOps {
     add = 0,
     sub = 1,
@@ -90,7 +90,7 @@ enum IntOps {
 Stellt eine math. Berechnung bereit
 Params:
     op = gewählte math. Operation
-Returns: delegate, welches die math. 
+Returns: delegate, welches die math.
          Operation ausführt
 */
 auto getMathOperation(IntOps op)

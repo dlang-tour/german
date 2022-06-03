@@ -1,6 +1,6 @@
 # Exceptions
 
-Dieser Abschnitt befasst sich nur mit Benutzer-`Exceptions` - System-`Error` sind 
+Dieser Abschnitt befasst sich nur mit Benutzer-`Exceptions` - System-`Error` sind
 normalerweise fatal und sollten __nie__ auffangen werden.
 
 ### Exceptions auffangen
@@ -43,12 +43,12 @@ finally
 }
 ```
 
-Beachte: Die Verwendung eines [scope guards](gems/scope-guards) ist 
+Beachte: Die Verwendung eines [scope guards](gems/scope-guards) ist
 in der Regel die bessere Lösung verglichen mit dem `try-finally`-Muster.
 
 ### Benutzerdefinierte Exceptions
 
-Eine benutzerdefinierte Exception kann durch Erben von der Klasse 
+Eine benutzerdefinierte Exception kann durch Erben von der Klasse
 `Exception` erzeugt werden:
 
 ```d
@@ -83,7 +83,7 @@ abzuleiten.
 
 Es ist wichtig, Contract-Programmierung für Benutzereingaben zu vermeiden, da
 Contracts im Falle einer Kompilierung im Release-Mode entfernt werden.
-Komfortablerweise bietet `std.exception` `enforce`, welches wie `assert` 
+Komfortablerweise bietet `std.exception` `enforce`, welches wie `assert`
 genutzt werden kann, aber `Exceptions` anstatt von `AssertError` wirft.
 
 ```d
@@ -95,8 +95,8 @@ enforce(magic + 42 - magic == 42, "Floatingpoint-Arithmetik macht Spaß!");
 enforce!StringException('a' != 'A', "Groß- / Kleinschreibung beachten!");
 ```
 
-`std.exception` bietet darüberhinaus die Möglichkeit, die Behandlung 
-nicht-fataler Fehler mit `collect` zu verkürzen. 
+`std.exception` bietet darüberhinaus die Möglichkeit, die Behandlung
+nicht-fataler Fehler mit `collect` zu verkürzen.
 
 ```d
 import std.exception : collectException;
@@ -105,7 +105,7 @@ if (e)
     writeln("The dangerous operation failed with ", e);
 ```
 
-Der Test, ob eine Exception geworfen wurde, kann mit `assertThrown` 
+Der Test, ob eine Exception geworfen wurde, kann mit `assertThrown`
 erfolgen.
 
 ### Weiterführende Quellen
@@ -129,14 +129,14 @@ void main()
     }
     catch (FileException e)
     {
-		writeln("Message:\n", e.msg);
-		writeln("File: ", e.file);
-		writeln("Line: ", e.line);
-		writeln("Stack trace:\n", e.info);
+        writeln("Message:\n", e.msg);
+        writeln("File: ", e.file);
+        writeln("Line: ", e.line);
+        writeln("Stack trace:\n", e.info);
 
-		// Standard-Formatierug 
-		// auch möglich!
-		// writeln(e);
+        // Standard-Formatierug
+        // auch möglich!
+        // writeln(e);
     }
 }
 ```

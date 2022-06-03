@@ -1,13 +1,13 @@
 # Unicode in D
 
-Unicode ist ein globaler Standard für Textkodierung und 
--repräsentation in Computern. D unterstützt Unicode 
-vollständig, sowohl sprachseitig als auch in der 
+Unicode ist ein globaler Standard für Textkodierung und
+-repräsentation in Computern. D unterstützt Unicode
+vollständig, sowohl sprachseitig als auch in der
 Standard-Bibliothek.
 
 ## Warum Unicode?
 
-Computer haben auf der niedrigsten Ebene keinen Begriff 
+Computer haben auf der niedrigsten Ebene keinen Begriff
 davon, was ein Text ist, da sie nur mit Zahlen umgehen.
 Daher braucht es eine Möglichkeit, Textdaten in eine
 binäre Repräsentation zu wandeln und umgekehrt. Die Methode
@@ -21,7 +21,7 @@ Unicode ist einzigartig, weil es alle Sprachen der Welt in
 einem Kodierungsschema repräsentiert. Vor Unicode war eine
 Kommunikation zwischen Computern unterschiedlicher Hersteller
 oder Herkunftsländer eine schwierige Angelegenheit, manchmal
-wurden Kodierungsschemata gar nicht unterstützt, was die 
+wurden Kodierungsschemata gar nicht unterstützt, was die
 Darstellung des Textes auf diesem Computer unmöglich machte.
 
 Für weitere Informationen und technische Details wird der
@@ -32,7 +32,7 @@ empfohlen.
 
 Unicode hat die meisten dieser Probleme gelöst und wird von
 jeder modernen Maschine unterstützt. D hat aus den Fehlern
-älterer Programmiersprachen gelernt. So sind **alle** Strings 
+älterer Programmiersprachen gelernt. So sind **alle** Strings
 in D Unicode-Strings, während sie in Sprachen wie C und C++
 als einfache Byte-Arrays implementiert sind.
 
@@ -49,12 +49,12 @@ Der Spezifikation nach führt das Speichern von Nicht-Unicode-Daten
 in D-Stringtypen zu einem Fehler. Programme scheitern auf
 verschiedene Arten, wenn ein String nicht korrekt kodiert ist.
 
-Um andere Stringkodierungen nutzen, oder C/C++-Verhalten zu 
+Um andere Stringkodierungen nutzen, oder C/C++-Verhalten zu
 erhalten, können `ubyte[]` oder `char*` genutzt werden.
 
 ## Strings in Range-Algorithmen
 
-*Die Lektüre der Sektion [Range Algorithmen](gems/range-algorithms) 
+*Die Lektüre der Sektion [Range Algorithmen](gems/range-algorithms)
 wird für diesen Abschnitt empfohlen.*
 
 Ein paar wichtige Hinweise sind im Umgang mit Unicode in D zu beachten.
@@ -71,7 +71,7 @@ Dieses Verhalten hat einige Implikationen. Viele Leute verwirrt,
 dass `std.traits.hasLength!(string)` zu `False` ausgewertet wird.
 Hinsichtlich der Range-API liegt dies in der Tatsache begründet,
 dass die `length`-Methode von `string` die **Anzahl der Elemente in
-dem String** und nicht die Anzahl der Elemente, *über die die 
+dem String** und nicht die Anzahl der Elemente, *über die die
 Range-Funktion iteriert*, zurückgibt.
 
 Anhand dieses Beispiels wird deutlich, warum diese beiden Dinge

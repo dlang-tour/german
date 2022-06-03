@@ -1,11 +1,11 @@
 # Unittests
 
-Tests sind ein exzellenter Weg der Gewährleistung von Stabilität 
-und Fehlerfreiheit in der Anwendungsentwicklung. Sie dienen als 
-interaktive Dokumentation und erlauben Codeveränderungen ohne 
-Angst davor, bereits bestehende Funktionalität zu zerstören. 
-D bietet mit `unittest`-Blöcken eine bequeme, native Syntax, die 
-überall in einem D-Modul eingesetzt werden kann, um 
+Tests sind ein exzellenter Weg der Gewährleistung von Stabilität
+und Fehlerfreiheit in der Anwendungsentwicklung. Sie dienen als
+interaktive Dokumentation und erlauben Codeveränderungen ohne
+Angst davor, bereits bestehende Funktionalität zu zerstören.
+D bietet mit `unittest`-Blöcken eine bequeme, native Syntax, die
+überall in einem D-Modul eingesetzt werden kann, um
 Quellcode-Funktionalität zu prüfen.
 
     // Unittest der Funktion myAbs
@@ -20,7 +20,7 @@ auf Abruf.
 
 ### Ausführung von `unittest`-Blöcken
 
-`unittest`-Blöcke können beliebigen Code enthalten, der 
+`unittest`-Blöcke können beliebigen Code enthalten, der
 nur kompiliert und ausgeführt wird, wenn das DMD-Compiler-Flag
 `-unittest` gesetzt ist. Auch DUB bietet die Kompilierung und
 Ausführung von Unittests mit dem Befehl `dub test` an.
@@ -29,7 +29,7 @@ Ausführung von Unittests mit dem Befehl `dub test` an.
 
 Typischerweise enthalten `unittest`s `assert`-Ausdrücke, die
 die Funktionalität einer gegebenen Funktion sicherstellen.
-`unittest`-Blöcke befinden sich in der Regel in der Nähe der 
+`unittest`-Blöcke befinden sich in der Regel in der Nähe der
 einer Funktionsdefinition oder sogar in Klassen und Strukturen.
 
 ### Erhöhung der Code-Abdeckung
@@ -42,9 +42,9 @@ Der DMD-Compiler erlaubt eine einfache Berichterstellung der
 Code-Abdeckung durch Hinzufügen von `-cov`. Damit wird für jedes
 Modul eine `.lst`-Datei mit detailierten Statistiken erzeugt.
 
-Da der Compiler Attribute von Template-Quellcode automatisch 
-ableiten kann, ist es ein gängiges Muster, Unittests mit 
-Annotationen zu versehen, um die Verwendung gewünschter Attribute 
+Da der Compiler Attribute von Template-Quellcode automatisch
+ableiten kann, ist es ein gängiges Muster, Unittests mit
+Annotationen zu versehen, um die Verwendung gewünschter Attribute
 sicherzustellen:
 
     unittest @safe @nogc nothrow pure
@@ -105,7 +105,7 @@ auszuführen"
 */
 unittest {
     Vector3 vec;
-    // .init ist eine spezielles 
+    // .init ist eine spezielles
     // Property in D, die den
     // Initialwert des Typs angibt.
     assert(vec.x == double.init);

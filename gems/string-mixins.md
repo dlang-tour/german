@@ -1,7 +1,7 @@
 # String Mixins
 
-Der `mixin`-Ausdruck nimmt einen beliebigen String, 
-kompiliert diesen und generiert dementsprechende 
+Der `mixin`-Ausdruck nimmt einen beliebigen String,
+kompiliert diesen und generiert dementsprechende
 Befehle. Dies ist ein reiner **Kompilierzeit**-Mechanismus,
 der nur mit Strings arbeitet, die während der Kompilierung
 zur Verfügung stehen.
@@ -15,7 +15,7 @@ beruhen.
 
 Die Kombination von `mixin` und **CTFE** erlauben beeindruckende
 Bibliotheken wie [Pegged](https://github.com/PhilippeSigaud/Pegged),
-die einen Grammatik-Parser aus einer als String definierten 
+die einen Grammatik-Parser aus einer als String definierten
 Grammatik im Quellcode erzeugt.
 
 ### Weiterführende Quellen
@@ -37,7 +37,7 @@ void main()
     // 'Hello World' mal anders!
     mixin(`writeln("Hello World");`);
 
-    // Reiche den gewünschten Operator 
+    // Reiche den gewünschten Operator
     // als Template-Parameter weiter.
     writeln("5 + 12 = ", calculate!"+"(5,12));
     writeln("10 - 8 = ", calculate!"-"(10,8));

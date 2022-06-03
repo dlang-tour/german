@@ -1,8 +1,8 @@
 # Dokumentation
 
-D möchte wichtige Bereiche moderner Softwareentwicklung 
-in die Sprache integrieren. Neben *Contract Programming* 
-und *Unittests* bietet D nativ die Erzeugung einer 
+D möchte wichtige Bereiche moderner Softwareentwicklung
+in die Sprache integrieren. Neben *Contract Programming*
+und *Unittests* bietet D nativ die Erzeugung einer
 [Quellcode-Dokumentation](https://dlang.org/phobos/std_variant.html) an.
 
 Für die Dokumentation von Typen und Funktionen wird
@@ -37,9 +37,9 @@ standartisierte Dokumentationsabschnitte.
   Hier könnte ein längerer Absatz mit
   einer detailierten Beschreibung der
   großartigen und für den Fortbestand
-  der Menschheit entscheidenden 
+  der Menschheit entscheidenden
   Implikationen, die die Berechnung der
-  Quadratwurze zweifelsohne besitzt, 
+  Quadratwurze zweifelsohne besitzt,
   stehen.
 
   Beispiel:
@@ -47,7 +47,7 @@ standartisierte Dokumentationsabschnitte.
   double sq = sqrt(4);
   -------------------
   Params:
-    number = die Zahl, die quadriert 
+    number = die Zahl, die quadriert
              werden soll
   License: use freely for any purpose
   Throws:  es wird nicht geworfen

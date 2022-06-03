@@ -8,7 +8,7 @@ Member von jeder erbenden Klasse implementiert werden müssen.
         void makeNoise();
     }
 
-Die `makeNoise`-Memberfunktion muss von `Dog` implementiert 
+Die `makeNoise`-Memberfunktion muss von `Dog` implementiert
 werden, weil es von dem  `Animal`-Interface erbt.
 Letztlich verhält sich `makeNoise` wie eine `abstract`-Memberfunktion
 einer Basisklasse.
@@ -32,8 +32,8 @@ Das [NVI-Muster](https://en.wikipedia.org/wiki/Non-virtual_interface_pattern)
 erlaut _non virtual_-Methoden in einem Interface, z.B. um den Aufruf
 überschriebener Methoden zu steuern.
 
-D ermöglicht das NVI-Muster, indem es die Definition von `final`-Methoden in 
-einem Interface erlaubt, welche nicht überschrieben werden können. Dies erzwingt 
+D ermöglicht das NVI-Muster, indem es die Definition von `final`-Methoden in
+einem Interface erlaubt, welche nicht überschrieben werden können. Dies erzwingt
 ein bestimmtes Verhalten, welche durch Überschreiben anderer Interface-
 Memberfunktionen angepasst werden kann.
 
@@ -67,8 +67,8 @@ interface Animal {
     NVI-Muster. Nutzt makeNoise intern
     zur Anpassung des Verhaltens erbender
     Klassen.
-    
-    Params: 
+
+    Params:
         n =  Anzahl der Wiederholungen
     */
     final void multipleNoise(int n) {

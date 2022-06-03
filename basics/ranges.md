@@ -21,10 +21,10 @@ for (auto __rangeCopy = range;
 }
 ```
 
-Falls das Range-Objekt ein Referenztyp ist (z.B. `class`), wird es 
-verbraucht und ist daher für weitere Iterationen nicht mehr verfügbar 
+Falls das Range-Objekt ein Referenztyp ist (z.B. `class`), wird es
+verbraucht und ist daher für weitere Iterationen nicht mehr verfügbar
 (es sei denn, der Schleifenrumpf bricht vor der letzten Iteration ab).
-Falls das Range-Objekt ein Werttyp ist, wird eine Kopie der Range 
+Falls das Range-Objekt ein Werttyp ist, wird eine Kopie der Range
 erzeugt und - abhängig von der Definition - die ursprüngliche
 Range verbraucht.
 Die meisten Ranges der Standard-Bibliothek sind Strukturen (`struct`),
@@ -32,7 +32,7 @@ sodass eine Iteration normalerweise nicht zerstörend wirkt - allerdings
 nicht garantiert. Sollte diese Garantie wichtig sein, sind **forward**
 -Ranges erforderlich.
 
-Jedes Objekt mit folgendem Interface wird **Range** genannt und kann 
+Jedes Objekt mit folgendem Interface wird **Range** genannt und kann
 somit iteriert werden:
 
 ```
@@ -43,17 +43,17 @@ somit iteriert werden:
         void popFront();
     }
  ```
- 
+
 Beachte: Obwohl `empty` und `front` gewöhnlich als `const`-Funktionen
-definiert werden (was impliziert, dass ein Aufruf die Range nicht 
+definiert werden (was impliziert, dass ein Aufruf die Range nicht
 modifiziert), ist dies nicht erforderlich.
 
 Die Funktionen in `std.range` und `std.algorithm` stellen Bausteine
-zur Verfügung, die dieses Interface nutzen. Ranges erlauben die 
+zur Verfügung, die dieses Interface nutzen. Ranges erlauben die
 einfache Erstellung komplexer iterierender Algorithmen.
 Auch erlauben Ranges die Erstellung von **Lazy**-Objekten, die
-ihre Berechnungen nur ausführen, wenn dies wirklich nötig ist, 
-z.B. wenn während einer Iteration auf das nächste Range-Element 
+ihre Berechnungen nur ausführen, wenn dies wirklich nötig ist,
+z.B. wenn während einer Iteration auf das nächste Range-Element
 zugegriffen wird.
 
 ### Übungsaufgabe
@@ -77,7 +77,7 @@ struct FibonacciRange
 {
     bool empty() const @property
     {
-        // Wann endet die 
+        // Wann endet die
         // Fibonacci-Folge?!
     }
 
@@ -98,12 +98,12 @@ void main()
     FibonacciRange fib;
 
     // `take` erstellt eine weitere Range,
-    // die maximal N Elemente zurückgibt. 
+    // die maximal N Elemente zurückgibt.
     // Diese Range ist _lazy_ und nutzt
     // die Original-Range nur wenn nötig.
     auto fib10 = take(fib, 10);
 
-    // In diesem Fall werden alle Elemente 
+    // In diesem Fall werden alle Elemente
     // genutzt und die Range in ein Array
     // aus Integer-Werten konvertiert.
     int[] the10Fibs = array(fib10);

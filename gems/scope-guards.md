@@ -5,19 +5,19 @@ von Anweisungen unter bestimmten Bedingungen, wenn der aktuelle
 Codeblock verlassen wird:
 
 * `scope(exit)` wird die Anweisungen immer ausführen
-* `scope(success)` Anweisungen werden ausgeführt, wenn keine 
+* `scope(success)` Anweisungen werden ausgeführt, wenn keine
   Exception geworfen wurde
 * `scope(failure)` Anweisungen werden ausgeführt, wenn vor
   dem Blockende eine Exception geworfen wurde
 
-Die Verwendung von Scope Guards erhöht die Klarheit des Quellcodes, weil 
+Die Verwendung von Scope Guards erhöht die Klarheit des Quellcodes, weil
 so Ressourcenallokation und Aufräum-Code nebeneinander stehen können.
 Auch kann sichergestellt werden, dass bestimmter Code *immer*
 ausgeführt wird, unabhängig davon, ob zur Laufzeit ein Fehler auftritt
 oder nicht.
 
-D's `scope` bietet einen effektiven Ersatz für das in C++ 
-verwendete RAII-Idiom, dass oft zur Implementierung spezieller Scope 
+D's `scope` bietet einen effektiven Ersatz für das in C++
+verwendete RAII-Idiom, dass oft zur Implementierung spezieller Scope
 Guard-Objekte für spezielle Ressourcen führt.
 
 Scope Guards werden in umgekehrter Reihenfolge ihrer Defintion ausgeführt.

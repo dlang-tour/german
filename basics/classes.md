@@ -12,7 +12,7 @@ In D werden Klassen generell mit `new` auf dem Heap instanziiert:
 
     auto bar = new Bar;
 
-Klassenobjekte sind immer Referenztypen. Anders als `struct`s, 
+Klassenobjekte sind immer Referenztypen. Anders als `struct`s,
 die beim Aufruf kopiert werden (engl: call by value), werden Objekte
 nur als Referenz weitergereicht (engl.: call by reference).
 
@@ -24,7 +24,7 @@ freigegeben wird, sobald keine Referenzen mehr auf das Objekt existieren.
 ### Vererbung
 
 Wenn eine Memberfunktion einer Basisklasse überschrieben wird, muss das
-Schlüsselwort `override` benutzt werden, um dies anzuzeigen. So wird 
+Schlüsselwort `override` benutzt werden, um dies anzuzeigen. So wird
 ungewolltes Überschreiben von Funktionen vermieden.
 
     class Bar: Foo {
@@ -35,9 +35,9 @@ In D können Klassen nur von Klassen erben.
 
 ### Final und abstract Memberfunktionen
 
--  Eine Funktion kann als `final` markiert werden, um das Überschreiben 
+-  Eine Funktion kann als `final` markiert werden, um das Überschreiben
 zu verbieten
--  Eine Funktion kann als `abstract` markiert werden, um das Überschreiben 
+-  Eine Funktion kann als `abstract` markiert werden, um das Überschreiben
 zu erzwingen
 - Eine ganze Klasse kann als `abstract` deklariert werden, um sicherzustellen,
 dass sie nicht instanziiert wird
@@ -45,10 +45,10 @@ dass sie nicht instanziiert wird
 
 ### Prüfen der Identität
 
-Der Inhalt von Klassenobjekten wird mithilfe der Operatoren `==` and `!=` 
+Der Inhalt von Klassenobjekten wird mithilfe der Operatoren `==` and `!=`
 verglichen. Daher ist der Vergleich gegen `null` nicht zulässig, da `null`
 keinen Inhalt besitzt.
-Das `is` vergleicht die Identität von Objekten. Um auf Nicht-Identität zu prüfen, 
+Das `is` vergleicht die Identität von Objekten. Um auf Nicht-Identität zu prüfen,
 sollte `e1 !is e2` verwendet werden.
 
 ```d
@@ -75,7 +75,7 @@ ist Identität gleichwertig mit Gleichheit.
 import std.stdio : writeln;
 
 /*
-Ausgefallener Typ der für alles genutzt 
+Ausgefallener Typ der für alles genutzt
 werden kann...
 */
 class Any {
@@ -92,7 +92,7 @@ class Any {
         return type;
     }
 
-    // Diese Fuktion muss  
+    // Diese Fuktion muss
     // implementiert werden!
     abstract string convertToString();
 }
@@ -111,12 +111,12 @@ class Integer: Any {
         this.number = number;
     }
 
-    // Dies ist implizit. 
+    // Dies ist implizit.
     public:
 
     override string convertToString() {
         import std.conv : to;
-        // Das Schweizer-Taschenmesser 
+        // Das Schweizer-Taschenmesser
         // der Konvertierung...
         return to!string(number);
     }
@@ -145,7 +145,7 @@ void main()
         ];
 
     foreach (any; anys) {
-        writeln("Typ von any = ", 
+        writeln("Typ von any = ",
             any.getType());
         writeln("Inhalt = ",
             any.convertToString());

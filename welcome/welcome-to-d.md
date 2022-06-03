@@ -56,9 +56,9 @@ import std.range;
 void main()
 {
     writeln("Hallo Welt!");
-    
+
     // Ein Beispiel für erfahrenere User:
-    // Nimm drei Arrays, und sortiere  
+    // Nimm drei Arrays, und sortiere
     // ohne weitere Speicherallokation
     // über alle Arrays in-place
     int[] arr1 = [4, 9, 7];
@@ -66,7 +66,7 @@ void main()
     int[] arr3 = [6, 8, 3];
     sort(chain(arr1, arr2, arr3));
     writefln("%s\n%s\n%s\n", arr1, arr2, arr3);
-    // Mehr über dieses Beispiel unter 
+    // Mehr über dieses Beispiel unter
     // dem Stichwort "Ranges"
 }
 ```

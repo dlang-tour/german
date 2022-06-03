@@ -1,6 +1,6 @@
 # Traits
 
-Eine von D's Stärken ist CTFE (Funktionsauswertung zur 
+Eine von D's Stärken ist CTFE (Funktionsauswertung zur
 Kompilierzeit), die, kombiniert mit Introspektion, das
 Schreiben hoch optimierter generischer Programme möglich macht.
 
@@ -15,8 +15,8 @@ verarbeiten:
 S[] splitIntoWord(S)(S input)
 if (isSomeString!S)
 ```
-Dies gilt auch für Template-Parameter. Z.B. kann 
-`myWrapper` sicherstellen, dass das hineingereichte 
+Dies gilt auch für Template-Parameter. Z.B. kann
+`myWrapper` sicherstellen, dass das hineingereichte
 Symbol eine aufrufbare Funktion ist:
 
 ```d
@@ -25,7 +25,7 @@ if (isCallable!f)
 ```
 Als einfaches Beispiel wird die Funktion
 [`commonPrefix`](https://dlang.org/phobos/std_algorithm_searching.html#.commonPrefix)
-aus `std.algorithm.searching` analysiert, 
+aus `std.algorithm.searching` analysiert,
 die das gemeinsame Präfix zweier Ranges ausgibt:
 
 ```d
@@ -36,29 +36,29 @@ if (isForwardRange!R1
     !isNarrowString!R1)
 ```
 
-Dies bedeutet, dass die Funktion nur aufrufbar ist und 
+Dies bedeutet, dass die Funktion nur aufrufbar ist und
 damit kompiliert, wenn:
 
 - `r1` speicherbar ist (garantiert durch `isForwardRange`)
 - `r2` iterierbar ist (garantiert durch `isInputRange`)
 - `pred` mit den Elementtypen von `r1` und `r2` aufrufbar ist
-- `r1` kein narrow string (`char[]`, `string`, `wchar` or `wstring`) 
+- `r1` kein narrow string (`char[]`, `string`, `wchar` or `wstring`)
  ist - der Einfachheit halber, sonst müsste eine Dekodierung stattfinden
 
 ### Spezialisierung
 
-Viele APIs zielen auf Vielseitigkeit, allerdings soll 
+Viele APIs zielen auf Vielseitigkeit, allerdings soll
 die Verallgemeinerung nicht mit zusätzlicher Laufzeit
 erkauft werden.
 Mit Introspektion und CTFE ist es möglich, eine Funktion
-zur Kompilierzeit zu spezialisieren, um so die beste 
+zur Kompilierzeit zu spezialisieren, um so die beste
 Performance für gegebene Eingangstypen zu erreichen.
 
 Ein gängiges Problem ist, dass die Länge eines Streams
 oder einer Liste, im Gegensatz zu z.B. einem Array, vor
-dem Durchschreiten nicht bekannt ist. 
-Das folgende Beispiel stellt eine einfache Implementation 
-der `std.range`-Methode `walkLength` dar, die das 
+dem Durchschreiten nicht bekannt ist.
+Das folgende Beispiel stellt eine einfache Implementation
+der `std.range`-Methode `walkLength` dar, die das
 Durchschreiten für alle iterierbaren Typen verallgemeinert:
 
 ```d
@@ -70,15 +70,15 @@ else
 
 #### `commonPrefix`
 
-Die Verwendung von Introspektion zur Kompilierzeit ist 
-in Phobos allgegenwärtig. Z.B. differenziert `commonPrefix` 
+Die Verwendung von Introspektion zur Kompilierzeit ist
+in Phobos allgegenwärtig. Z.B. differenziert `commonPrefix`
 zwischen `RandomAccessRange`s und linear iterierbaren Ranges,
-da es in einer `RandomAccessRange` möglich ist zwischen 
+da es in einer `RandomAccessRange` möglich ist zwischen
 Positionen zu springen und so den Algorithmus zu beschleunigen.
 
 #### Weitere CTFE-Magie
 
-[std.traits](https://dlang.org/phobos/std_traits.html) umfasst die 
+[std.traits](https://dlang.org/phobos/std_traits.html) umfasst die
 meisten von D's [traits](https://dlang.org/spec/traits.html).
 
 #### Spezielle Schlüsselwörter

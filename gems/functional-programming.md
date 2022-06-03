@@ -1,13 +1,13 @@
 # Funktionale Programmierung
 
 D legt besonderen Wert auf *funktionale Programmierung* und
-bietet erstklassige Unterstützung für die Entwicklung im 
-funktionalen Stil. 
+bietet erstklassige Unterstützung für die Entwicklung im
+funktionalen Stil.
 In D kann eine Funktion als `pure` (dt.: rein, pur) deklariert
-werden, und so anzeigen, dass für eine Eingabe eine Ausgabe 
+werden, und so anzeigen, dass für eine Eingabe eine Ausgabe
 generiert wird, die nur von dieser abhängig ist.
 Reine (`pure`) Funktionen dürfen weder auf globale veränderliche Zustände
-zugreifen noch diese verändern und dürfen selbst nur Funktionen 
+zugreifen noch diese verändern und dürfen selbst nur Funktionen
 aufrufen, die ihrerseits als `pure` markiert sind.
 
     int add(int lhs, int rhs) pure {
@@ -16,8 +16,8 @@ aufrufen, die ihrerseits als `pure` markiert sind.
     }
 
 Diese Variante von `add` wird als **starke reine Funktion**
-(engl.: strongly pure function) bezeichnet, weil ihr 
-zurückgegebenes Ergebnis nur von den Eingangsparametern 
+(engl.: strongly pure function) bezeichnet, weil ihr
+zurückgegebenes Ergebnis nur von den Eingangsparametern
 abhängt, ohne diese zu modifizieren. D erlaubt auch **schwache
 reine Funktionen** (engl.: weakly pure function),
 die veränderliche Parameter haben können:
@@ -26,18 +26,18 @@ die veränderliche Parameter haben können:
         result = lhs + rhs;
     }
 
-Diese Funktionen werden immer noch als rein angenommen und 
+Diese Funktionen werden immer noch als rein angenommen und
 können auf globale veränderliche Zustande weder zugreifen
-noch diese ändern. Nur Eingangsparameter dürfen Änderungen 
+noch diese ändern. Nur Eingangsparameter dürfen Änderungen
 erfahren.
 Wegen der durch `pure` auferlegten Einschränkungen eignen
-sich reine Funktionen ideal für Multithreading-Umgebungen 
+sich reine Funktionen ideal für Multithreading-Umgebungen
 zur Vermeidung von Data-Racing. Auch können reine Funktionen
-einfach zwischengespeichert werden und erlauben eine Reihe 
+einfach zwischengespeichert werden und erlauben eine Reihe
 von Optimierungen durch den Compiler.
 
-Das Attribut `pure` wird für Template-Funktionen und 
-`auto`-Funktionen automatisch vom Compiler abgeleitet 
+Das Attribut `pure` wird für Template-Funktionen und
+`auto`-Funktionen automatisch vom Compiler abgeleitet
 (dies gilt auch für `@safe`, `nothrow` und `@nogc`).
 
 ### Weiterführende Quellen
@@ -72,9 +72,9 @@ void main()
     import std.functional : memoize;
     import std.stdio : writefln, writeln;
 
-    
-    // memoize speichert das Ergebnis des 
-    // Funktionaufrufs abhängig vom den 
+
+    // memoize speichert das Ergebnis des
+    // Funktionaufrufs abhängig vom den
     // Eingangsparametern zwischen.
     // Reine Funktionen sind dafür bestens
     // geeignet!
@@ -88,7 +88,7 @@ void main()
 
     foreach (i; 0 .. 10)
         benchmark!test(1)[0]
-        	.to!("msecs", double)
-        	.writeln("brauchte: Millisekunden");
+            .to!("msecs", double)
+            .writeln("brauchte: Millisekunden");
 }
 ```

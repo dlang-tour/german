@@ -21,9 +21,15 @@ jobs:
     - name: 'Run sanitycheck'
       run: |
         echo "Check for trailing whitespace"
-        grep -nr --include \*.md '\s$' . ; test $? -eq 1
+        if [ grep -nr --include \*.md '\s$' . ]; then
+          echo "Found trailing whitespace, please remove"
+          exit 1
+        fi
         echo "Check for tabs"
-        grep -nrP --include \*.md '\t' . ; test $? -eq 1
+        if [ grep -nrP --include \*.md '\t' . ]; then
+          echo "Found tabs, please replace with spaces"
+          exit 1
+        fi
         git clone https://github.com/dlang-tour/core ../tour
         mkdir -p ../tour/public/content/lang
         mv * ../tour/public/content/lang

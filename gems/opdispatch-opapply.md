@@ -8,7 +8,7 @@ Im Folgenden werden die beiden speziellen Operatorüberladungen
 
 ### opDispatch
 
-`opDispatch` kann als Memberfunktionen eines `struct`- 
+`opDispatch` kann als Memberfunktionen eines `struct`-
 oder `class`-Typs definiert werden. Jede unbekannte Memberfunktionsaufruf
 für diesen Typ wird an `opDispatch` weitergeleitet,
 wobei sowohl Name als auch Parameter der unbekannten
@@ -79,7 +79,7 @@ https://dlang.org/phobos/std_variant.html
 import std.variant : Variant;
 
 /*
-Typ, der mittels opDispatch mit jeder 
+Typ, der mittels opDispatch mit jeder
 Anzahl an Membern gefüllt werden kann.
 Wie JavaScript's var.
 */

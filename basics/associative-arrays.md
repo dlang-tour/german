@@ -1,8 +1,8 @@
 # Assoziative Arrays
 
-D besitzt integrierte *Assoziative Arrays* (auch als Hashtabelle 
-oder Hashmap bekannt). Ein Assoziatives Array mit ein Schlüssel 
-des Typs `string` und einem Wert des Typs `int` wird folgendermaßen 
+D besitzt integrierte *Assoziative Arrays* (auch als Hashtabelle
+oder Hashmap bekannt). Ein Assoziatives Array mit ein Schlüssel
+des Typs `string` und einem Wert des Typs `int` wird folgendermaßen
 erzeugt:
 
     int[string] arr;
@@ -17,22 +17,22 @@ ist, kann der `in`-Ausdruck genutzt werden:
     if ("key1" in arr)
         writeln("Yes");
 
-Der `in`-Ausdruck gibt einen Zeiger auf den Wert zurück, falls er 
+Der `in`-Ausdruck gibt einen Zeiger auf den Wert zurück, falls er
 gefunden wurde, anderenfalls einen `null`-Zeiger. Also können
 Existenz-Test und Schreiben komfortabel kombiniert werden:
 
     if (auto val = "key1" in arr)
         *val = 20;
 
-Zugriff auf einen nicht existierenden Schlüssel führt zu einem 
-`RangeError` und dem sofortigen Abbruch der Anwendung. Für 
+Zugriff auf einen nicht existierenden Schlüssel führt zu einem
+`RangeError` und dem sofortigen Abbruch der Anwendung. Für
 sicheren Zugriff mit einen Standardwert (engl: default value)
 gibt es `get(key, defaultValue)`.
 
 Assoziativery Arrays bieten neben der `.length`-Eigenschaft
-herkömmlicher Arrays auch `.remove(val)`, um Einträge über 
-ihren Schlüssel zu entfernen. 
-Dem Leser wird als Übung empfohlen, die speziellen `.byKey`- 
+herkömmlicher Arrays auch `.remove(val)`, um Einträge über
+ihren Schlüssel zu entfernen.
+Dem Leser wird als Übung empfohlen, die speziellen `.byKey`-
 und `.byValue`-Ranges zu erforschen.
 
 ### Weiterführende Quellen
@@ -61,13 +61,13 @@ int[string] wordCount(string text)
     import std.algorithm.iteration : splitter;
     import std.string : toLower;
 
-    // Durch Wörter indiziert und Anzahl 
+    // Durch Wörter indiziert und Anzahl
     // zurückgebend
     int[string] words;
 
     foreach(word; splitter(text.toLower(), " "))
     {
-        // Inkrementiere Wortzähler 
+        // Inkrementiere Wortzähler
         // falls ein Wort gefunden wurde.
         // Integer-Standartwert ist 0.
         words[word]++;
