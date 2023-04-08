@@ -24,8 +24,6 @@ mit neuer Funktionalität, aber ohne Mehraufwand
 (engl.: zero overhead) in Bezug auf Speicher oder
 Laufzeit. 
 
-`alias this` funktioniert auch mit Klassen!
-
 ## {SourceCode}
 
 ```d
